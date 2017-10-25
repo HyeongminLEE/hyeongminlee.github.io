@@ -5,6 +5,15 @@
     
     <url>
     
+      <loc>https://hyeongminlee.github.io/blog/linear_algebra/</loc>
+      <lastmod>2017-10-25T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>https://hyeongminlee.github.io/publication/corner_detection_with_improved_hough_transform_by_line_pruning_filter_for_augmented_reality/</loc>
       <lastmod>2017-06-21T00:00:00+00:00</lastmod>
     </url>
@@ -114,7 +123,27 @@
     
     <url>
     
+      <loc>https://hyeongminlee.github.io/blog/</loc>
+      <lastmod>2017-10-25T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>https://hyeongminlee.github.io/categories/</loc>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>https://hyeongminlee.github.io/tags/deep-learning/</loc>
+      <lastmod>2017-10-25T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
