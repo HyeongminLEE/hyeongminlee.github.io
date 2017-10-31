@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108616338-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-108616338-1');
+</script>
+
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme" content="hugo-academic">
+  <meta name="generator" content="Hugo 0.29" />
+  <meta name="author" content="Hyeongmin Lee">
+  <meta name="description" content="Undergraduate sutdent of Computer Vision">
+
+  
+  
+  
+  
+    
+  
+  
+    
+    
+    <link rel="stylesheet" href="/css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.1/css/academicons.min.css" integrity="sha512-NThgw3XKQ1absAahW6to7Ey42uycrVvfNfyjqcFNgCmOCQ5AR4AO0SiXrN+8ZtYeappp56lk1WtvjVmEa+VR6A==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
+  
+  
+
+
+  
+
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700%7cRoboto:400,400italic,700%7cRoboto&#43;Mono">
+  
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+
+  <link rel="alternate" href="" type="application/rss+xml" title="Hyeongmin Lee&#39;s Website">
+  <link rel="feed" href="" type="application/rss+xml" title="Hyeongmin Lee&#39;s Website">
+
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/apple-touch-icon.png">
+
+  <link rel="canonical" href="https://hyeongminlee.github.io/post/pr001_dehazing/">
+
+  
+
+  <title>[논문 리뷰]Single Image Haze Removal Using Dark Channel Prior | Hyeongmin Lee&#39;s Website</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+      <a class="navbar-brand" href="/">Hyeongmin Lee&#39;s Website</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#about">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#news">
+            
+            <span>News</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#publications">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#blog">
+            
+            <span>Blog</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#contact">
+            
+            <span>Contact</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+  <div class="article-container">
+    <h1 itemprop="name">[논문 리뷰]Single Image Haze Removal Using Dark Channel Prior</h1>
+    
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2017-10-27 00:00:00 &#43;0900 KST" itemprop="datePublished">
+      Oct 27, 2017
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    10 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<hr />
+
+<p>안녕하세요. 오늘은 Deep Residual Learning, Guided Filtering, Faster R-CNN 등으로 유명한 <a href="https://scholar.google.com/citations?user=DhtAFkwAAAAJ" target="_blank">Kaiming He</a>의 CVPR 논문인 [<a href="http://mmlab.ie.cuhk.edu.hk/archive/2009/dehaze_cvpr2009.pdf" target="_blank">Single Image Haze Reduction Removal Using Dark Channel Prior</a>]에 대한 리뷰를 하려고 합니다. 아이디어도 대단하지만 논문이 매우 논리적이고 쉽게 구성되어 있어, 논문을 처음 접하시는 분들 께서도 비교적 쉽게 읽어나갈 수 있으니 원문도 한 번 읽어보시기를 추천드립니다.</p>
+
+<hr />
+
+<p><br/></p>
+
+<h2 id="span-style-color-royalblue-font-weight-bold-abstract-span"><span style="color: royalblue; font-weight: bold">Abstract</span></h2>
+
+<figure>
+  <img src="/img/Paper_001/fig_1.PNG" alt="Haze Removal and Depth Estimation">
+  <figcaption style="text-align: center">(a)Haze가 존재하는 이미지 (b)Haze가 제거된 이미지 (c)Haze 제거 알고리즘을 통해 얻은 Depth Map. (출처: 본 논문)
+</figcaption>
+</figure>
+
+<p>이 논문은 &lsquo;Dark Channel Prior&rsquo;를 이용하여 Single Image에 존재하는 Haze(그림1.(a)와 같이 대상 물체와 관찰자 사이에 존재하는 물질들에 의해 빛이 진행을 방해받아 대상이 뿌옇게 보이는 현상)를 제거하는 알고리즘을 제안하는 논문이다.<br />
+&lsquo;Dark Channel Prior&rsquo;의 <strong>Prior</strong>는 흔히 &lsquo;사전 지식&rsquo;이라는 의미로 논문에서 쓰이게 되는데, 본 논문에서 쓰인 의미를 간단히 풀어서 쓰면 <strong>&lsquo;사람이 관찰을 통해 얻어낸 사전 지식&rsquo;</strong>이라는 뜻으로 보면 된다. 이 논문에서는 &lsquo;Haze가 존재하지 않는 픽셀&rsquo;들은 대부분 R,G,B 세 채널 중에서 <strong>적어도 한 채널의 명도 값이 매우 낮은 경향</strong>을 갖는다는 사실을 발견하였다고 한다. 이 채널을 &lsquo;Dark Channel&rsquo;이라고 정의하고 이러한 사실을 <strong>&lsquo;Dark Channel Prior&rsquo;</strong>라고 지칭한다.<br />
+본 논문에서는 이러한 Dark Channel Prior를 이용하여 다양한 아웃도어 이미지들에 존재하는 Haze를 제거한다. 또한 이렇게 Haze를 제거하는 과정에서 생긴 부산물로서 Depth Map을 얻을 수도 있게 된다.<br />
+<br/>
+<br/>
+<br/></p>
+
+<h2 id="span-style-color-royalblue-font-weight-bold-backgrougnd-span"><span style="color: royalblue; font-weight: bold">Backgrougnd</span></h2>
+
+<p>Haze는 어떻게 형성될까?</p>
+
+<figure>
+  <img src="/img/Paper_001/fig_2.PNG" alt="Being blended with airlight">
+  <figcaption style="text-align: center">Object로부터 오는 빛이 대기중에서 산란 됨과 동시에 Airlight와 결합되어 관찰자에게 전달되는 과정
+</figcaption>
+</figure>
+
+<p>Haze는 기본적으로 그림 2와 같이 물체로부터 반사된 후 대기에 의해 <strong>일부 손실된 빛</strong>과 태양 등 주변 광원으로부터 대기에 반사되어 함께 시야에 들어오는 <strong>대기 산란광(Airlight)</strong>이 섞임으로 인해 발생한다. 즉 대상이 뿌옇게 보이는 이유는 대기로 인해 우리가 원하는 빛이 손실됨과 동시에 주변 광원으로 인해 우리가 원하지 않는 빛이 함께 우리 눈에 도달하기 때문이다. 이는 식으로 다음과 같이 표현할 수 있다.</p>
+
+<p><br/>
+$$I(x) = J(x)t(x) + A(1-t(x))$$</p>
+
+<p>$x$&nbsp;&nbsp;:&nbsp;&nbsp;2차원 벡터로, 각 픽셀의 위치를 의미.<br />
+$J(x)$&nbsp;&nbsp;:&nbsp;&nbsp;Haze에 의해 왜곡되기 이전의 이미지.<br />
+$I(x)$&nbsp;&nbsp;:&nbsp;&nbsp;실제 카메라에 찍히는 이미지. 즉 Haze에 왜곡된 이미지.<br />
+$t(x)$&nbsp;&nbsp;:&nbsp;&nbsp;대기 투과율(Medium Transmission). 대기를 거쳐 최종적으로 관찰자에게 도달하는 빛의 비율. 0과 1 사이의 값을 갖는다.<br />
+$A$&nbsp;&nbsp;:&nbsp;&nbsp;대기 산란광(Airlight). 이 값은 모든 픽셀에 같은 값이 들어간다고 가정한다.<br />
+<br/></p>
+
+<p>식을 해석해보면, 대상으로부터 반사된 신호($J(x)$)는 대기를 통과하면서 일부가 손실되고, $J(x)t(x)$만큼의 신호만 남게 된다. 또한 태양을 비롯한 주변 광원에 의해 형성된 Airlight($A$)가 이 신호에 일부 섞이게 되면서 최종적으로 $I(x)$가 형성되어 관찰자에게 도달하게 된다.</p>
+
+<p>Object와 관찰자 사이의 거리가 멀수록 그 사이에는 더 두꺼운 대기층이 존재하게 되고, 이로 인해 Haze는 더 심해지게 된다. 즉 <strong>거리가 멀수록 Haze가 심하다.</strong> 이런 성질로부터 $t(x)$는 다음과 같이 정의된다.</p>
+
+<p><br/>
+$$t(x) = e^{-\beta d(x)}$$</p>
+
+<p>$\beta$&nbsp;&nbsp;:&nbsp;&nbsp;산란 계수(Scattering Coefficient).<br />
+$d(x)$&nbsp;&nbsp;:&nbsp;&nbsp;픽셀 $x$에서의 대상과 관찰자와의 거리(Depth).<br />
+<br/></p>
+
+<p>이 식에 의해 Haze는 대상과의 거리가 멀수록 강해지게 되며, 멀리 있는 산이 가까이 있는 산보다 흐리게 보이는 등, 일상생활에서도 이러한 현상을 자주 경험할 수 있다. 미술 용어로 이를 <strong>대기 원근법(Aerial Perspective)</strong> 이라고도 한다.</p>
+
+<p>Haze의 정체를 알아봤으니, 다시 식으로 돌아가서, 원본 영상을 복원해 내는 방법을 생각해보도록 하자.<br />
+$$I(x) = J(x)t(x) + A(1-t(x))$$
+우리는 위 식으로부터 $J(x)$와 $t(x)$를 전부 구해 내야 한다($A$는 <strong>일단은</strong> 주어진 값이라고 가정하자). $J(x)$는 우리가 최종적으로 얻고 싶은 대상이므로 $t(x)$를 먼저 구하고, 이를 바탕으로 $J(x)$를 구하는 방향으로 문제를 풀어나갈 것이다.</p>
+
+<figure>
+  <img src="/img/Paper_001/fig_3.PNG" alt="Hazed image and Airlight Vector">
+  <figcaption style="text-align: center">3차원 공간 상에 표현된 $J(x)$와 $A$, 그리고 $I(x)$. (출처: 본 논문)
+</figcaption>
+</figure>
+
+<p>먼저, 헷갈리지 않기 위해 $I(x)$, $J(x)$, $t(x)$의 정체를 확실히 하고 넘어가자. x는 고정된 점이므로 $I(x)$와 $J(x)$는 r,g,b 세 값을 성분으로 갖는 <strong>3차원 벡터</strong>이다. 그리고 $t(x)$는 단순히 대기를 통과하는 빛의 비율 값이므로 <strong>스칼라</strong> 값이다.<br />
+이제 위 식을 잘 살펴보자. 식의 꼴을 살펴보면 <strong>내분점 공식</strong>이라는 사실을 알 수 있다. 즉 $I(x)$는 그림 3과 같이 3차원 공간 상에서 $J(x)$와 $A$를 연결하는 선분 위의 점일 뿐만 아니라, $J(x)$와 $A$ 사이를 $(1-t(x)) : t(x)$로 내분하는 <strong>내분점</strong>이다. 그렇기 때문에 다음과 같이 길이 비교를 통해 쉽게 t(x)의 값을 얻을 수 있다.<br />
+$$t(x) = \frac{||A-I(x)||}{||A-J(x)||}$$
+또한 이상적인 상황을 가정하면, r,g,b 채널 모두 대기를 통과하면서 같은 비율로 손실 될 것이므로 t(x)는 모든 Channel에 대해 같은 값일 것이다. 그렇기 때문에 특정 Channel $c$에 대하여 다음과 같이 식을 쓸 수 있게 된다.<br />
+<br/>
+$$t(x) = \frac{||A-I(x)||}{||A-J(x)||} = \frac{A^c-I^c(x)}{A^c-J^c(x)}$$
+<br/>
+하지만 결과적으로 이 정보만으로는 $t(x)$를 구할 수 없다. 미지수인 $J(x)$가 식에 포함되어 있기 때문이다. 사실 그도 그럴 것이, 알고자 하는 값이 2개인데 활용 가능한 정보는 식 하나 밖에 없었으므로 당연한 결과이다. 정보가 하나 더 필요한 상황이다. 이 때, 특정 $c$에 대해서 $J^c(x)$를 우리가 알 수 있다면?<br />
+이 정보가 바로 Dark Channel Prior이며, 다음과 그 다음 Chapter를 통해 Dark Channel Prior를 식에 적용해보도록 할 것이다.<br />
+<br/>
+<br/>
+<br/></p>
+
+<h2 id="span-style-color-royalblue-font-weight-bold-dark-channel-prior-span"><span style="color: royalblue; font-weight: bold">Dark Channel Prior</span></h2>
+
+<p>이 논문에서는 &lsquo;Haze가 존재하지 않는 픽셀&rsquo;들은 대부분 R,G,B 세 채널 중에서 <strong>적어도 한 채널의 명도 값이 매우 낮은 경향</strong>을 갖는다는 사실을 발견하였다고 한다. 이 채널을 &lsquo;Dark Channel&rsquo;이라고 정의하고 이러한 사실을 <strong>&lsquo;Dark Channel Prior&rsquo;</strong>라고 지칭한다. 임의의 이미지 $J$에 대하여 이렇게 정의된 Dark Channel을 수식을 통해 나타내면 다음과 같다.</p>
+
+<p><br/>
+$$J^{dark}(x) = \min _{c \in \{r,g,b\} }( \min _{y \in \Omega (x)}(J^c(y)))$$</p>
+
+<p>$J^{dark}(x)$&nbsp;&nbsp;:&nbsp;&nbsp;Dark Channel.<br />
+$J^c(x)$&nbsp;&nbsp;:&nbsp;&nbsp;픽셀 $x$의 r,g,b중 한 Channel을 의미.<br />
+$\Omega (x)$&nbsp;&nbsp;:&nbsp;&nbsp;$x$를 중심으로 하는 일정 범위 안의 Pixel들의 집합. $x$ 주변의 Pixel들의 집합(Local Patch).<br />
+<br/></p>
+
+<p>식을 해석해보면, 특정 Pixel $x$에 해당하는 Dark Channel 값은, $x$주변의 픽셀들이 가지고 있는 모든 Channel 값들 중에서 가장 작은 값이 된다. $J^{dark}(x)$ 값이 작게 나오는 픽셀은 대부분 다음 세 경우 중 하나에 해당한다.</p>
+
+<ol>
+<li>건물이나 다른 구조물 등에 의해 생긴 <strong>그림자</strong> 영역인 경우<br /></li>
+<li><strong>Colorful</strong>한 Object나 Surface. 보통 Haze가 강한 경우에는 불가능하다.</li>
+<li>검은색 또는 <strong>어두운 색</strong>의 Object나 Surface.</li>
+</ol>
+
+<p>보통 <strong>Haze가 존재하지 않는 아웃도어 이미지</strong>는 Colorful하거나 어두운 색의 대상들 또는 그들의 그림자로 가득 차 있기 때문에, <strong>Dark Pixel 값이 작게 나온다</strong>(단, 이미지에 하늘이 있을 경우 하늘 영역에 한해서만 Haze가 없음에도 불구하고 Dark Pixel 값이 크게 나오는데, 이는 뒤에서 해결할 것이다.). 반면 <strong>Haze가 강한 이미지</strong>는 이러한 대상들이 뿌옇고 잘 보이지 않게 되므로 <strong>Dark Pixel 값이 크게 나온다</strong>. 이러한 사실을 기반으로 우리는 이미지로부터 Haze를 분리해 낼 수 있게 된다. 그림 4를 보면 알 수 있듯이, 이러한 Dark Channel Prior는 굉장히 잘 적용된다.</p>
+
+<figure>
+  <img src="/img/Paper_001/fig_4.PNG" alt="Dark Channel Prior" width="60%" height="auto">
+  <figcaption style="text-align: center">왼쪽: Haze가 존재하지 않는 이미지들과 이에 해당하는 Dark Channel 이미지들.<br/> 오른쪽: Haze가 존재하는 이미지와 이에 해당하는 Dark Channel 이미지. (출처: 본 논문)
+</figcaption>
+</figure>
+
+<p><br/>
+<br/>
+<br/></p>
+
+<h2 id="span-style-color-royalblue-font-weight-bold-haze-removal-using-dark-channel-prior-span"><span style="color: royalblue; font-weight: bold">Haze Removal Using Dark Channel Prior</span></h2>
+
+<h3 id="1-estimating-the-transmission">1. Estimating the Transmission</h3>
+
+<p>이제 Dark Channel Prior를 적용하여 $t(x)$를 구하고 이를 통해 최종적으로 $J(x)$를 구할 것이다. 구하기 전에, 편의를 위해 다음 두가지를 가정하고 넘어갈 것이다.</p>
+
+<ol>
+<li>Loacl Patch $\Omega (x)$ 안에 속한 픽셀들의 $t(x)$ 값들은 근사적으로 $\tilde t(x)$로 동일하다고 가정한다.<br /></li>
+<li>Dark Channel Prior에 따라 Haze가 존재하지 않는 픽셀의 세 Channel 중 적어도 하나의 값은 매우 작은데, 이 값을 0이라고 가정한다.<br /></li>
+</ol>
+
+<p>추가적으로, 위에서도 언급한 바 있듯이 $A$의 값은 일단 주어진 값으로 취급하고, 뒤에서 따로 구할 것이다. 먼저 Local Patch $\Omega (x)$에서 특정 Channel $c$에 대하여 Haze 식을 작성해보면 다음과 같을 것이다.</p>
+
+<p><br/>
+$$I^c(x) = J^c(x){\tilde t(x)} + A^c(1-{\tilde t(x)})$$
+<br/></p>
+
+<p>이제 Dark Channel Prior를 적용하기 위해 양 변에 각 Patch에 대한 Minimun Operation을 취하도록 하자.<br />
+$$\min_ {y \in \Omega (x)}(I^c(y)) = \min_ {y \in \Omega (x)}(J^c(y){\tilde t(x)}) + A^c(1-{\tilde t(x)})$$</p>
+
+<p>$A$는 모든 픽셀에 대해 동일하고, $\tilde t(x)$는 각 Local Patch에 대해 동일하다고 하였으므로,</p>
+
+<p>$$\min_ {y \in \Omega (x)}(\frac {I^c(y)}{A^c}) = {\tilde t(x)} \min_ {y \in \Omega (x)}(\frac {J^c(y)}{A^c}) + (1-{\tilde t(x)})$$</p>
+
+<p>Dark Channel은 세 Channel중 가장 값이 작은 Channel을 의미하므로 $c$에 대한 Minimum Operation을 취하도록 하자.</p>
+
+<p>$$\min_ c (\min_ {y \in \Omega (x)}(\frac {I^c(y)}{A^c})) = {\tilde t(x)} \min_ c (\min_ {y \in \Omega (x)}(\frac {J^c(y)}{A^c})) + (1-{\tilde t(x)})$$</p>
+
+<p>이 때, Dark Channel Priority에 따르면</p>
+
+<p>$$J^{dark}(x) = \min_ c (\min_ {y \in \Omega (x)}(J^c(y))) = 0$$</p>
+
+<p>이 성립하므로, 식은 다음과 같이 정리된다.</p>
+
+<p>$$\tilde t(x) = 1 - \min_ c (\min_ {y \in \Omega (x)}(\frac {I^c(y)}{A^c}))$$</p>
+
+<p>이로써 우리는 $\tilde t(x)$를 구하게 되었다. 이제 앞에서 언급한 하늘 영역에서 Dark Channel 값이 크게 나오는 현상을 잠깐 짚고 넘어가자. Haze 이미지에서 하늘은 대기에 존재하는 빛, 즉 $A$와 유사한 색을 갖게 되는데, 이로부터 다음 식이 성립하게 된다.</p>
+
+<p><br/>
+$$\min_ c (\min_ {y \in \Omega (x)}(\frac {I^c(y)}{A^c})) \rightarrow 1, and \space\space\space \tilde t(x) \rightarrow 0$$
+<br/></p>
+
+<p>하늘이 무한히 먼 거리에 존재한다는 점을 생각했을 때, 위 식은 거리에 따른 투과율 함수 $t(x) = e^{-\beta d(x)}$에 잘 부합하게 된다. 그렇기 때문에 우리는 하늘 영역에 대해 특별히 구분해서 생각해 줄 필요 없이 그대로 위에 제시된 모델을 이용하면 된다는 결론을 얻는다.</p>
+
+<p>이제 $\tilde t(x)$를 이용하여 $J(x)$를 구하게 될텐데, $\tilde t(x)$를 그대로 사용하기에는 몇 가지 문제가 존재한다. 그렇기 때문에 이를 해결하기 위해 몇 가지 작업이 추가적으로 필요하다.</p>
+
+<p>첫 번째로, 아무리 날이 맑아도 대기중에는 항상 대기 입자들이 존재한다. 그렇기 때문에 우리가 먼 지점을 보게 되면 그 사이에는 여전히 빛의 진행을 방해하는 입자들이 존재하게 된다. 심지어는 이러한 이유 때문에 대상 물체를 봤을 때 사람이 느끼는 Haze는 대상과 자신 사이의 거리를 가늠하는 한 척도가 된다(위에서 언급했듯이 이것을 <strong>대기 원근법</strong>이라고 한다). 간단히 말하면, <strong>멀리 있는 물체마저도 Haze가 완벽히 제거된 이미지는 사람이 봤을 때 자연스럽지 못하다.</strong> 그렇기 때문에 우리는 매우 약간의 Haze를 제거하지 않고 남겨두기 위해 $\tilde t(x)$를 <strong>고평가</strong>할 필요가 있다. 즉 실제보다 $\tilde t(x)$를 높게 평가 하여, Haze를 제거하는 정도를 살짝 낮추는 것이다. 그래서 우리는 $\omega (0&lt; \omega \leq 1)$를 도입하여 위 식을 약간 수정한다. 본 논문에서는 $\omega$값으로 0.95를 썼다고 한다.</p>
+
+<p>$$\tilde t(x) = 1 - \omega \min_ c (\min_ {y \in \Omega (x)}(\frac {I^c(y)}{A^c}))$$</p>
+
+<p>두 번째로, 본 논문에서는 Local Patch $\Omega (x)$의 사이즈를 $15 \times 15$로 설정하였는데, 이로 인해 얻은 transmission map($\tilde t(x)$의 각 픽셀을 이미지로 나타낸 Map)은 그림 5의 (b)와 같이 Block 효과가 발생하여 디테일한 부분이 제대로 표현되지 않는 문제가 발생한다. 그렇기 때문에 우리가 얻은 $\tilde t(x)$는 사용되기 전에 Soft Matting이라는 처리 과정을 거치게 된다.</p>
+
+<p><figure>
+  <img src="/img/Paper_001/fig_5.PNG" alt="Haze Removal">
+  <figcaption style="text-align: center">(a)원본 이미지. (b)Dark Channel Prior를 통해 얻은 Transmission Map. (c)Soft Matting을 거친 이후의 Transmission Map (d)Haze Removal 결과 얻은 이미지(출처: 본 논문)
+</figcaption>
+</figure></p>
+
+<p><br/>
+<br/></p>
+
+<h3 id="2-soft-matting">2. Soft Matting</h3>
+
+<p>Dark Channel Prior를 통해 얻은 Transmission Map은 Local Patch를 이용하기 때문에 block 현상이 발생한다. 이를 해결하기 위해 Soft Matting 논문에 소개된 Closed Form Solution을 이용하는데, 자세한 설명은 <a href="https://pdfs.semanticscholar.org/1625/e379b0814faffc91b7cbcbd73201180355db.pdf" target="_blank">이 논문</a>을 참고하길 바란다. Soft Matting 알고리즘을 이용하면, 다음 식을 minimize함으로 인해 $t(x)$를 수정할 수 있다고 한다.</p>
+
+<p><br/>
+$$E(t) = t^TLt + \lambda (t - \tilde t)^T(t - \tilde t)$$
+$$L = \sum _{k|(i,j) \in w_k} (\delta _{ij} - \frac {1}{|w_k|}(1 + (I_i - \mu _k)^T(\Sigma _k + \frac {\epsilon}{|w_k|} U_3)^{-1}(I_j - \mu _k))) $$</p>
+
+<p>$\lambda$&nbsp;&nbsp;:&nbsp;&nbsp;regularization parameter.<br />
+$w_k$&nbsp;&nbsp;:&nbsp;&nbsp;$k$번째 window.<br />
+$I_i$&nbsp;&nbsp;:&nbsp;&nbsp;Pixel $i$에서의 Image Color.<br />
+$\delta _{ij}$&nbsp;&nbsp;:&nbsp;&nbsp;Kronecker delta.<br />
+$\mu _k$&nbsp;&nbsp;:&nbsp;&nbsp;$w_k$의 픽셀 값들의 평균.<br />
+$\Sigma _k$&nbsp;&nbsp;:&nbsp;&nbsp;$w_k$의 픽셀 값들의 Covariance Matrix.<br />
+$U _n$&nbsp;&nbsp;:&nbsp;&nbsp;$n \times n$ Identity Matrix.<br />
+<br/></p>
+
+<p>그리고 위 식을 minimize한 결과의 closed form solution이 존재하는데, 다음과 같다.</p>
+
+<p><br/>
+$$(L + \lambda U)t = \lambda \tilde t$$
+<br/></p>
+
+<p>본 논문에서는 $\lambda$ 값으로 $10^{-4}$을 썼고, 이를 통해 구한 $t(x)$가 비로소 우리가 $J(x)$를 구하는데 쓸 수 있는 Transmission이 된다. Soft Matting을 통해 얻은 $t(x)$에 해당하는 transmission map은 그림 5의 (c)와 같다.</p>
+
+<p><br/>
+<br/></p>
+
+<h3 id="3-recovering-the-scene-radiance">3. Recovering the Scene Radiance</h3>
+
+<p>이제, 우리는 $t(x)$를 구했기 때문에 간단히 $I(x) = J(x)t(x) + A(1-t(x))$로부터 $J(x)$를 구할 수 있다.</p>
+
+<p><br/>
+$$J(x) = \frac {I(x)-A}{t(x)} + A$$
+<br/></p>
+
+<p>하지만 $t(x)$가 0에 매우 가까운 경우, $J(x)$의 값이 불안정하여 noise가 생기는 경향이 있는데, 이를 방지하기 위해서 lower bound $t_0(=0.1)$를 두어 clip한다. 그러므로 최종적인 식은 다음과 같다.</p>
+
+<p><br/>
+$$J(x) = \frac {I(x)-A}{\max (t(x),t_0)} + A$$
+<br/></p>
+
+<p>이를 통해 우리는 그림 5의 (d)와 같이 Haze가 제거된 이미지를 얻을 수 있다.</p>
+
+<h3 id="4-estimating-the-atmospheric-light-depth-map">4. Estimating the Atmospheric Light &amp; Depth map</h3>
+
+<p>Haze Removal이 전부 완료된 것 처럼 보이지만, 우리에게는 할 일이 한 가지 더 남아 있다. 바로 Airlight $A$를 구하는 것이다. 또한 논문에는 Depth Map 추정 부분이 Experiment에 빠져 있지만, 양이 적어 한꺼번에 소개하려고 한다.</p>
+
+<p><figure>
+  <img src="/img/Paper_001/fig_6.PNG" alt="Estimating Airlight">
+  <figcaption style="text-align: center">Airlight를 구하기 위해 얻은 Dark Channel 이미지(출처: 본 논문)
+</figcaption>
+</figure></p>
+
+<p>먼저, $A$ 값으로 가장 적당한 값은 이미지 전체에서 Haze가 가장 강한 픽셀의 값이 될 것이다. 그래서 대부분의 Haze Removal 논문에서는 $A$ 값으로 간단히 이미지 전체에서 가장 밝은 픽셀을 사용하였다. 하지만 이는 흰 색의 차 또는 건물과 Haze를 구분할 수 없다는 단점을 지닌다. 그렇기 때문에 여기서 또 한번 Dark Channel이 이용된다. 먼저 Dark Pixel 이미지를 얻은 후, 그림 6의 노란색 테두리 부분과 같이 이미지 상에서 밝기가 상위 0.1% 안에 드는 픽셀들을 뽑는다. 이 픽셀들은 Haze가 강한 픽셀일 확률이 매우 높기 때문에, 이 픽셀들 중 원본 이미지에서 가장 밝은 픽셀 값을 $A$ 값으로 쓴다.<br />
+또한 Abstract에서도 설명했듯이, 우리는 Haze Removal의 부산물로서 Depth Map을 쉽게 얻을 수 있는데, 다음 식을 이용하면 된다.</p>
+
+<p><br/>
+$$t(x) = e^{-\beta d(x)}$$
+$$\therefore d(x) = -\frac {1}{\beta} \ln(t(x))$$
+<br/></p>
+
+<p>이 식을 통해 우리는 최종적으로 Depth Map까지 얻을 수 있게 된다.</p>
+
+<p>아래 그림들은 본 논문에서 제안하는 알고리즘을 이용하여 Haze를 제거한 결과와, 그 과정에서 얻은 Depth Map의 결과이다.</p>
+
+<p><figure>
+  <img src="/img/Paper_001/fig_7.PNG" alt="Experiment Result">
+  <figcaption style="text-align: center"> Top: 원본 이미지. 붉은 테두리 영역은 Airlight를 얻기 위해 사용된 픽셀들이다. Middle: Haze가 제거된 이미지. Bottom: Haze Removal 과정에서 얻은 Depth Map
+</figcaption>
+</figure></p>
+
+<h2 id="span-style-color-royalblue-font-weight-bold-conclusion-span"><span style="color: royalblue; font-weight: bold">Conclusion</span></h2>
+
+<p>본 논문의 알고리즘은 Single Image만으로 성공적으로 Haze가 제거된 영상 뿐만아니라 Depth Map까지 얻을 수 있다. 하지만 몇 가지 한계점들이 있는데, 다음과 같다.</p>
+
+<ol>
+<li>다양한 이미지들을 보고 통계적으로 얻은 Prior를 이용하기 때문에 특정 이미지들에 대해서는 잘 적용되지 않을 수 있다.</li>
+<li>Object가 대기상의 빛과 비슷한 색을 띠는 물체인데, 그림자마저 드리워지지 않은 상황이라면 Haze로 취급될 수 있다.</li>
+<li>대부분의 Haze 알고리즘들이 그렇듯, Haze 제거 알고리즘 모델 자체가 논리적 근거가 다소 빈약하다는 점이 있다. 즉 Haze에 의해 발생하는 현상들만을 근거로 하고 있을 뿐, 이러한 현상들이 왜 발생하는지 등에 대한 심층적인 분석이 부족하다.</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+    <div class="article-tags">
+      
+      <a class="btn btn-primary btn-outline" href="/tags/paper-review">paper-review</a>
+      
+      <a class="btn btn-primary btn-outline" href="/tags/image-processing">image processing</a>
+      
+    </div>
+    
+    
+
+  </div>
+
+</article>
+
+
+
+<div class="article-container article-widget">
+  <div class="hr-light"></div>
+  <h3>Related</h3>
+  <ul>
+    
+    <li><a href="/blog/paper_review/">논문 리뷰</a></li>
+    
+  </ul>
+</div>
+
+
+
+
+<div class="article-container">
+  
+
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="powered-by">
+
+      &copy; 2017 Hyeongmin Lee &middot; 
+
+      Powered by the <a href="https://github.com/gcushen/hugo-academic" target="_blank">Academic
+      theme</a> for <a href="http://gohugo.io" target="_blank">Hugo</a>.
+
+      <span class="pull-right" aria-hidden="true">
+        <a href="#" id="back_to_top">
+          <span class="button_icon">
+            <i class="fa fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span>
+
+    </p>
+  </div>
+</footer>
+
+    
+
+    
+    
+
+    
+    <script async defer src="//maps.googleapis.com/maps/api/js"></script>
+    
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.25/gmaps.min.js" integrity="sha256-7vjlAeb8OaTrCXZkCNun9djzuB2owUsaO72kXaFDBJs=" crossorigin="anonymous"></script>
+    
+    <script src="/js/hugo-academic.js"></script>
+    
+
+    
+    
+      
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+      
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_CHTML" integrity="sha512-tOav5w1OjvsSJzePRtt2uQPFwBoHt1VZcUq8l8nm5284LEKE9FSJBQryzMBzHxY5P0zRdNqEcpLIRVYFNgu1jw==" crossorigin="anonymous"></script>
+    
+    
+
+  </body>
+</html>
+

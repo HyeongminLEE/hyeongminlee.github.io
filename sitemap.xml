@@ -5,6 +5,15 @@
     
     <url>
     
+      <loc>https://hyeongminlee.github.io/post/pr001_dehazing/</loc>
+      <lastmod>2017-10-27T00:00:00+09:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>https://hyeongminlee.github.io/blog/paper_review/</loc>
       <lastmod>2017-10-25T00:00:00+00:00</lastmod>
     </url>
@@ -116,8 +125,18 @@
     
     <url>
     
+      <loc>https://hyeongminlee.github.io/tags/image-processing/</loc>
+      <lastmod>2017-10-27T00:00:00+09:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>https://hyeongminlee.github.io/tags/paper-review/</loc>
-      <lastmod>2017-10-25T00:00:00+00:00</lastmod>
+      <lastmod>2017-10-27T00:00:00+09:00</lastmod>
       <priority>0</priority>
     </url>
     
