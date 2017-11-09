@@ -5,6 +5,15 @@
     
     <url>
     
+      <loc>https://hyeongminlee.github.io/post/gan001_gan/</loc>
+      <lastmod>2017-11-09T00:00:00+09:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>https://hyeongminlee.github.io/post/pr001_dehazing/</loc>
       <lastmod>2017-10-27T00:00:00+09:00</lastmod>
     </url>
@@ -154,6 +163,16 @@
     
     <url>
     
+      <loc>https://hyeongminlee.github.io/tags/machine-learning/</loc>
+      <lastmod>2017-11-09T00:00:00+09:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>https://hyeongminlee.github.io/tags/paper-review/</loc>
       <lastmod>2017-10-27T00:00:00+09:00</lastmod>
       <priority>0</priority>
@@ -167,6 +186,14 @@
       <loc>https://hyeongminlee.github.io/publication_types/</loc>
       <lastmod>2017-06-21T00:00:00+00:00</lastmod>
       <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>https://hyeongminlee.github.io/blog/gan/</loc>
     </url>
     
   
