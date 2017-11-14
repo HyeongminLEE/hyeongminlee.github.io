@@ -222,9 +222,9 @@
 
 <h2 id="span-style-color-royalblue-font-weight-bold-경찰과-지폐위조범-span"><span style="color: royalblue; font-weight: bold">경찰과 지폐위조범</span></h2>
 
-<p>GAN은 Generative Model인 Generator(G)와 Discriminative Model인 Discriminator(D), 이렇게 두 Neural Network로 이루어져 있다. D의 목적은 <strong>&lsquo;진짜 Data와 G가 만들어낸 Data를 완벽하게 구별해 내는 것&rsquo;</strong>이고, G의 목적은 <strong>&lsquo;그럴듯한 가짜 Data를 만들어내서 D가 진짜와 가짜를 구별하지 못하게 하는 것&rsquo;</strong>이다. GAN 논문의 저자인 <a href="https://scholar.google.ca/citations?user=iYN86KEAAAAJ" target="_blank">Ian Goodfellow</a>는 D를 경찰, G를 지폐위조범에 비유하였다. 지폐위조범(G)이 위조지폐를 만들면, 경찰(D)은 위조지폐와 진짜 지폐를 구별해낸다. 지폐위조범은 갈수록 실제 지폐와 똑같이 생긴 지폐를 만들고자 할 것이고, 경찰은 갈수록 진짜 지폐와 위조지폐를 더 잘 구분하고자 할 것이다.</p>
+<p>GAN은 Generative Model인 <strong>Generator(G)</strong>와 Discriminative Model인 <strong>Discriminator(D)</strong>, 이렇게 두 Neural Network로 이루어져 있다. <strong>D</strong>의 목적은 <strong>&lsquo;진짜 Data와 G가 만들어낸 Data를 완벽하게 구별해 내는 것&rsquo;</strong>이고, <strong>G</strong>의 목적은 <strong>&lsquo;그럴듯한 가짜 Data를 만들어내서 D가 진짜와 가짜를 구별하지 못하게 하는 것&rsquo;</strong>이다. GAN 논문의 저자인 <a href="https://scholar.google.ca/citations?user=iYN86KEAAAAJ" target="_blank">Ian Goodfellow</a>는 <strong>D</strong>를 경찰, <strong>G</strong>를 지폐위조범에 비유하였다. 지폐위조범(<strong>G</strong>)이 위조지폐를 만들면, 경찰(<strong>D</strong>)은 위조지폐와 진짜 지폐를 구별해낸다. 지폐위조범은 갈수록 실제 지폐와 똑같이 생긴 지폐를 만들고자 할 것이고, 경찰은 갈수록 진짜 지폐와 위조지폐를 더 잘 구분하고자 할 것이다.</p>
 
-<p>이렇듯 D와 G는 서로 <strong>경쟁적으로(Adversarially)</strong> 학습한다. G는 D를 어떻게 하면 잘 속일 수 있을지를 고민하며 학습하게 되고, D는 어떻게 하면 G에게 속지 않고 Data를 잘 구분할 지를 고민하며 학습하게 된다. D와 G는 이렇듯 경쟁하면서 실제로는 서로에게 <strong>학습의 방향성을 제시</strong>해주게 되어, Unsupervised Learning이 가능하게 된다. 라이벌이 생기면 서로가 서로를 이기기 위해 누가 시키지 않았는데도 자발적으로 더 치열하게 공부하는 모습이랄까&hellip;</p>
+<p>이렇듯 <strong>D</strong>와 <strong>G</strong>는 서로 <strong>경쟁적으로(Adversarially)</strong> 학습한다. <strong>G</strong>는 <strong>D</strong>를 어떻게 하면 잘 속일 수 있을지를 고민하며 학습하게 되고, <strong>D</strong>는 어떻게 하면 <strong>G</strong>에게 속지 않고 Data를 잘 구분할 지를 고민하며 학습하게 된다. <strong>D</strong>와 <strong>G</strong>는 이렇듯 경쟁하면서 실제로는 서로에게 <strong>학습의 방향성을 제시</strong>해주게 되어, Unsupervised Learning이 가능하게 된다. 라이벌이 생기면 서로가 서로를 이기기 위해 누가 시키지 않았는데도 자발적으로 더 치열하게 공부하는 모습이랄까&hellip;</p>
 
 <p><br/>
 <br/>
