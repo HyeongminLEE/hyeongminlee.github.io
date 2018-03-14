@@ -170,8 +170,10 @@
 
   <span class="article-date">
     
+        Last updated on
+    
     <time datetime="2017-11-09 00:00:00 &#43;0900 KST" itemprop="datePublished">
-      Nov 9, 2017
+      Mar 14, 2018
     </time>
   </span>
 
@@ -264,25 +266,25 @@ $z$&nbsp;&nbsp;:&nbsp;&nbsp;<strong>G</strong>가 Input으로 받는 Noise.<br /
 $G(z)$&nbsp;&nbsp;:&nbsp;&nbsp;<strong>G</strong> 가 Noise를 받아서 생성해 낸 Fake Data.<br />
 $D(x)$&nbsp;&nbsp;:&nbsp;&nbsp;<strong>D</strong> 가 Real Data를 받고 출력하는 값.<br />
 $D(G(z))$&nbsp;&nbsp;:&nbsp;&nbsp;<strong>D</strong> 가 Fake Data를 받고 출력하는 값.<br />
-$Error(a,b)$&nbsp;&nbsp;:&nbsp;&nbsp;$a$와 $b$ 사이의 Error. 즉 $a$와 $b$의 차이. 구체적인 식은 뒤에서 알아보도록 하자.</p>
+$\text{Error}(a,b)$&nbsp;&nbsp;:&nbsp;&nbsp;$a$와 $b$ 사이의 Error. 즉 $a$와 $b$의 차이. 구체적인 식은 뒤에서 알아보도록 하자.</p>
 
 <p>이제 위에서 정리했던 주요 쟁점을 그대로 수식으로 나타내보도록 하자.<br />
 먼저, <strong>D</strong>는 자기가 Real Image를 받았을 때 1을 출력하고, Fake Image를 받았을 때는 0을 출력하기를 원한다. 그러므로 <strong>D</strong>는 다음 식을 최소화시키기를 원한다.</p>
 
 <p><br/>
-$$Loss_D = Error(D(x),1) + Error(D(G(z)),0)$$
+$$Loss_D = \text{Error}(D(x),1) + \text{Error}(D(G(z)),0)$$
 <br/></p>
 
-<p>또한, <strong>G</strong>는 자기가 만든 Fake Image를 <strong>D</strong>가 받았을 때 1을 출력하기를 원한다. 그러므로 <strong>G</strong>는 다음 식을 최소화시키기를 원한다. 덧붙이자면, 아래 식에 $Error(D(x),0)$과 같은 항이 없는 이유는 <strong>G</strong>와 관계 없는 항이기 때문이다. 사실 <strong>D</strong>가 Real Image를 어떻게 판단하는지에 대해서는 <strong>G</strong>는 관심 없다.</p>
+<p>또한, <strong>G</strong>는 자기가 만든 Fake Image를 <strong>D</strong>가 받았을 때 1을 출력하기를 원한다. 그러므로 <strong>G</strong>는 다음 식을 최소화시키기를 원한다. 덧붙이자면, 아래 식에 $\text{Error}(D(x),0)$과 같은 항이 없는 이유는 <strong>G</strong>와 관계 없는 항이기 때문이다. 사실 <strong>D</strong>가 Real Image를 어떻게 판단하는지에 대해서는 <strong>G</strong>는 관심 없다.</p>
 
 <p><br/>
-$$Loss_G = Error(D(G(z)),1)$$
+$$Loss_G = \text{Error}(D(G(z)),1)$$
 <br/></p>
 
-<p>이제 $Error()$만 정해주면 되는데, 여기서는 다음과 같은 <strong>Cross-Entropy Error</strong>를 이용한다.</p>
+<p>이제 $\text{Error}()$만 정해주면 되는데, 여기서는 다음과 같은 <strong>Cross-Entropy Error</strong>를 이용한다.</p>
 
 <p><br/>
-$$Error(p,t) = -t \log(p) - (1-t) \log(1-p)$$</p>
+$$\text{Error}(p,t) = -t \log(p) - (1-t) \log(1-p)$$</p>
 
 <p>$t$&nbsp;&nbsp;:&nbsp;&nbsp;Ground Truth.<br />
 $p$&nbsp;&nbsp;:&nbsp;&nbsp;Prediction.<br />
