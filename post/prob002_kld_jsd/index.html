@@ -341,15 +341,15 @@ $$P_i = {4 \choose i}(\frac{1}{2})^i(\frac{1}{2})^{4-i}, i \in \{ 0,1,2,3,4 \}$$
 
 <h2 id="span-style-color-royalblue-font-weight-bold-kullback-leibler-divergence-span"><span style="color: royalblue; font-weight: bold">Kullback-Leibler Divergence</span></h2>
 
-<p><strong>Kullback-Leibler Divergence</strong>는 앞에서 살펴봤듯이 두 모델이 얼마나 비슷하게 생겼는지를 알기 위한 척도인데, 제시한 모델이 실제 모델의 각 item들의 <strong>정보량</strong>을 얼마나 잘 보존하는지를 측정한다. 즉, 원본 데이터가 가지고 있는 <strong>정보량을 잘 보존</strong>할 수록 원본 데이터와 비슷한 모델이라는 것이다. 먼저 item $s_i$가 갖는 정보량은 다음과 같이 계산하였다.</p>
+<p><strong>Kullback-Leibler Divergence</strong>는 앞에서 살펴봤듯이 두 모델이 얼마나 비슷하게 생겼는지를 알기 위한 척도인데, 제시한 모델이 실제 모델의 각 item들의 <strong>정보량</strong>을 얼마나 잘 보존하는지를 측정한다. 즉, 원본 데이터가 가지고 있는 <strong>정보량을 잘 보존</strong>할 수록 <strong>원본 데이터와 비슷한 모델</strong>이라는 것이다. 먼저 item $s_i$가 갖는 정보량은 다음과 같이 계산하였다.</p>
 
 <p>$$I_i = -\log(p_i)$$</p>
 
-<p>그리고 원본 확률 분포 $p$ 와 근사된 분포 $q$에 대하여 i번째 item이 가진 정보의 손실량은 다음과 같을 것이다.</p>
+<p>그리고 원본 확률 분포 $p$ 와 근사된 분포 $q$에 대하여 i번째 item이 가진 정보량의 차이(정보 손실량)는 다음과 같을 것이다.</p>
 
 <p>$$\Delta I_i = \log(p_i) - \log(q_i)$$</p>
 
-<p>$p$에 대하여 이러한 정보량의 기댓값을 구한 것이 바로 KL-Divergence이다.</p>
+<p>$p$에 대하여 이러한 <strong>정보 손실량의 기댓값</strong>을 구한 것이 바로 KL-Divergence이다.</p>
 
 <p>$$D_{KL} (p||q)= E[\log(p_i) - \log(q_i)] = \sum_i {p_i \log \frac{p_i}{q_i}}$$</p>
 
