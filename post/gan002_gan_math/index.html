@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108616338-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-108616338-1');
+</script>
+
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme" content="hugo-academic">
+  <meta name="generator" content="Hugo 0.29" />
+  <meta name="author" content="Hyeongmin Lee">
+  <meta name="description" content="Undergraduate sutdent of Computer Vision">
+
+  
+  
+  
+  
+    
+  
+  
+    
+    
+    <link rel="stylesheet" href="/css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.1/css/academicons.min.css" integrity="sha512-NThgw3XKQ1absAahW6to7Ey42uycrVvfNfyjqcFNgCmOCQ5AR4AO0SiXrN+8ZtYeappp56lk1WtvjVmEa+VR6A==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
+  
+  
+
+
+  
+
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700%7cRoboto:400,400italic,700%7cRoboto&#43;Mono">
+  
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+
+  <link rel="alternate" href="" type="application/rss+xml" title="Hyeongmin Lee&#39;s Website">
+  <link rel="feed" href="" type="application/rss+xml" title="Hyeongmin Lee&#39;s Website">
+
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/apple-touch-icon.png">
+
+  <link rel="canonical" href="https://hyeongminlee.github.io/post/gan002_gan_math/">
+
+  
+
+  <title>[GAN]GAN with Mathematics | Hyeongmin Lee&#39;s Website</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+      <a class="navbar-brand" href="/">Hyeongmin Lee&#39;s Website</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#about">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#news">
+            
+            <span>News</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#publications">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#blog">
+            
+            <span>Blog</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#contact">
+            
+            <span>Contact</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+  <div class="article-container">
+    <h1 itemprop="name">[GAN]GAN with Mathematics</h1>
+    
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+        Last updated on
+    
+    <time datetime="2018-03-23 00:00:00 &#43;0900 KST" itemprop="datePublished">
+      Mar 26, 2018
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    4 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<hr />
+
+<p>이번 포스트에서는 앞에서 배운 KLD와 JSD를 이용하여 <strong>GAN</strong>에 대해 조금 더 수학적으로 파고 들어 보겠습니다. GAN은 단순히 이미지를 생성하는 알고리즘이 아닙니다. 주어진 데이터의 분포를 파악하고, 이렇게 파악한 결과로 학습한 데이터들과 유사한 데이터를 만들어낼 수 있게끔 하는 학습 알고리즘입니다. 여기서 주목할 점은 <strong>데이터의 분포를 파악한다</strong>는 점입니다. 어떻게 해서 파악할까요? 본문에서 알아보도록 하겠습니다.<br />
+<br/></p>
+
+<ul>
+<li><strong>선수 지식:</strong> 이 포스트를 이해하기 위해서는 <a href="https://hyeongminlee.github.io/post/prob002_kld_jsd/" target="_blank">KL Divergence &amp; Jensen-Shannon Divergence</a>에 대한 지식이 필요합니다.<br /></li>
+<li><strong>참고 논문:</strong> <a href="http://papers.nips.cc/paper/5423-generative-adversarial-nets.pdf" target="_blank">Generative Adversarial Nets</a><br /></li>
+</ul>
+
+<hr />
+
+<p><br/></p>
+
+<h2 id="span-style-color-royalblue-font-weight-bold-분포를-파악한다-span"><span style="color: royalblue; font-weight: bold">분포를 파악한다??</span></h2>
+
+<figure>
+  <img src="/img/GAN_002/fig1.png" alt="What GAN does actually">
+  <figcaption style="text-align: center">GAN 데이터 분포 파악 과정
+</figcaption>
+</figure>
+
+<p>GAN은 단순히 데이터를 생성해 내는 알고리즘이 아니다. 주어진 <strong>데이터의 분포를 파악</strong>하고, 이렇게 파악한 결과로 <strong>학습한 데이터들과 유사한 데이터를 만들어낼 수 있게</strong>끔 하는 학습 알고리즘이다. <strong>Figure 1</strong>과 같이 주어진 데이터가 어떻게 생겼는지를 학습을 통해 먼저 파악한 후, 이렇게 학습된 내용을 바탕으로 주어진 데이터와 유사한 데이터들을 생성해낼 수 있게 되는 알고리즘인 것이다. 여기서 말하는 <strong>데이터의 분포</strong>는 바로 데이터의 <strong>확률 분포(Probability Distribution)</strong>이다. 확률 분포는 Random Variable <strong>X</strong>가 어떤 값을 가질 확률이 높은지를 나타낸 일종의 Map이다. <strong>Figure 2</strong>는 대표적인 확률분포인 <strong>Gaussian Distribution</strong>이다.</p>
+
+<figure>
+  <img src="/img/GAN_002/fig2.png" alt="Gussian Distribution">
+  <figcaption style="text-align: center">Gussian Distribution (출처: SPC for Excel)
+</figcaption>
+</figure>
+
+<p>결국 GAN은 주어진 데이터의 <strong>확률 분포를 예측</strong>하는 모델이다. 확률 분포를 예측한다라&hellip; 분명 떠오르는 것이 있다. 앞에서 배운 <strong>Jensen-Shannon Divergence</strong>의 경우 두 확률 분포의 유사성을 판별해주는 척도중에 하나다. 그렇다면 GAN이 주어진 <strong>데이터의 실제 확률 분포와 GAN이 예측한 확률 분포 사이의 Jensen-Shannon Divergence를 최소화</strong> 하는 알고리즘이라는 것인가? 결론부터 말하면 <strong>그렇다</strong>. 그리고 우리는 이 사실을 간단한 수학적인 과정을 통해 증명해 보도록 할 것이다.</p>
+
+<p><br/>
+<br/>
+<br/></p>
+
+<h2 id="span-style-color-royalblue-font-weight-bold-discriminator의-최적화-span"><span style="color: royalblue; font-weight: bold">Discriminator의 최적화</span></h2>
+
+<p>GAN의 포스팅에서 살펴봤듯이, GAN 알고리즘은 다음 Object Function의 Min-Max Problem으로 귀결된다.</p>
+
+<p>$$\min_ G \max_ D \{ \log(D(x)) + \log(1-D(G(z))) \}$$
+<br/></p>
+
+<p>이 식은 일반적인 $x$와 $z$에 대한 식인데, 실제로는 $x$는 우리가 가진 Dataset으로부터 sampling되고 z 또한 random한 방식으로 sampling된다. <strong>sampling에 따른 불확실성</strong>을 반영하기 위해, 우리는 식에 절댓값을 적용시키게 된다.</p>
+
+<p>이 식을 바탕으로 G와 D를 최적화시킬 것인데, 먼저 G가 고정되었다고 가정하고 D를 최적화시켜보도록 하자.</p>
+
+<p>$$\min_ G \max_ D [ V(G, D) ]$$
+$$V(G, D) = E_ {x \sim p_ {data} (x)} [ \log(D(x)) ] + E_ {z \sim p_ {z} (z)} [ \log(1-D(G(z))) ] $$
+<br/></p>
+
+<p>이 때, $E_ {z \sim p_ {z} (z)} [ \log(1-D(G(z)))$에서 우리가 실제 sampling을 통해 관찰하는 대상은 $z$가 아니라 $G(z)$이므로, $y = G(z)$에 대하여 다음과 같이 쓸 수 있다.</p>
+
+<p>$$E_ {z \sim p_ {z} (z)} [ \log(1-D(G(z))) ] = E_ {y \sim p_ {g} (y)} [ \log(1-D(y)) ] $$
+$$V(G, D) = E_ {x \sim p_ {data} (x)} [ \log(D(x)) ] + E_ {y \sim p_ {g} (y)} [ \log(1-D(y)) ]$$
+<br/></p>
+
+<p>그러므로 절댓값의 정의에 의해 다음과 같이 계산이 가능하다.</p>
+
+<p>$$V(G, D) = \int_ {x} {p_ {data} (x) \log(D(x)) dx} + \int_ {y} {p_ {g} (y) \log(1-D(y)) dy}$$
+$$ \qquad = \int_ {x} {p_ {data} (x) \log(D(x)) + p_ {g} (x) \log(1-D(x)) dx}$$
+<br/></p>
+
+<p>$D$에 관한 미분을 통해 $V(D,G)$가 최댓값을 갖는 점을 구하면 $D^*_ {G} (x) = \frac{p_ {data} (x)}{p_ {data} (x) + p_ {g} (x)}$ 라는 사실을 쉽게 알 수 있다.</p>
+
+<p><br/>
+<br/>
+<br/></p>
+
+<h2 id="span-style-color-royalblue-font-weight-bold-generator의-최적화-span"><span style="color: royalblue; font-weight: bold">Generator의 최적화</span></h2>
+
+<p>Discriminator를 최적화하였으니, $D=D^*$로 고정하고 Generator를 최적화 하도록 할 것이다. 그러기 위해서 식을 살짝 변형해보도록 하자.</p>
+
+<p>$$V(G,D^*) = E_ {x \sim p_ {data} (x)} [ \log(D ^ * (x)) ] + E_ {x \sim p_ {g} (x)} [ \log(1-D ^ * (x)) ]$$
+$$ \qquad \qquad \qquad \qquad = E_ {x \sim p_ {data} (x)} [ \frac{p_ {data} (x)}{p_ {data} (x) + p_ {g} (x)} ] + E_ {x \sim p_ {g} (x)} [ \frac{p_ {g} (x)}{p_ {data} (x) + p_ {g} (x)} ]  $$
+$$ \qquad \qquad \qquad \qquad \quad = - \log(4) + E_ {x \sim p_ {data} (x)} [ \log(p_ {data} (x)) - \log(\frac{p_ {data} (x) + p_ {g} (x)}{2}) ]$$
+$$ \qquad \qquad +  E_ {x \sim p_ {g} (x)} [ \log(p_ {g} (x)) - \log(\frac{p_ {data} (x) + p_ {g} (x)}{2}) ]$$
+$$ \qquad \qquad \qquad \quad = - \log(4) + \text{KL} (p_ {data} || \frac{p_ {data} + p_ {g}}{2}) + \text{KL} (p_ {g} || \frac{p_ {data} + p_ {g}}{2}) $$
+$$ = - \log(4) + 2 \times \text{JSD}(p_ {data} || p_ {g}) \qquad \qquad$$
+<br/></p>
+
+<p>결국, $D$가 최적화되어있는 상황에서 $G$를 최적화시키는 일은 $\text{JSD}(p_ {data} || p_ {g})$를 최소화 시키는 일과 같으며, 이 것은 결국 $p_ {data}$ 와 $p_ {g}$ 사이의 <strong>Jensen-Shannon Divergence를 최소화</strong>시키는 일로, Generated data의 distribution이 Real data의 distribution에 가까워지도록 하는 일이라는 뜻이 된다. GAN은 <strong>실제 주어진 data와 동일한 형태의 distribution을 구해</strong>나가는 알고리즘이며, 우리는 이로써 GAN이 <strong>주어진 dataset의 distribution을 알아내는 알고리즘</strong>이라는 결론을 얻을 수 있다.</p>
+
+    </div>
+
+    
+    
+    
+    <div class="article-tags">
+      
+      <a class="btn btn-primary btn-outline" href="/tags/machine-learning">machine-learning</a>
+      
+    </div>
+    
+    
+
+  </div>
+
+</article>
+
+
+
+<div class="article-container article-widget">
+  <div class="hr-light"></div>
+  <h3>Related</h3>
+  <ul>
+    
+    <li><a href="/post/gan001_gan/">[GAN]Generative Adversarial Network</a></li>
+    
+    <li><a href="/blog/gan/">Simple GAN</a></li>
+    
+  </ul>
+</div>
+
+
+
+
+<div class="article-container">
+  
+
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="powered-by">
+
+      &copy; 2017 Hyeongmin Lee &middot; 
+
+      Powered by the <a href="https://github.com/gcushen/hugo-academic" target="_blank">Academic
+      theme</a> for <a href="http://gohugo.io" target="_blank">Hugo</a>.
+
+      <span class="pull-right" aria-hidden="true">
+        <a href="#" id="back_to_top">
+          <span class="button_icon">
+            <i class="fa fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span>
+
+    </p>
+  </div>
+</footer>
+
+    
+
+    
+    
+
+    
+    <script async defer src="//maps.googleapis.com/maps/api/js"></script>
+    
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.25/gmaps.min.js" integrity="sha256-7vjlAeb8OaTrCXZkCNun9djzuB2owUsaO72kXaFDBJs=" crossorigin="anonymous"></script>
+    
+    <script src="/js/hugo-academic.js"></script>
+    
+
+    
+    
+      
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+      
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_CHTML" integrity="sha512-tOav5w1OjvsSJzePRtt2uQPFwBoHt1VZcUq8l8nm5284LEKE9FSJBQryzMBzHxY5P0zRdNqEcpLIRVYFNgu1jw==" crossorigin="anonymous"></script>
+    
+    
+
+  </body>
+</html>
+
