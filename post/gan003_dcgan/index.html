@@ -56,11 +56,11 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/apple-touch-icon.png">
 
-  <link rel="canonical" href="https://hyeongminlee.github.io/blog/gan/">
+  <link rel="canonical" href="https://hyeongminlee.github.io/post/gan003_dcgan/">
 
   
 
-  <title>Simple GAN | Hyeongmin Lee&#39;s Website</title>
+  <title>[GAN]DCGAN | Hyeongmin Lee&#39;s Website</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -163,22 +163,22 @@
 
 
   <div class="article-container">
-    <h1 itemprop="name">Simple GAN</h1>
+    <h1 itemprop="name">[GAN]DCGAN</h1>
     
 
 <div class="article-metadata">
 
   <span class="article-date">
     
-    <time datetime="0001-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-      Jan 1, 0001
+    <time datetime="2018-04-12 00:00:00 &#43;0900 KST" itemprop="datePublished">
+      Apr 12, 2018
     </time>
   </span>
 
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -203,25 +203,87 @@
     <div class="article-style" itemprop="articleBody">
       
 
-<p>인공지능의 궁극적인 목표중의 하나는 <strong>&lsquo;인간의 사고를 모방하는 것&rsquo;</strong> 입니다. GAN 역시 인간의 사고를 일부 모방하는 알고리즘이라고 할 수 있습니다. 머릿속에 &lsquo;사람의 얼굴&rsquo;을 떠올려봅시다. 우리는 어렵지 않게 사람의 얼굴을 떠올릴 수 있습니다. 또한 그림 그리는 실력만 좋다면 그걸 그려낼 수도 있습니다. 태어나서 한번도 보지 못했던 새로운 얼굴도 그려낼 수 있죠. 그게 가능한 이유는 우리는 지금까지 살면서 수많은 사람의 얼굴을 보고 학습해왔기 때문입니다. 우리는 그림을 어떻게 그려야 그게 사람 얼굴이 되는지를 알고 있습니다. GAN은 이러한 방식의 우리 사고를 모방합니다.</p>
+<hr />
 
-<p>GAN(Generative Adversarial Network)은 Generator와 Discriminator의 경쟁적인 학습을 통해 <strong>Data의 Distribution</strong>을 추정하는 알고리즘입니다. 여기서 Data의 Distribution은 쉽게 말하면 <strong>&lsquo;어떻게 생겨먹었는가&rsquo;</strong>를 의미합니다. 예를 들면, 사람 얼굴 이미지를 생성해 내는 알고리즘은 사람의 얼굴을 그럴듯하게 만들어 내기 위하여 &lsquo;사람의 얼굴이 대충 어떻게 생겼는가&rsquo;, &lsquo;어떤 식으로 생겨야 사람 얼굴이라고 하는가&rsquo;를 먼저 학습해야 할 필요가 있습니다. 이것을 바로 &lsquo;사람 얼굴 이미지의 Distribution&rsquo;이라고 할 수 있고, GAN은 그 것을 학습합니다.</p>
-
-<p>이 포스트에서는 <a href="http://papers.nips.cc/paper/5423-generative-adversarial-nets.pdf" target="_blank">2014년 첫 논문</a>을 시작으로 하여 지금까지 발전을 통해 나온 다양한 GAN 관련 알고리즘들을 간단히 알아보고, 그에 관한 소스코드를 소개하도록 하겠습니다. 논문 리뷰가 아닌 만큼 필요한 부분만 간단하게 다룰 예정이니, 구체적인 정보가 궁금하신 분들은 각 포스트에 인용된 논문들을 참고해주시길 바랍니다.<br />
+<p>일반적인 DNN의 Fully Connected Layer들을 Convolution 연산으로 대체한 CNN(Convolutional Neural Network)는 각 픽셀들의 Spatial한 관계를 고려함으로 인해 이미지 인식에 대한 성능을 큰폭 상승시킨 바 있습니다. 이번 포스트에서는 GAN의 Layer 연산을 Transposed Convolution 연산으로 대체하여 이미지 생성에 관한 성능을 높인 DCGAN에 대해 알아보도록 하겠습니다. 이번 포스팅부터는 해당 알고리즘의 <strong>Tensorflow Source Code</strong>가 제공되니, 참고 부탁드립니다.
 <br/></p>
 
-<h2 id="contents"><strong>contents</strong></h2>
-
 <ul>
-<li><a href="https://hyeongminlee.github.io/post/gan001_gan/" target="_blank">Generative Adversarial Network</a><br />
-
-<ul>
-<li><a href="https://hyeongminlee.github.io/post/prob001_information_theory/" target="_blank">Entropy &amp; Information Theory</a></li>
-<li><a href="https://hyeongminlee.github.io/post/prob002_kld_jsd/" target="_blank">Kullback-Leibler Divergence &amp; Jensen-Shannon Divergence</a></li>
-<li><a href="https://hyeongminlee.github.io/post/gan002_gan_math/" target="_blank">GAN with Mathematics</a></li>
-</ul></li>
-<li><a href="https://hyeongminlee.github.io/post/gan003_dcgan/" target="_blank">DCGAN(Deep Convolutional GAN)</a></li>
+<li><strong>선수 지식:</strong> 이 포스트를 이해하기 위해서는 <a href="https://hyeongminlee.github.io/post/gan001_gan/" target="_blank">GAN</a>과 Convolutional Neural Network에 대한 지식이 필요합니다.(수학적인 detail에 관한 지식은 필요 없습니다.)<br /></li>
+<li><strong>참고 논문:</strong> <a href="https://arxiv.org/pdf/1511.06434.pdf" target="_blank">Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks</a><br /></li>
+<li><strong>소스 코드:</strong> <a href="https://github.com/HyeongminLEE/Tensorflow_DCGAN" target="_blank">Tensorflow_DCGAN</a><br /></li>
 </ul>
+
+<hr />
+
+<p><br/></p>
+
+<h2 id="span-style-color-royalblue-font-weight-bold-transposed-convolution-span"><span style="color: royalblue; font-weight: bold">Transposed Convolution</span></h2>
+
+<figure>
+  <img src="/img/GAN_003/fig2.gif" alt="Transposed Convolution">
+  <figcaption style="text-align: center">Transposed Convolution의 과정. 아래가 input, 위가 output(출처: deeplearning.net)
+</figcaption>
+</figure>
+
+<figure>
+  <img src="/img/GAN_003/fig1.gif" alt="Transposed Convolution(stride:2)">
+  <figcaption style="text-align: center">Stride가 2인 Transposed Convolution.(출처: deeplearning.net)
+</figcaption>
+</figure>
+
+<p>Convolution 연산은 Filter의 크기와 Stride에 따라서 이미지의 크기를 줄인다. <strong>Transposed Convolution</strong>은 Convolution과는 반대로 이미지의 크기를 키우는 역할을 하는 연산이다. Transposed Convolution 연산은 다음과 같은 과정을 통해 진행된다.</p>
+
+<ol>
+<li>input image에 Stride에 맞게(그림1과 2를 비교해보면 알 수 있다) Zero Padding을 추가한다.<br /></li>
+<li>Zero Padding이 추가된 이미지에 Convolution 연산을 취한다.<br /></li>
+</ol>
+
+<p>Transposed Convolution의 원리가 완벽히 와 닿지 않아도 괜찮다. 구체적인 계산은 Tensorflow가 알아서 해 줄 것이므로, 대략적으로 &lsquo;뭐 하는 연산인지&rsquo; 정도만 파악해도 괜찮다.</p>
+
+<p><br/>
+<br/>
+<br/></p>
+
+<h2 id="span-style-color-royalblue-font-weight-bold-deep-convolutional-gan-span"><span style="color: royalblue; font-weight: bold">Deep Convolutional GAN</span></h2>
+
+<p>위에서 살펴 본 Transposed Convolution 연산을 통해 우리는 이미지 사이즈가 점점 커지는 형태의 Neural Network를 얻을 수 있다. 그러면 다음과 같이 <strong>CNN(Convolutional Neural Network)</strong>를 뒤집어놓은 모양의 네트워크를 얻을 수 있다.</p>
+
+<figure>
+  <img src="/img/GAN_003/fig3.PNG" alt="Generator of DCGAN">
+  <figcaption style="text-align: center">DCGAN의 Generator.(출처: <a href="https://github.com/taeoh-kim/Pytorch_DCGAN">Taeoh Kim's github</a>)
+</figcaption>
+</figure>
+
+<p>위와 같은 구조를 Generator로 사용하는 GAN을 우리는 <strong>Deep Convolutional GAN(DCGAN)</strong>이라고 한다. 그러면 Discriminator는 어떤 구조일까? Discriminator로는 Generator와 거의 완벽히 대칭을 이루는 <strong>CNN 구조</strong>를 이용한다.</p>
+
+<figure>
+  <img src="/img/GAN_003/fig4.PNG" alt="Discriminator of DCGAN">
+  <figcaption style="text-align: center">DCGAN의 Discriminator.(출처: <a href="https://github.com/taeoh-kim/Pytorch_DCGAN">Taeoh Kim's github</a>)
+</figcaption>
+</figure>
+
+<p>구체적인 구현 방법이 궁금하거나, 실제로 알고리즘을 돌려 보고 싶은 분들에게는 <a href="https://github.com/HyeongminLEE/Tensorflow_DCGAN" target="_blank">소스 코드</a>를 참고하시길 추천드린다.</p>
+
+<p><br/>
+<br/>
+<br/></p>
+
+<h2 id="span-style-color-royalblue-font-weight-bold-dcgan의-결과-span"><span style="color: royalblue; font-weight: bold">DCGAN의 결과</span></h2>
+
+<p>다음은 사람 얼굴 이미지인 CelebA 데이터베이스와 침실 이미지인 LSUN 데이터베이스로 DCGAN을 학습시켜 얻은 결과들이다.</p>
+
+<figure>
+  <img src="/img/GAN_003/fig5.png" alt="CelebA result of DCGAN">
+  <figcaption style="text-align: center">CelebA의 학습 결과.
+</figcaption>
+</figure>
+
+<figure>
+  <img src="/img/GAN_003/fig6.png" alt="LSUN result of DCGAN">
+  <figcaption style="text-align: center">LSUN의 학습 결과.
+</figcaption>
+</figure>
 
     </div>
 
@@ -229,8 +291,6 @@
     
     
     <div class="article-tags">
-      
-      <a class="btn btn-primary btn-outline" href="/tags/academic">academic</a>
       
       <a class="btn btn-primary btn-outline" href="/tags/machine-learning">machine-learning</a>
       
@@ -249,13 +309,11 @@
   <h3>Related</h3>
   <ul>
     
-    <li><a href="/post/gan003_dcgan/">[GAN]DCGAN</a></li>
-    
     <li><a href="/post/gan002_gan_math/">[GAN]GAN with Mathematics</a></li>
     
     <li><a href="/post/gan001_gan/">[GAN]Generative Adversarial Network</a></li>
     
-    <li><a href="/blog/linear_algebra/">선형대수 포스팅</a></li>
+    <li><a href="/blog/gan/">Simple GAN</a></li>
     
   </ul>
 </div>
@@ -322,6 +380,13 @@
       <script>hljs.initHighlightingOnLoad();</script>
     
 
+    
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_CHTML" integrity="sha512-tOav5w1OjvsSJzePRtt2uQPFwBoHt1VZcUq8l8nm5284LEKE9FSJBQryzMBzHxY5P0zRdNqEcpLIRVYFNgu1jw==" crossorigin="anonymous"></script>
     
     
 
