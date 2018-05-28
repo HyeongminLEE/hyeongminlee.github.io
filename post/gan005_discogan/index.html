@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108616338-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-108616338-1');
+</script>
+
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme" content="hugo-academic">
+  <meta name="generator" content="Hugo 0.29" />
+  <meta name="author" content="Hyeongmin Lee">
+  <meta name="description" content="M.S/Ph.D sutdent of Computer Vision">
+
+  
+  
+  
+  
+    
+  
+  
+    
+    
+    <link rel="stylesheet" href="/css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.1/css/academicons.min.css" integrity="sha512-NThgw3XKQ1absAahW6to7Ey42uycrVvfNfyjqcFNgCmOCQ5AR4AO0SiXrN+8ZtYeappp56lk1WtvjVmEa+VR6A==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
+  
+  
+
+
+  
+
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700%7cRoboto:400,400italic,700%7cRoboto&#43;Mono">
+  
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+
+  <link rel="alternate" href="" type="application/rss+xml" title="Hyeongmin Lee&#39;s Website">
+  <link rel="feed" href="" type="application/rss+xml" title="Hyeongmin Lee&#39;s Website">
+
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/apple-touch-icon.png">
+
+  <link rel="canonical" href="https://hyeongminlee.github.io/post/gan005_discogan/">
+
+  
+
+  <title>[GAN]DiscoGAN | Hyeongmin Lee&#39;s Website</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+      <a class="navbar-brand" href="/">Hyeongmin Lee&#39;s Website</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#about">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#news">
+            
+            <span>News</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#publications">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#blog">
+            
+            <span>Blog</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#contact">
+            
+            <span>Contact</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+  <div class="article-container">
+    <h1 itemprop="name">[GAN]DiscoGAN</h1>
+    
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2018-05-28 00:00:00 &#43;0900 KST" itemprop="datePublished">
+      May 28, 2018
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    5 min read
+  </span>
+  
+
+  
+  
+
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<hr />
+
+<p>Pix2Pix의 가장 큰 한계점은 뭘까요? 바로 <strong>Paired Dataset</strong>이 필요하다는 점입니다. 예를 들어 흑백 영상에 색을 입히는 Colorization Method의 경우 흑백 영상과 이에 대응하는 Color 영상이 필요합니다. 이러한 문제들의 경우 Paired Data를 생성하는 것이 쉽습니다. <strong>Color 영상만 있으면 이로부터 쉽게 흑백 영상을 얻을 수 있기 때문</strong>입니다. 하지만 영상 속 사람의 성별을 바꾸는 알고리즘, 나이를 바꾸는 알고리즘들은 어떨까요? 특정 사람의 데이터를 갖고 있다고 해도, 그 사람의 성별이 바뀐 상태 또는 몇십년 후나 전의 영상 데이터를 얻기란 쉽지 않습니다. 이렇게 <strong>Paired Data를 얻기가 쉽지 않은 경우</strong>에 대해서도 영상의 Style Transfer를 가능하게 한 GAN 알고리즘이 바로 <strong>DiscoGAN</strong>입니다. DiscoGAN과 매우 유사한 방식의 알고리즘인 <strong>CycleGAN</strong>도 있는데, 이 포스트에서는 DiscoGAN을 위주로 설명 드리도록 하겠습니다. CycleGAN에 관해서는 참고 논문에 링크를 올릴 테니 참고 부탁드립니다.
+<br/></p>
+
+<ul>
+<li><strong>선수 지식:</strong> 이 포스트를 이해하기 위해서는 <a href="https://hyeongminlee.github.io/post/gan004_pix2pix/" target="_blank">Pix2Pix</a>에 대한 지식이 필요합니다. GAN에 대한 순차적인 공부를 원하신다면 이 포스트가 포함된 <a href="http://localhost:1313/blog/gan/" target="_blank">시리즈</a>를 순차적으로 보시는 것을 추천드립니다.<br /></li>
+<li><strong>참고 논문:</strong> <a href="https://arxiv.org/pdf/1703.05192.pdf" target="_blank">Learning to Discover Cross-Domain Relations with Generative Adversarial Networks</a><br /></li>
+<li><strong>CycleGAN 논문:</strong> <a href="https://arxiv.org/pdf/1703.10593.pdf" target="_blank">Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks</a></li>
+<li><strong>소스 코드:</strong> <a href="https://github.com/HyeongminLEE/Tensorflow_DiscoGAN" target="_blank">Tensorflow_DiscoGAN</a><br /></li>
+</ul>
+
+<hr />
+
+<p><br/></p>
+
+<h2 id="span-style-color-royalblue-font-weight-bold-pix2pix로-해결-불가능한-문제들-span"><span style="color: royalblue; font-weight: bold">Pix2Pix로 해결 불가능한 문제들</span></h2>
+
+<p><strong>Pix2Pix</strong>를 학습시키기 위해서는 input으로 들어갈 dataset과 그 이미지들이 Pix2Pix를 거쳐서 나올 <strong>정답 이미지</strong>가 필요하다. 즉 <strong>Supervised Learning</strong> 알고리즘이다. 이전 포스팅에서 Pix2Pix는 이러한 Paired Data를 얻기 쉬운 상황에서는 충분한 가치를 지닌 알고리즘이라고 소개하였지만, 역시 그렇지 못한 경우에는 힘을 발휘하지 못한다. 다음 예를 보도록 하자.</p>
+
+<figure>
+  <img src="/img/GAN_005/1.PNG" alt="Season Transfer">
+  <figcaption style="text-align: center">이미지의 계절을 바꿔주는 알고리즘(출처: CycleGAN 논문)
+</figcaption>
+</figure>
+
+<p>그림1은 주어진 사진의 계절을 바꿔주는 알고리즘이다. 여름 풍경을 겨울의 풍경으로 바꿔주거나 겨울 풍경을 여름 풍경으로 바꿔준다. 이 경우 Pix2Pix를 이용한 구현이 가능할까? 그러기 위해서는 같은 장소에 대한 <strong>여름과 겨울 이미지가 전부 갖춰진 Paired Dataset</strong>이 필요하다. 뭐 아주 불가능한 건 아니다. 여름에 찍은 풍경을 겨울까지 기다린 다음 다시 찍으면 되는 일이니까. 하지만 <strong>굉장히 까다로운 것은 사실이다.</strong></p>
+
+<figure>
+  <img src="/img/GAN_005/2.PNG" alt="Horse to Zebra">
+  <figcaption style="text-align: center">말을 얼룩말로, 얼룩말을 말로 바꿔주는 알고리즘(출처: CycleGAN 논문)
+</figcaption>
+</figure>
+
+<p>그렇다면 그림2는 어떨까? 얼룩말의 사진을 주면 사진 속 얼룩말들과 똑같은 생김새에 똑같은 자세를 취하고 있는 말로 바꿔준다. 반대방향도 마찬가지다. 이 경우 Pix2Pix로 구현하기 위해서는 얼룩말 사진을 찍고, 똑같은 체구의 말들을 데려와서 같은 자세를 취하게 한 후 사진을 찍어 줘야 겨우 하나의 Paired Data를 얻을 수 있다. 물론 이 경우도 정말 완전히 불가능한 경우는 아니라고 생각하시는 분이 계실 것이다. 그렇다면 다음 그림을 보자.</p>
+
+<figure>
+  <img src="/img/GAN_005/3.PNG" alt="Style Transfer">
+  <figcaption style="text-align: center">Style Transfer 알고리즘(출처: CycleGAN 논문)
+</figcaption>
+</figure>
+
+<p>그림3은 주어진 사진을 각각 과거의 유명한 화가들의 화풍을 담은 그림으로 그려내는 알고리즘이다. <strong>Style Transfer</strong>라고도 한다. 안타깝게도 이 위대한 화가들께서는 이미 돌아가셨으며, 설령 살아계시는 화가들의 화풍으로 바꾼다고 해도, Paired Data를 만들기 위해 이 분들을 고용해야 한다는 큰 어려움이 따른다. 이렇듯 Pix2Pix로는 해결하지 못하는 다양한 Image Translation 문제들이 존재한다. DiscoGAN 알고리즘이 이를 어떻게 해결하는 지 다음 장에서 살펴보도록 하자.</p>
+
+<p><br/>
+<br/>
+<br/></p>
+
+<h2 id="span-style-color-royalblue-font-weight-bold-discogan-알고리즘-span"><span style="color: royalblue; font-weight: bold">DiscoGAN 알고리즘</span></h2>
+
+<p>위의 예시들 중 그림2의 얼룩말과 말의 문제를 예시로 생각해보자. 사람의 경우, 분명히 말들과 얼룩말들이 <strong>각각 어떻게 생겼는지</strong>를 학습하는 것 만으로도 주어진 이미지 속 말과 같은 생김새의 얼룩말을 떠올리는 것이 가능하다. 즉, 말과 비슷한 생김새 &amp; 같은 자세의 얼룩말을 보여줘야지 비로소 상상이 가능하거나 하지 않는다.</p>
+
+<p>컴퓨터 또한 같은 자세의 말과 얼룩말 데이터를 보지 않고, 말과 얼룩말이 <strong>각각 어떻게 생겼는지만 보고도</strong> 학습이 가능해야 한다. 즉, <strong>같은 자세</strong>로 짝지어진 데이터가 아닌, 단순히 <strong>말들의 이미지</strong>와 <strong>얼룩말들의 이미지</strong>만 가지고 학습이 가능해야 한다. 논문에서는 이를 가능하게 하기 위해 다음과 같은 구조를 제안한다.</p>
+
+<figure>
+  <img src="/img/GAN_005/4.png" alt="DiscoGAN 1">
+  <figcaption style="text-align: center">DiscoGAN/CycleGAN의 구조
+</figcaption>
+</figure>
+
+<p>그림4에서 G는 <strong>Generator</strong>, D는 <strong>Discriminator</strong>를 의미한다. 뒤에 붙은 A,B는 A는 말, B는 얼룩말을 의미한다.<br />
+G_AB와 D_B를 보면 그냥 Pix2Pix와 별반 다르지 않음을 알 수 있다. <strong>G_AB는 말 데이터를 input으로 받아서 얼룩말의 데이터를 생성</strong>해 낸다. 그리고 <strong>D_B가 실제 얼룩말과 G_AB가 만들어 낸 가짜 얼룩말을 구분</strong>하는 학습을 함으로써 경쟁적인 학습이 가능해진다.</p>
+
+<p>하지만 여기까지만 학습한다면 문제점이 발생한다. G_AB는 D_B가 구분할 수 없을 만큼 그럴듯한 <strong>&lsquo;얼룩말&rsquo;</strong> 이미지를 생성해 낼 수는 있지만, <strong>&lsquo;input과 같은 자세의 얼룩말&rsquo;</strong>을 생성해 내지는 못한다. 아무도 G_AB에게 <strong>어떤 자세의 얼룩말을 생성해야 하는지 알려주지 않았다.</strong> Pix2Pix 처럼 <strong>Ground Truth</strong> 데이터가 존재하는 것도 아니기 때문이다. 그렇기 때문에 본 알고리즘에서는 G_BA라는 또 하나의 <strong>Generator</strong>가 등장한다. 방금 만든 얼룩말 이미지를 <strong>다시 말로 바꾸는</strong> Generator이다. 잘 학습된 DiscoGAN이라면, 당연히 <strong>다시 생성된 말 이미지는 처음 넣어준 말 이미지와 동일</strong>해야 한다. 이 사실을 이용하여, <strong>input과 얼룩말이 되었다가 다시 되돌아 온 output 이미지 사이의 Loss</strong>를 전체 Loss에 추가해 주게 된다. 이러한 Loss를 <strong>Consistency Loss</strong>라고 한다. 이 때 Loss는 DiscoGAN의 경우 $L_2$-Loss를 쓰고 CycleGAN의 경우 $L_1$-Loss를 쓴다.</p>
+
+<p>이렇게 Consistency Loss를 추가하게 되면 DiscoGAN은 말의 이미지를 <strong>함부로 아무 얼룩말 이미지로 바꿀 수 없다.</strong> 왜냐하면 <strong>다시 원본으로 돌아올 것 까지 생각해야 하기 때문</strong>이다. 그렇기 때문에 DiscoGAN은 input으로 받은 말 이미지에서 얼룩말처럼 보이게 만드는 데 필요한 <strong>최소한의 부분들만 수정</strong>한다. G_AB가 만들어낸 이미지가 <strong>얼룩말처럼 보여야 함과 동시에다시 처음으로 되돌아오기 용이해야 하기 때문</strong>이다. 그렇기 때문에 얼룩말로 바꾸는데 굳이 수정이 필요하지 않은 대상의 <strong>자세, 주변 배경 등이 유지</strong>되는 것이다.</p>
+
+<p>뒤에 결과로 나오는 그림10에는 더 흥미로운 현상이 나타난다. 신발을 핸드백으로, 핸드백을 신발로 바꾸는 것인데, 신발→핸드백의 예를 들면 DiscoGAN은 신발을 input으로 받아 핸드백처럼 만듦과 동시에 신발이 원래 갖고 있던 <strong>색상이나 재질 등의 특성을 유지시켜서 다시 신발로 돌아오기 쉽도록</strong> 학습하였다. 그 결과 신발과 비슷한 스타일의 핸드백이 생성됨을 볼 수 있다.</p>
+
+<p>이렇게 Consistency Loss를 추가해 주면 끝난 것 같지만, 사실 뒷편의 G_BA는 GAN을 구성하는 <strong>Generator</strong>임에도 불구하고 <strong>&ldquo;당신이 생성한 이미지는 실제 말들과 구분할 수 없어야 해&rdquo;</strong>라고 하는 GAN Loss가 존재하지 않는다. 또한 상식적으로 생각해도 <strong>말→얼룩말</strong> 알고리즘과 <strong>얼룩말→말</strong> 알고리즘이 대칭적인 구조여야 안정적인 학습이 가능해 질 것 같다. 그래서 그림5와 같은 구조를 만들어 그림4의 구조와 동시에 학습한다.</p>
+
+<figure>
+  <img src="/img/GAN_005/5.png" alt="DiscoGAN 2">
+  <figcaption style="text-align: center">DiscoGAN/CycleGAN의 대칭 구조
+</figcaption>
+</figure>
+
+<p>이로써 최종적인 Loss 식은 다음과 같게 된다.</p>
+
+<p><br/>
+$$L = L_ {CONST1} + L_ {GAN1} + L_ {CONST2} + L_ {GAN2}$$
+<br/></p>
+
+<p><br/>
+<br/>
+<br/></p>
+
+<h2 id="span-style-color-royalblue-font-weight-bold-network-structure-span"><span style="color: royalblue; font-weight: bold">Network Structure</span></h2>
+
+<figure>
+  <img src="/img/GAN_005/6.PNG" alt="Generator of DiscoGAN">
+  <figcaption style="text-align: center">DiscoGAN의 Generator(출처: <a href="https://github.com/taeoh-kim/Pytorch_DiscoGAN">Taeoh Kim's github</a>)
+</figcaption>
+</figure>
+
+<figure>
+  <img src="/img/GAN_005/7.PNG" alt="Discriminator of Pix2Pix">
+  <figcaption style="text-align: center">DiscoGAN의 Discriminator(출처: <a href="https://github.com/taeoh-kim/Pytorch_DiscoGAN">Taeoh Kim's github</a>)
+</figcaption>
+</figure>
+
+<p><br/>
+<br/>
+<br/></p>
+
+<h2 id="span-style-color-royalblue-font-weight-bold-discogan의-결과-span"><span style="color: royalblue; font-weight: bold">DiscoGAN의 결과</span></h2>
+
+<p>다음은 다양한 데이터들을 이용하여 DiscoGAN 학습을 진행한 결과이다.
+왼쪽이 input, 오른쪽이 output이다.</p>
+
+<figure>
+  <img src="/img/GAN_005/8.png" alt="result of DiscoGAN">
+  <figcaption style="text-align: center">Edge &amp; Shoe의 학습 결과.
+</figcaption>
+</figure>
+
+<figure>
+  <img src="/img/GAN_005/9.png" alt="result of DiscoGAN">
+  <figcaption style="text-align: center">Edge &amp; Handbags의 학습 결과.
+</figcaption>
+</figure>
+
+<figure>
+  <img src="/img/GAN_005/10.png" alt="result of DiscoGAN">
+  <figcaption style="text-align: center">Shoes &amp; Handbags의 학습 결과.
+</figcaption>
+</figure>
+
+<figure>
+  <img src="/img/GAN_005/11.gif" alt="result of DiscoGAN">
+  <figcaption style="text-align: center">말 &amp; 얼룩말을 비디오의 각 프레임에 적용한 결과.
+</figcaption>
+</figure>
+
+    </div>
+
+    
+    
+    
+    <div class="article-tags">
+      
+      <a class="btn btn-primary btn-outline" href="/tags/machine-learning">machine-learning</a>
+      
+    </div>
+    
+    
+
+  </div>
+
+</article>
+
+
+
+<div class="article-container article-widget">
+  <div class="hr-light"></div>
+  <h3>Related</h3>
+  <ul>
+    
+    <li><a href="/post/gan004_pix2pix/">[GAN]Pix2Pix</a></li>
+    
+    <li><a href="/post/gan003_dcgan/">[GAN]DCGAN</a></li>
+    
+    <li><a href="/post/gan002_gan_math/">[GAN]GAN with Mathematics</a></li>
+    
+    <li><a href="/post/gan001_gan/">[GAN]Generative Adversarial Network</a></li>
+    
+    <li><a href="/blog/gan/">Simple GAN</a></li>
+    
+  </ul>
+</div>
+
+
+
+
+<div class="article-container">
+  
+
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="powered-by">
+
+      &copy; 2017 Hyeongmin Lee &middot; 
+
+      Powered by the <a href="https://github.com/gcushen/hugo-academic" target="_blank">Academic
+      theme</a> for <a href="http://gohugo.io" target="_blank">Hugo</a>.
+
+      <span class="pull-right" aria-hidden="true">
+        <a href="#" id="back_to_top">
+          <span class="button_icon">
+            <i class="fa fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span>
+
+    </p>
+  </div>
+</footer>
+
+    
+
+    
+    
+
+    
+    <script async defer src="//maps.googleapis.com/maps/api/js"></script>
+    
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.25/gmaps.min.js" integrity="sha256-7vjlAeb8OaTrCXZkCNun9djzuB2owUsaO72kXaFDBJs=" crossorigin="anonymous"></script>
+    
+    <script src="/js/hugo-academic.js"></script>
+    
+
+    
+    
+      
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+      
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_CHTML" integrity="sha512-tOav5w1OjvsSJzePRtt2uQPFwBoHt1VZcUq8l8nm5284LEKE9FSJBQryzMBzHxY5P0zRdNqEcpLIRVYFNgu1jw==" crossorigin="anonymous"></script>
+    
+    
+
+  </body>
+</html>
+
