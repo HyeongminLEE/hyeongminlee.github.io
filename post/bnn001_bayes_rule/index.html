@@ -274,7 +274,7 @@
 </figcaption>
 </figure>
 
-<p>분포를 해석해보면, 농어의 피부 밝기가 전체적으로 연어에 비해 밝다는 사실을 알 수 있다. 이렇게 우리는 <strong>Likelihood</strong>를 얻었다. 그리고 <strong>Likelihood</strong>의 그래프를 보고 이런 생각이 들 수 있다. 그냥 지금 가지고 있는 <strong>Likelihood</strong> 분포에서 두 곡선이 만나는 지점의 $x$ 기준으로 $x$가 그 값보다 작으면 연어, 크면 농어로 분류하면 되지 않을까? 즉 <strong>Posterior까지 구할 필요 없이 Likelihood</strong>만 가지고도 분류할 수 있지 않을까? 그렇지 않다. 왜냐면 <strong>Likelihood</strong>에는 <strong>애초에 연어와 농어가 잡힐 확률</strong>이 반영돼 있지 않기 때문이다. 즉 <strong>Likelihood</strong>만으로 분류를 하기 위해서는 <strong>농어와 연어가 똑같은 비율로 바다에 살고 있다는 가정</strong>이 있어야 한다. 예를 들어 $x=5$가 나왔다고 하자 그래프 대로라면 우리는 이 물고기를 농어로 분류해야 한다. 그런데 만약 농어가 많이 희귀해서 농어가 잡힐 확률 자체가 1%도 안된다면, 아무리 $x=5$라고 해도 그 물고기가 농어일 확률은 현저히 낮다.</p>
+<p>분포를 해석해보면, 농어의 피부 밝기가 전체적으로 연어에 비해 밝다는 사실을 알 수 있다. 이렇게 우리는 <strong>Likelihood</strong>를 얻었다. 그리고 <strong>Likelihood</strong>의 그래프를 보고 이런 생각이 들 수 있다. 그냥 지금 가지고 있는 <strong>Likelihood</strong> 분포에서 두 곡선이 만나는 지점의 $x$ 기준으로 $x$가 그 값보다 작으면 연어, 크면 농어로 분류하면 되지 않을까? 즉 <strong>Posterior까지 구할 필요 없이 Likelihood</strong>만 가지고도 분류할 수 있지 않을까? 그렇지 않다. 왜냐면 <strong>Likelihood</strong>에는 <strong>애초에 연어와 농어가 잡힐 확률</strong>이 반영돼 있지 않기 때문이다. 즉 <strong>Likelihood</strong>만으로 분류를 하기 위해서는 <strong>농어와 연어가 똑같은 비율로 바다에 살고 있다는 가정</strong>이 있어야 한다. 예를 들어 $x=5$가 나왔다고 하자. 그래프 대로라면 우리는 이 물고기를 농어로 분류해야 한다. 그런데 만약 농어가 많이 희귀해서 농어가 잡힐 확률 자체가 1%도 안된다면, 아무리 $x=5$라고 해도 그 물고기가 농어일 확률은 현저히 낮다.</p>
 
 <p><br/>
 <br/>
