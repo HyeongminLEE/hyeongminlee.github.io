@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108616338-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-108616338-1');
+</script>
+
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme" content="hugo-academic">
+  <meta name="generator" content="Hugo 0.29" />
+  <meta name="author" content="Hyeongmin Lee">
+  <meta name="description" content="M.S/Ph.D sutdent of Computer Vision">
+
+  
+  
+  
+  
+    
+  
+  
+    
+    
+    <link rel="stylesheet" href="/css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.1/css/academicons.min.css" integrity="sha512-NThgw3XKQ1absAahW6to7Ey42uycrVvfNfyjqcFNgCmOCQ5AR4AO0SiXrN+8ZtYeappp56lk1WtvjVmEa+VR6A==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
+  
+  
+
+
+  
+
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700%7cRoboto:400,400italic,700%7cRoboto&#43;Mono">
+  
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+
+  <link rel="alternate" href="" type="application/rss+xml" title="Hyeongmin Lee&#39;s Website">
+  <link rel="feed" href="" type="application/rss+xml" title="Hyeongmin Lee&#39;s Website">
+
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/apple-touch-icon.png">
+
+  <link rel="canonical" href="https://hyeongminlee.github.io/post/bnn001_bayes_rule/">
+
+  
+
+  <title>Bayes Rule (베이즈 룰) | Hyeongmin Lee&#39;s Website</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+      <a class="navbar-brand" href="/">Hyeongmin Lee&#39;s Website</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#about">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#news">
+            
+            <span>News</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#publications">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#posts">
+            
+            <span>Recent Posts</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#blog">
+            
+            <span>Blog</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#contact">
+            
+            <span>Contact</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+  <div class="article-container">
+    <h1 itemprop="name">Bayes Rule (베이즈 룰)</h1>
+    
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2018-08-30 00:00:00 &#43;0900 KST" itemprop="datePublished">
+      Aug 30, 2018
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    5 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="https://hyeongminlee.github.io/post/bnn001_bayes_rule/#disqus_thread"></a>
+  
+
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<hr />
+
+<p><strong>Bayes Rule</strong>은 Bayesian Deep Learning에서 가장 기본이 되는 개념입니다. 어떤 값을 예측하기 위한 수단으로서 딥러닝 이전부터 굉장히 많이 쓰여 왔던 방식이기 때문에 Bayesian Deep Learning이 아니더라도 알아두면 굉장히 유용한 정리이기 때문에 머신러닝이나 통계학을 공부하신 분들이라면 대부분 들어보셨을 만한 유명한 정리입니다. 이번 포스트에서는 이 <strong>Bayes Rule</strong>에 대해 간단히 살펴보고, 수식의 Notation들이 각각 무엇을 의미하는지 알아보도록 하겠습니다.
+<br/></p>
+
+<ul>
+<li><strong>선수 지식:</strong> 이 포스트를 이해하기 위해서는 고등학교 수준의 확률 지식이 필요합니다.<br /></li>
+</ul>
+
+<hr />
+
+<p><br/></p>
+
+<h2 id="span-style-color-royalblue-font-weight-bold-농어-vs-연어-span"><span style="color: royalblue; font-weight: bold">농어 vs 연어</span></h2>
+
+<figure>
+  <img src="/img/BNN_001/fig1.jpg" alt="Sea Bass vs Salmon">
+  <figcaption style="text-align: center">농어(a)와 연어(b)
+</figcaption>
+</figure>
+
+<p>많은 Pattern Recognition 수업에서는 <strong>Bayes Rule</strong>을 설명하기 위해 <strong>농어(Sea Bass)</strong>와 <strong>연어(Salmon)</strong>를 구분하는 문제를 예로 많이 든다. 그래서 이 글에서도 같은 예시를 들어보려고 한다. 우리가 할 일은 간단하다. 낚시를 통해 건져 올린 물고기를 보고 <strong>농어인지 연어인지 맞추기만 하면 되는 것</strong>이다. 이 때 우리가 물고기를 분류하는 기준은 <strong>피부의 밝기</strong>이다. 즉 우리가 물고기의 피부 밝기 정보를 이용해서 그 물고기가 농어인지 연어인지 맞추는 Task를 진행한다고 가정하자.</p>
+
+<p><br/>
+<br/>
+<br/></p>
+
+<h2 id="span-style-color-royalblue-font-weight-bold-수식적-표현-span"><span style="color: royalblue; font-weight: bold">수식적 표현</span></h2>
+
+<p>우리는 물고기의 피부 밝기 정보가 주어졌을 때 그 물고기가 농어인지 연어인지 맞추기 위해서 이 문제를 수학적으로 모델링 할 것이다. 먼저 우리에게 주어진 물고기의 피부 색의 밝기를 $x$라고 하자. 물고기의 종류를 $w$라고 하고, 그 물고기가 농어일 사건을 $w = w_1$, 그리고 연어일 사건을 $w = w_2$라고 하자. 즉 <strong>물고기의 피부 밝기가 0.5일 때 그 물고기가 농어일 확률</strong>은 다음과 같은 조건부 확률로 표현할 수 있다.</p>
+
+<p>$$P(w=w_1|x=0.5) = P(w_1|x=0.5)$$</p>
+
+<p>만약 우리에게 만약 모든 $x$에 대해서 $P(w_1|x)$와 $P(w_2|x)$의 값이 주어진다면, 어떤 $x$가 주어지더라도 다음과 같은 방법을 통해서 농어인지 연어인지를 구분할 수 있다.</p>
+
+<ul>
+<li>$P(w_1|x)&gt;P(w_2|x)$라면 농어로 분류한다.</li>
+<li>$P(w_2|x)&gt;P(w_1|x)$라면 연어로 분류한다.</li>
+</ul>
+
+<p>어찌 보면 당연한 판단이다. 단순히 물고기가 농어일 확률이 높으면 농어, 연어일 확률이 높으면 연어로 분류하자는 전략이기 때문이다. 그렇다면 물고기 분류 문제는 $P(w_i|x)$, 즉 피부 밝기 $x$가 주어졌을 때 그 물고기가 class $w_i$에 속할 확률만 구하면 풀 수 있다. 그리고 여기서 우리가 구해야 하는 확률 $P(w_i|x)$를 우리는 <strong>Posterior(사후확률)</strong>라고 부른다.</p>
+
+<p><br/>
+<br/>
+<br/></p>
+
+<h2 id="span-style-color-royalblue-font-weight-bold-관찰하기-span"><span style="color: royalblue; font-weight: bold">관찰하기</span></h2>
+
+<p>그렇다면 우리는 <strong>Posterior</strong>, 즉 $P(w_i|x)$를 어떻게 구할 수 있을까? 직접 구할 방법은 아직은 없어 보인다. 하지만 $P(x|w_i)$는 구할 수 있다. $P(x|w_i)$는 물고기의 종류가 $w_i$일 경우 피부 밝기가 $x$일 확률이라고 해석할 수 있는데, $x$는 continuous 하기 때문에 <strong>확률</strong>보다는 <strong>확률밀도</strong>가 맞는 표현이다. 즉 $P(x|w_1)$는 농어의 피부 밝기 분포이고, $P(x|w_2)$는 연어의 피부 밝기 분포라고 할 수 있다. 그렇다면 $P(x|w_i)$를 도대체 어떻게 구할 수 있다는 것인가? 바로 <strong>관찰</strong>이다. 농어를 충분히 많이 잡아서 어떤 피부 밝기를 가진 농어들이 많은지에 대한 분포를 구하는 것이다. 물론 연어도 마찬가지다. 이렇게 관찰을 통해 얻은 확률분포 $P(x|w_i)$를 <strong>Likelihood(가능도)</strong>라고 부른다. 열심히 물고기들을 관찰하고 피부 밝기를 측정한 결과, 다음과 같은 분포를 얻었다고 가정하자.</p>
+
+<figure>
+  <img src="/img/BNN_001/fig2.png" alt="Likelihood">
+  <figcaption style="text-align: center">농어와 연어의 피부 밝기 분포
+</figcaption>
+</figure>
+
+<p>분포를 해석해보면, 농어의 피부 밝기가 전체적으로 연어에 비해 밝다는 사실을 알 수 있다. 이렇게 우리는 <strong>Likelihood</strong>를 얻었다. 그리고 <strong>Likelihood</strong>의 그래프를 보고 이런 생각이 들 수 있다. 그냥 지금 가지고 있는 <strong>Likelihood</strong> 분포에서 두 곡선이 만나는 지점의 $x$ 기준으로 $x$가 그 값보다 작으면 연어, 크면 농어로 분류하면 되지 않을까? 즉 <strong>Posterior까지 구할 필요 없이 Likelihood</strong>만 가지고도 분류할 수 있지 않을까? 그렇지 않다. 왜냐면 <strong>Likelihood</strong>에는 <strong>애초에 연어와 농어가 잡힐 확률</strong>이 반영돼 있지 않기 때문이다. 즉 <strong>Likelihood</strong>만으로 분류를 하기 위해서는 <strong>농어와 연어가 똑같은 비율로 바다에 살고 있다는 가정</strong>이 있어야 한다. 예를 들어 $x=5$가 나왔다고 하자 그래프 대로라면 우리는 이 물고기를 농어로 분류해야 한다. 그런데 만약 농어가 많이 희귀해서 농어가 잡힐 확률 자체가 1%도 안된다면, 아무리 $x=5$라고 해도 그 물고기가 농어일 확률은 현저히 낮다.</p>
+
+<p><br/>
+<br/>
+<br/></p>
+
+<h2 id="span-style-color-royalblue-font-weight-bold-prior-span"><span style="color: royalblue; font-weight: bold">Prior</span></h2>
+
+<p>지금까지 알아본 사실들을 간단히 정리해보자. 물고기의 피부 밝기 $x$가 주어졌을 때 그 물고기가 농어인지 연어인지 구분하기 위해서는 <strong>Posterior</strong>($P(w_i|x)$)를 알아야 한다. 그리고 이 <strong>Posterior</strong>를 바로 알 수 없기 때문에 우리는 <strong>관찰</strong>을 통해서 <strong>Likelihood</strong>($P(x|w_i)$)를 먼저 구한다. 하지만 <strong>Likelihood</strong> 만으로는 <strong>Posterior</strong>를 알 수 없다. 바로 <strong>바다에 살고 있는 농어와 연어의 비율</strong>이 반영되지 않았기 때문이다. 아무리 특정 $x$에 대해 연어의 Likelihood가 농어의 Likelihood보다 크다 하더라도 애초에 연어가 매우 희귀하다면 우리는 이 물고기가 농어일 가능성도 생각해 볼 필요가 있다.</p>
+
+<p>결론은, $x$와 관계 없이 애초에 <strong>농어가 잡힐 확률($P(w_1)$)</strong>과 <strong>연어가 잡힐 확률($P(w_2)$)</strong>을 알아야 한다. 이 값을 우리는 <strong>Prior(사전확률)</strong>라고 하며, 이름 그대로 우리가 이미 갖고 있는 사전 지식에 해당한다. 농어와 연어 문제에서는 물고기를 많이 잡아서 농어와 연어의 비율을 추정할 수 있지만, 보통은 주어지거나 우리가 정해줘야 하는 경우가 많다. 예를 들어 농어와 연어의 실제 비율을 모를 경우, 우리는 편의상 농어와 연어의 비율이 같다고 가정할 수도 있다. 이렇게 <strong>Prior</strong>는 보통 우리가 사전 지식을 이용해서 정해주는 값에 해당한다. 이 문제에서는 편의상 $P(w_1) = 0.7$, $P(w_2) = 0.3$이라고 하자. 즉 연어가 농어에 비해 희귀하다고 가정하는 것이다.</p>
+
+<p><br/>
+<br/>
+<br/></p>
+
+<h2 id="span-style-color-royalblue-font-weight-bold-bayes-rule-span"><span style="color: royalblue; font-weight: bold">Bayes&rsquo; Rule</span></h2>
+
+<p>지금까지 우리는 세 가지 종류의 확률을 알아봤다. 정리해보도록 하자.</p>
+
+<ul>
+<li><strong>Posterior($P(w_i|x)$)</strong>: 피부 밝기($x$)가 주어졌을 때 그 물고기가 농어일 확률 또는 연어일 확률. 즉 단서가 주어졌을 때, 대상이 특정 클래스에 속할 확률. 우리가 최종적으로 구해야 하는 값이다.</li>
+<li><strong>Likelihood($P(x|w_i)$)</strong>: 농어 또는 연어의 피부 밝기($x$)가 어느 정도로 분포되어 있는지의 정보. 즉 각 클래스에서 우리가 활용할 단서가 어떤 형태로 분포 돼 있는지를 알려준다. Posterior를 구하는 데 있어서 매우 중요한 단서가 된다.</li>
+<li><strong>Prior($P(w_i)$)</strong>: 피부 밝기($x$)에 관계 없이 농어와 연어의 비율이 얼마나 되는지의 값. 보통 사전 정보로 주어지거나, 주어지지 않는다면 연구자의 사전 지식을 통해 정해줘야 하는 값이다.<br /></li>
+</ul>
+
+<p><br/>
+우리의 목적은 <strong>Posterior($P(w_i|x)$)</strong>를 구하는 것이며, 이 값은 <strong>Likelihood($P(x|w_i)$)</strong>와 <strong>Prior($P(w_i)$)</strong>를 이용하면 구할 수 있다. 고등학교 때 배운 조건부 확률의 정의를 떠올려보자.</p>
+
+<p>$$P(A,B)=P(A|B)P(B)=P(B|A)P(A)$$</p>
+
+<p>그리고 이를 살짝 변형하면 다음과 같은 식을 얻을 수 있다.</p>
+
+<p>$$P(A|B) = \frac {P(B|A)P(A)}{P(B)} = \frac {P(B|A)P(A)}{\sum_ {A} {P(B|A)P(A)}}$$</p>
+
+<p>그리고 $A$대신 $w$, $B$ 대신 $x$를 넣으면 다음과 같이 된다.</p>
+
+<p>$$P(w_ i|x) = \frac {P(x|w_ i)P(w_ i)}{\sum_ {j} {P(x|w_ j)P(w_ j)}}$$</p>
+
+<p>좌변은 우리가 구하고자 하는 <strong>Posterior</strong>이고, 우변의 분자는 <strong>Likelihood</strong>와 <strong>Prior</strong>의 곱이며, 우변의 분모는 <strong>Evidence</strong>라고 보통 부르는데, 이 또한 <strong>Likelihood</strong>와 <strong>Prior</strong>들을 통해 구할 수 있다. 즉 우리는 이 식을 이용하면 <strong>Posterior</strong>를 구할 수 있고, 이 식을 우리는 <strong>Bayes&rsquo; Rule</strong>또는 <strong>Bayesian Equation</strong> 등으로 부른다.</p>
+
+<figure>
+  <img src="/img/BNN_001/fig3.png" alt="Posterior">
+  <figcaption style="text-align: center">피부 밝기에 따른, 농어일 확률과 연어일 확률. 즉 Posterior
+</figcaption>
+</figure>
+
+<p>위 그래프는 방금 알아 본 <strong>Bayes&rsquo; Rule</strong>에 따라 농어와 연어의 <strong>Posterior</strong>를 구한 결과이다. 이제 우리는 $x$가 주어지면 <strong>Posterior</strong>가 큰 쪽을 고르면 된다. 농어와 연어를 구분하는 $x$의 전환점을 살펴보면 알겠지만, <strong>Likelihood</strong> 그래프에서는 전환점이 $x=4.5$ 부근에 형성되지만 <strong>Posterior</strong> 그래프에서는 $x=3$ 부근에 형성된다. 연어가 더 희귀하다는 사전 정보(<strong>Prior</strong>)가 반영되었기 때문이다.</p>
+
+    </div>
+
+    
+    
+    
+    <div class="article-tags">
+      
+      <a class="btn btn-primary btn-outline" href="/tags/machine-learning">machine-learning</a>
+      
+    </div>
+    
+    
+
+  </div>
+
+</article>
+
+
+
+<div class="article-container article-widget">
+  <div class="hr-light"></div>
+  <h3>Related</h3>
+  <ul>
+    
+    <li><a href="/post/gan005_discogan/">[GAN]DiscoGAN</a></li>
+    
+    <li><a href="/post/gan004_pix2pix/">[GAN]Pix2Pix</a></li>
+    
+    <li><a href="/post/gan003_dcgan/">[GAN]DCGAN</a></li>
+    
+    <li><a href="/post/gan002_gan_math/">[GAN]GAN with Mathematics</a></li>
+    
+    <li><a href="/post/gan001_gan/">[GAN]Generative Adversarial Network</a></li>
+    
+  </ul>
+</div>
+
+
+
+
+<div class="article-container">
+  
+<div id="disqus_thread"></div>
+<script>
+
+
+
+
+
+(function() { 
+var d = document, s = d.createElement('script');
+s.src = 'https://hyeongminlee.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="powered-by">
+
+      &copy; 2017 Hyeongmin Lee &middot; 
+
+      Powered by the <a href="https://github.com/gcushen/hugo-academic" target="_blank">Academic
+      theme</a> for <a href="http://gohugo.io" target="_blank">Hugo</a>.
+
+      <span class="pull-right" aria-hidden="true">
+        <a href="#" id="back_to_top">
+          <span class="button_icon">
+            <i class="fa fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span>
+
+    </p>
+  </div>
+</footer>
+
+    
+
+    
+    
+    <script id="dsq-count-scr" src="//hyeongminlee.disqus.com/count.js" async></script>
+    
+
+    
+    <script async defer src="//maps.googleapis.com/maps/api/js"></script>
+    
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.25/gmaps.min.js" integrity="sha256-7vjlAeb8OaTrCXZkCNun9djzuB2owUsaO72kXaFDBJs=" crossorigin="anonymous"></script>
+    
+    <script src="/js/hugo-academic.js"></script>
+    
+
+    
+    
+      
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+      
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_CHTML" integrity="sha512-tOav5w1OjvsSJzePRtt2uQPFwBoHt1VZcUq8l8nm5284LEKE9FSJBQryzMBzHxY5P0zRdNqEcpLIRVYFNgu1jw==" crossorigin="anonymous"></script>
+    
+    
+
+  </body>
+</html>
+

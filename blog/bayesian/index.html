@@ -56,11 +56,11 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/apple-touch-icon.png">
 
-  <link rel="canonical" href="">
+  <link rel="canonical" href="https://hyeongminlee.github.io/blog/bayesian/">
 
   
 
-  <title>404 Page not found | Hyeongmin Lee&#39;s Website</title>
+  <title>Bayesian Deep Learning | Hyeongmin Lee&#39;s Website</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -168,82 +168,137 @@
   </div>
 </nav>
 
-<div class="container">
 
-  <h1>Page not found</h1>
-  <p>Maybe you were looking for one of these?</p>
+<article class="article" itemscope itemtype="http://schema.org/Article">
 
-  <h2>Recent Posts</h2>
-  
-  <ul>
-    <li><a href="https://hyeongminlee.github.io/post/bnn001_bayes_rule/">Bayes Rule (베이즈 룰)</a></li>
-  </ul>
-  
-  <ul>
-    <li><a href="https://hyeongminlee.github.io/post/gan005_discogan/">[GAN]DiscoGAN</a></li>
-  </ul>
-  
-  <ul>
-    <li><a href="https://hyeongminlee.github.io/post/gan004_pix2pix/">[GAN]Pix2Pix</a></li>
-  </ul>
-  
-  <ul>
-    <li><a href="https://hyeongminlee.github.io/post/gan003_dcgan/">[GAN]DCGAN</a></li>
-  </ul>
-  
-  <ul>
-    <li><a href="https://hyeongminlee.github.io/post/gan002_gan_math/">[GAN]GAN with Mathematics</a></li>
-  </ul>
-  
-  <ul>
-    <li><a href="https://hyeongminlee.github.io/post/prob002_kld_jsd/">Kullback-Leibler Divergence &amp; Jensen-Shannon Divergence</a></li>
-  </ul>
-  
-  <ul>
-    <li><a href="https://hyeongminlee.github.io/post/pr002_image_captioning/">[논문 리뷰]Image Captioning with Semantic Attention</a></li>
-  </ul>
-  
-  <ul>
-    <li><a href="https://hyeongminlee.github.io/post/prob001_information_theory/">Entropy &amp; Information Theory</a></li>
-  </ul>
-  
-  <ul>
-    <li><a href="https://hyeongminlee.github.io/post/gan001_gan/">[GAN]Generative Adversarial Network</a></li>
-  </ul>
-  
-  <ul>
-    <li><a href="https://hyeongminlee.github.io/post/pr001_dehazing/">[논문 리뷰]Single Image Haze Removal Using Dark Channel Prior</a></li>
-  </ul>
-  
-  <ul>
-    <li><a href="https://hyeongminlee.github.io/post/">Posts</a></li>
-  </ul>
   
 
-  <h2>Recent Publications</h2>
+
+  <div class="article-container">
+    <h1 itemprop="name">Bayesian Deep Learning</h1>
+    
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="0001-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+      Jan 1, 0001
+    </time>
+  </span>
+
   
-  <ul>
-    <li><a href="https://hyeongminlee.github.io/publication/int_journal_001/">AHD: Thermal-Image Based Adaptive Hand Detection for Enhanced Tracking System</a></li>
-  </ul>
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
   
-  <ul>
-    <li><a href="https://hyeongminlee.github.io/publication/dom_conf_002/">Deep learning-based Hand Gesture Recognition Algorithm using Multi-modality Information</a></li>
-  </ul>
+
   
-  <ul>
-    <li><a href="https://hyeongminlee.github.io/publication/dom_journal_001/">Target Region Detection Using Line Pruning Filter-Based Hough Transform for Augmented Reality</a></li>
-  </ul>
   
-  <ul>
-    <li><a href="https://hyeongminlee.github.io/publication/dom_conf_001/">Corner Detection with Improved Hough Transform by Line Pruning Filter for Augmented Reality</a></li>
-  </ul>
+  <span class="middot-divider"></span>
+  <a href="https://hyeongminlee.github.io/blog/bayesian/#disqus_thread"></a>
   
-  <ul>
-    <li><a href="https://hyeongminlee.github.io/publication/">Publications</a></li>
+
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+
   </ul>
+</div>
+
+
   
 
 </div>
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<p><strong>Deep Learning</strong>을 비롯한 대부분의 머신러닝 알고리즘들은 주어진 문제를 해결하기 위해 필요한 다양한 <strong>파라미터</strong>들을 주어진 데이터를 통해 학습합니다. 그래서 머신러닝은 <strong>최적의 파라미터를 찾는 일</strong>이라고 볼 수 있습니다. 그런데 사실 이 파라미터를 보는 관점에는 크게 두 가지가 존재합니다.</p>
+
+<ul>
+<li><strong>Frequentest View</strong>: Model의 파라미터들을 Fixed Value로 취급하여 데이터로부터 그 값을 구해 냅니다.</li>
+<li><strong>Bayesian View</strong>: Model의 파라미터들을 각각 하나의 Random Variable로 취급하여 그 Distribution을 구해 냅니다.</li>
+</ul>
+
+<p>예를 들어 봅시다. 전국 대학생의 평균 연령을 알기 위해 전국적으로 100명의 대학생을 Sampling 하여 평균 연령을 구했고, 그 결과 23살이라는 값이 나왔다고 합시다. <strong>Frequentest View</strong>에서는 &ldquo;전국 대학생의 평균 연령을 23살이라고 하면 되겠군!&ldquo;이라고 대답할 것이고, <strong>Bayesian View</strong>에서는 &ldquo;전국 대학생의 평균 연령이 23살일 확률이 높겠지만, 아닐 확률도 존재 한다. 그 확률 분포는 다음과 같다.&ldquo;라는 이야기를 할 것입니다. 이처럼 <strong>Bayesian View</strong>에서는 우리가 구하고자 하는 값을 정확히 구하지 않고, 어떤 값일 확률이 어느 정도인지에 대한 <strong>확률 분포로 대답</strong>합니다.</p>
+
+<p>우리가 일반적으로 사용하는 <strong>Deep Learning</strong>은 <strong>Frequentest View</strong>입니다. Model의 Parameter들이 하나의 값으로 정해져 있고, 그에 따라 output도 하나의 값으로 출력하기 때문입니다. 하지만 이번 포스트에서 다룰 <strong>Bayesian Deep Learning</strong>은 <strong>Bayesian View</strong>에 해당합니다. 즉 정답 뿐만 아니라 정답이 어느 값일 확률이 높은지에 대한 <strong>distribution</strong>을 출력합니다. 이렇게 distribution을 출력하였을 경우 얻을 수 있는 이득중의 하나는 <strong>Uncertainty</strong>를 알 수 있다는 점입니다. Model이 특정 값을 예측함에 있어서 그 대답이 <strong>얼마나 확실한지, 믿을만 한지</strong>를 알게 되면 여러 분야에 활용 가능합니다. 특히 자율주행과 같이 안전이 우선시되는 분야에서는 인공지능이 스스로 내린 결정이 정말 믿을만 한지에 대한 정보를 알 필요가 있습니다. 이번 포스팅에서는 이러한 <strong>Uncertainty</strong>에 집중하면서 <strong>Bayesian Deep Learning</strong>에 대해 알아보도록 하고, 후반부에는 각 알고리즘을 텐서플로우로 구현한 코드를 제공할 예정입니다. 그럼 시작해보도록 하겠습니다.</p>
+
+<p><br/></p>
+
+<h2 id="contents"><strong>contents</strong></h2>
+
+<ul>
+<li>Bayes&rsquo; theorem(베이즈 룰)</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+    <div class="article-tags">
+      
+      <a class="btn btn-primary btn-outline" href="/tags/academic">academic</a>
+      
+      <a class="btn btn-primary btn-outline" href="/tags/machine-learning">machine-learning</a>
+      
+    </div>
+    
+    
+
+  </div>
+
+</article>
+
+
+
+<div class="article-container article-widget">
+  <div class="hr-light"></div>
+  <h3>Related</h3>
+  <ul>
+    
+    <li><a href="/blog/gan/">Image Generation with GAN</a></li>
+    
+    <li><a href="/post/bnn001_bayes_rule/">Bayes Rule (베이즈 룰)</a></li>
+    
+    <li><a href="/post/gan005_discogan/">[GAN]DiscoGAN</a></li>
+    
+    <li><a href="/post/gan004_pix2pix/">[GAN]Pix2Pix</a></li>
+    
+    <li><a href="/post/gan003_dcgan/">[GAN]DCGAN</a></li>
+    
+  </ul>
+</div>
+
+
+
+
+<div class="article-container">
+  
+<div id="disqus_thread"></div>
+<script>
+
+
+
+
+
+(function() { 
+var d = document, s = d.createElement('script');
+s.src = 'https://hyeongminlee.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+</div>
+
 <footer class="site-footer">
   <div class="container">
     <p class="powered-by">
