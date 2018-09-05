@@ -30,6 +30,15 @@
     
     <url>
     
+      <loc>https://hyeongminlee.github.io/post/bnn002_mle_mlp/</loc>
+      <lastmod>2018-09-04T00:00:00+09:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>https://hyeongminlee.github.io/post/bnn001_bayes_rule/</loc>
       <lastmod>2018-08-30T00:00:00+09:00</lastmod>
     </url>
@@ -280,7 +289,7 @@
     <url>
     
       <loc>https://hyeongminlee.github.io/tags/machine-learning/</loc>
-      <lastmod>2018-08-30T00:00:00+09:00</lastmod>
+      <lastmod>2018-09-04T00:00:00+09:00</lastmod>
       <priority>0</priority>
     </url>
     
