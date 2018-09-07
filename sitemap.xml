@@ -30,6 +30,15 @@
     
     <url>
     
+      <loc>https://hyeongminlee.github.io/publication/int_conf_001/</loc>
+      <lastmod>2018-10-07T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>https://hyeongminlee.github.io/post/bnn002_mle_map/</loc>
       <lastmod>2018-09-04T00:00:00+09:00</lastmod>
     </url>
@@ -231,6 +240,16 @@
     
       <loc>https://hyeongminlee.github.io/publication_types/2/</loc>
       <lastmod>2017-10-25T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>https://hyeongminlee.github.io/publication_types/3/</loc>
+      <lastmod>2018-10-07T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
