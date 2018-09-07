@@ -347,7 +347,11 @@ $$\sum_ {i=1} ^ {N} (t_ i-y(x_ i|w))^2$$
 
 <h2 id="span-style-color-royalblue-font-weight-bold-maximum-a-posterior-span"><span style="color: royalblue; font-weight: bold">Maximum A Posterior</span></h2>
 
-<p><strong>Maximum Likelihood Estimation</strong>이 <strong>Likelihood</strong>를 최대화 시키는 작업이었다면, <strong>Maximum A Posterior</strong>는 이름 그대로 <strong>Posterior</strong>를 최대화 시키는 작업이다. <strong>Likelihood</strong>와 <strong>Posterior</strong>의 차이는 <a href="https://hyeongminlee.github.io/post/bnn001_bayes_rule/" target="_blank">이전 포스트</a>에서 다뤘듯이, <strong>Prior</strong>의 유무이다. _Posterior__는 <strong>Likelihood</strong>와 다르게 우리의 사전 지식인 <strong>Prior</strong>가 포함되어 있다. 즉 구하고자 하는 대상을 <strong>철저히 데이터만을 이용해서 구하고 싶다면 MLE</strong>를 이용하는 것이고, <strong>데이터와 더불어 우리가 갖고 있는 사전 지식까지 반영하고 싶다면 MAP</strong>를 이용하는 것이다. 그렇다면 <strong>Prior</strong>를 반영해서 좋은 점은 무엇일까? 물론 우리가 <strong>매우 강력한 사전 지식</strong>을 갖고 있다면 $w$값을 구하는 데 있어서 매우 큰 도움이 될 것이다. 하지만 우리에게 별다른 사전 지식이 없더라도 <strong>Prior</strong>를 반영하는 것은 좋은 경우가 많다. output을 우리가 원하는 대로 제어할 수 있기 때문이다. 예를 들어 우리가 모델링한 함수 $y(x|w)$가 키($x$)를 줬을 때 몸무게($t$)를 잘 맞추게만 하고 싶으면 <strong>MLE</strong>를 써도 상관 없지만 잘 맞춤과 동시에 $y(x|w)$의 parameter $w$의 절댓값이 작기를 원한다면, 즉 0 주변에 분포해 있기를 원한다면 $w$가 0 주변에 분포한다는 <strong>Prior</strong>를 넣어 주어야 한다. 이렇게 output에 대한 특정 제약조건을 걸고 싶은 경우에 <strong>MAP</strong>를 쓰는 것이 좋다. <strong>Posterior</strong>를 Maximize해야 하는 이유는 Likelihood의 경우보다 단순하다. Posterior는 애초에 $w$의 확률 분포기 때문에 $w$가 될 확률이 가장 높은 값으로 정해주는 것이다. 그렇다면 본격적으로 <strong>Posterior</strong>를 구해서 Maximize 해보도록 하자. 이전 포스트에 따르면 <strong>Posterior</strong>는 다음과 같이 구할 수 있다.</p>
+<p><strong>Maximum Likelihood Estimation</strong>이 <strong>Likelihood</strong>를 최대화 시키는 작업이었다면, <strong>Maximum A Posterior</strong>는 이름 그대로 <strong>Posterior</strong>를 최대화 시키는 작업이다. <strong>Likelihood</strong>와 <strong>Posterior</strong>의 차이는 <a href="https://hyeongminlee.github.io/post/bnn001_bayes_rule/" target="_blank">이전 포스트</a>에서 다뤘듯이, <strong>Prior</strong>의 유무이다. <strong>Posterior</strong>는 <strong>Likelihood</strong>와 다르게 우리의 사전 지식인 <strong>Prior</strong>가 포함되어 있다. 즉 구하고자 하는 대상을 <strong>철저히 데이터만을 이용해서 구하고 싶다면 MLE</strong>를 이용하는 것이고, <strong>데이터와 더불어 우리가 갖고 있는 사전 지식까지 반영하고 싶다면 MAP</strong>를 이용하는 것이다.</p>
+
+<p>그렇다면 <strong>Prior</strong>를 반영해서 좋은 점은 무엇일까? 물론 우리가 <strong>매우 강력한 사전 지식</strong>을 갖고 있다면 $w$값을 구하는 데 있어서 매우 큰 도움이 될 것이다. 하지만 우리에게 별다른 사전 지식이 없더라도 <strong>Prior</strong>를 반영하는 것은 좋은 경우가 많다. output을 우리가 원하는 대로 제어할 수 있기 때문이다. 예를 들어 우리가 모델링한 함수 $y(x|w)$가 키($x$)를 줬을 때 몸무게($t$)를 잘 맞추게만 하고 싶으면 <strong>MLE</strong>를 써도 상관 없지만 잘 맞춤과 동시에 $y(x|w)$의 parameter $w$의 절댓값이 작기를 원한다면, 즉 0 주변에 분포해 있기를 원한다면 $w$가 0 주변에 분포한다는 <strong>Prior</strong>를 넣어 주어야 한다. 이렇게 <strong>output에 대한 특정 제약조건</strong>을 걸고 싶은 경우에 <strong>MAP</strong>를 쓰는 것이 좋다.</p>
+
+<p><strong>Posterior</strong>를 Maximize해야 하는 이유는 Likelihood의 경우보다 단순하다. Posterior는 애초에 $w$의 확률 분포기 때문에 $w$가 될 확률이 가장 높은 값으로 정해주는 것이다. 그렇다면 본격적으로 <strong>Posterior</strong>를 구해서 Maximize 해보도록 하자. 이전 포스트에 따르면 <strong>Posterior</strong>는 다음과 같이 구할 수 있다.</p>
 
 <p><br/>
 $$P(w|D) = \frac {P(D|w)P(w)}{\int {P(D|w)P(w)} dw}$$
@@ -370,6 +374,7 @@ $$P(w|D) = \eta P(D|w)P(w)$$
 <p><br/>
 $$w \sim N(0,\sigma_w ^2) $$
 $$p(w) = \frac {1} {\sqrt{2\pi}\sigma _ w} e^{-\frac{w^2}{2\sigma _ w ^2}}$$
+<br/>
 <br/></p>
 
 <p>먼저 likelihood에서와 같이 Prior에 $\log$를 취해주도록 하자. 그리고 그 값을 최대로 하는 $w$를 찾는 것이 우리의 목표이다.</p>
@@ -397,7 +402,7 @@ $$w^* = \mbox{argmax}_w \{ \log \eta - L(w) -\log{(\sqrt{2\pi}\sigma _ w)} -\fra
 $$L(w) + \frac{w^2}{2 \sigma _ w ^ 2} = \sum_ {i=1} ^ {N} (t_ i-y(x_ i|w))^2 + \frac{w^2}{2 \sigma _ w ^ 2}$$
 <br/></p>
 
-<p>결국 Weight Decay(L2 Regularization) 방식을 적용한 Deep Learning의 Loss 함수가 나왔다. 우리는 Gaussian Distribution을 Prior로 준 문제의 <strong>MAP</strong>로부터 Weight Decay 식을 유도해 낸 것이다. 또한 우리가 앞으로 Deep Learning 등에서 Weight Decay, 그 중에서도 L2 Regularization을 쓴다는 것은 주어진 Data를 적용함과 동시에 $w$에 Gaussian Distribution이라는 Prior를 걸어 주어 <strong>MAP</strong>를 통해 $w$를 구하겠다는 것으로 해석할 수 있다. <strong>L2 Regularization을 적용하는 일은 $w$에 Gaussian Distribution을 Prior로 걸어 주는 일</strong>인 것이다. 참고로 Laplacian Distribution을 Prior로 걸어 주면 L1 Regularization을 얻을 수 있다. 직접 해보기 어렵지 않을 것이다.</p>
+<p>$\frac{1}{2 \sigma _ w ^ 2}$는 상수이므로 $\alpha$ 등으로 치환하면 <strong>Weight Decay(L2 Regularization)</strong> 방식을 적용한 Deep Learning의 Loss 함수가 된다. 우리는 Gaussian Distribution을 Prior로 준 문제의 <strong>MAP</strong>로부터 Weight Decay 식을 유도해 낸 것이다. 또한 우리가 앞으로 Deep Learning 등에서 Weight Decay, 그 중에서도 L2 Regularization을 쓴다는 것은 주어진 Data를 적용함과 동시에 $w$에 Gaussian Distribution이라는 Prior를 걸어 주어 <strong>MAP</strong>를 통해 $w$를 구하겠다는 것으로 해석할 수 있다. <strong>L2 Regularization을 적용하는 일은 $w$에 Gaussian Distribution을 Prior로 걸어 주는 일</strong>인 것이다. 참고로 Laplacian Distribution을 Prior로 걸어 주면 L1 Regularization을 얻을 수 있다. 직접 해보기 어렵지 않을 것이다.</p>
 
     </div>
 
