@@ -190,7 +190,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    7 min read
+    6 min read
   </span>
   
 
@@ -263,35 +263,9 @@ $$E[f(w)] = \int {f(w)p(w|D)} dw$$
 <br/>
 <br/></p>
 
-<h2 id="span-style-color-royalblue-font-weight-bold-monte-carlo-method-span"><span style="color: royalblue; font-weight: bold">Monte Carlo method</span></h2>
-
-<p><strong>Evidence</strong>도 못 구하고, 구했다 치더라도 <strong>Output</strong>을 못 구한다고 한다. 이 상황을 어떻게 타파할 것인가? 두 적분 식을 잘 살펴보자.</p>
-
-<p><br/>
-$$p(D) = \int {p(D|w)p(w)} dw$$
-$$E[f(w)] = \int {f(w)p(w|D)} dw$$
-<br/></p>
-
-<p>위 두 식의 공통점은 적분 식이라는 점도 있지만 바로 확률 분포를 곱하여 진행하는 적분, 즉 <strong>기댓값 연산</strong>이라는 공통점이 존재한다. 기댓값 연산을 근사적으로 우회할 수 있는 방법을 우리는 알고 있다. 바로 <strong>Sampling</strong>이다. 기댓값이라는 것은 확률 분포를 곱한 식의 적분을 통해서도 구할 수 있지만, <strong>해당 랜덤 변수를 충분히 많이 Sampling하여 평균을 내는 방법</strong>으로도 구할 수 있다. 이를 <strong>Monte Carlo Method</strong>라고 한다. 그러면 우리는 다음과 같은 전략을 통해 Output의 기댓값을 얻어낼 수 있을 것이다.</p>
-
-<ol>
-<li>$w$를 random하게 초기화한다.</li>
-<li>Neural Network를 학습시킨다.</li>
-<li>1~2를 여러 번 반복하여 여러 개의 Output을 얻는다.</li>
-<li>얻은 Output들의 평균을 취한다.</li>
-</ol>
-
-<p>이 과정을 우리는 간단하게 <strong>Ensemble Learning</strong>이라고 부른다는 사실을 알고 있다. 즉 Ensemble Learning을 하는 것 만으로도 <strong>우리는 이미 Bayesian Learning을 하고 있었다</strong>는 결론을 얻을 수 있다. 우리도 모르는 새에 우리는 Bayesian Learning을 하고 있었던 것이다.</p>
-
-<p>하지만 뭔가 허무하기도 하고 이상하다. Bayesian Learning을 하면 $w$의 distribution을 얻게 될 것이라고 알고 있었는데, $w$의 distribution 비스무리한 무언가도 우리한테 남겨진 것이 없다. 그도 그럴 것이, 이 Ensemble Learning은 Bayesian Learning의 장애물들을 해결한 것이 아니라 그 장애물들을 교묘하게 피해서 적분을 하지 않고 output의 기댓값만 구한 것에 지나지 않는다. 즉 <strong>$w$의 distribution도 구하지 않고 output의 기댓값을 구한 것</strong>이다. 이는 우리가 원하는 형태의 Bayesian Learning이 아니다.</p>
-
-<p><br/>
-<br/>
-<br/></p>
-
 <h2 id="span-style-color-royalblue-font-weight-bold-variational-inference-span"><span style="color: royalblue; font-weight: bold">Variational Inference</span></h2>
 
-<p>Deep Learning의 중요한 본질들 중 하나는 바로 <strong>우리가 모르는 함수 $f$가 있을 때, 비교적 적은 미지수를 갖고 우리가 아는 함수$g$를 정의하여 $g$가 $f$를 잘 흉내내도록 미지수들을 정해주는것</strong>이다. 우리는 똑같은 논리를 이 곳에 적용시킬 것이다. 즉 우리가 알고 비교적 적은 parameter $\theta$를 갖는 분포 $q(w|\theta)$를 정의하여 이 $q(w|\theta)$가 $p(w|D)$를 가장 <strong>잘 흉내내도록</strong> $q(w|\theta)$의 parameter $\theta$를 정해주는 것이다. 다만 이 둘은 함수가 아니기 때문에 기존의 Deep Learning에서 쓰는 방법과는 다른 접근이 필요하다.</p>
+<p>위에서 살펴봤듯이, posterior $p(w|D)$를 직접 구하기는 힘들어 보인다. 그럼 간접적인 방법에는 어떤 것이 있을까? Deep Learning의 중요한 본질들 중 하나는 바로 <strong>우리가 모르는 함수 $f$가 있을 때, 비교적 적은 미지수를 갖고 우리가 아는 함수$g$를 정의하여 $g$가 $f$를 잘 흉내내도록 미지수들을 정해주는것</strong>이다. 우리는 똑같은 논리를 이 곳에 적용시킬 것이다. 즉 우리가 알고 비교적 적은 parameter $\theta$를 갖는 분포 $q(w|\theta)$를 정의하여 이 $q(w|\theta)$가 $p(w|D)$를 가장 <strong>잘 흉내내도록</strong> $q(w|\theta)$의 parameter $\theta$를 정해주는 것이다. 다만 이 둘은 함수가 아니기 때문에 기존의 Deep Learning에서 쓰는 방법과는 다른 접근이 필요하다.</p>
 
 <p>먼저 $q(w|\theta)$가 $p(w|D)$를 얼마나 잘 흉내내고 있는지의 척도를 정의해 줄 필요가 있다. 이 척도만 있다면 Deep Learning에서의 Loss처럼 써먹을 수 있을 것 같다. 두 Distribution이 얼마나 닮았는지를 비교하는 척도로는 Kullback-Leibler Divergence가 있는데, 다음과 같이 정의된다. 왜 이렇게 정의되는지를 알고 싶은 분들 께서는 <a href="https://hyeongminlee.github.io/post/prob002_kld_jsd/" target="_blank">이 포스트</a>를 참고해주시길 바란다.</p>
 
