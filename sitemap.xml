@@ -30,6 +30,15 @@
     
     <url>
     
+      <loc>https://hyeongminlee.github.io/post/bnn003_vi/</loc>
+      <lastmod>2019-01-17T00:00:00+09:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>https://hyeongminlee.github.io/publication/int_conf_001/</loc>
       <lastmod>2018-10-07T00:00:00+00:00</lastmod>
     </url>
@@ -268,6 +277,16 @@
     
     <url>
     
+      <loc>https://hyeongminlee.github.io/tags/bayesian/</loc>
+      <lastmod>2019-01-17T00:00:00+09:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>https://hyeongminlee.github.io/blog/</loc>
       <lastmod>2017-10-25T00:00:00+00:00</lastmod>
       <priority>0</priority>
@@ -279,6 +298,16 @@
     <url>
     
       <loc>https://hyeongminlee.github.io/categories/</loc>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>https://hyeongminlee.github.io/tags/gan/</loc>
+      <lastmod>2018-05-28T00:00:00+09:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -308,7 +337,6 @@
     <url>
     
       <loc>https://hyeongminlee.github.io/tags/machine-learning/</loc>
-      <lastmod>2018-09-04T00:00:00+09:00</lastmod>
       <priority>0</priority>
     </url>
     

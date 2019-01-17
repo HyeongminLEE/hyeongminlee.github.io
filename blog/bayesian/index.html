@@ -227,7 +227,7 @@
 
 <p>예를 들어 봅시다. 전국 대학생의 평균 연령을 알기 위해 전국적으로 100명의 대학생을 Sampling 하여 평균 연령을 구했고, 그 결과 23살이라는 값이 나왔다고 합시다. <strong>Frequentest View</strong>에서는 &ldquo;전국 대학생의 평균 연령을 23살이라고 하면 되겠군!&ldquo;이라고 대답할 것이고, <strong>Bayesian View</strong>에서는 &ldquo;전국 대학생의 평균 연령이 23살일 확률이 높겠지만, 아닐 확률도 존재 한다. 그 확률 분포는 다음과 같다.&ldquo;라는 이야기를 할 것입니다. 이처럼 <strong>Bayesian View</strong>에서는 우리가 구하고자 하는 값을 정확히 구하지 않고, 어떤 값일 확률이 어느 정도인지에 대한 <strong>확률 분포로 대답</strong>합니다.</p>
 
-<p>우리가 일반적으로 사용하는 <strong>Deep Learning</strong>은 <strong>Frequentest View</strong>입니다. Model의 Parameter들이 하나의 값으로 정해져 있고, 그에 따라 output도 하나의 값으로 출력하기 때문입니다. 하지만 이번 포스트에서 다룰 <strong>Bayesian Deep Learning</strong>은 <strong>Bayesian View</strong>에 해당합니다. 즉 정답 뿐만 아니라 정답이 어느 값일 확률이 높은지에 대한 <strong>distribution</strong>을 출력합니다. 이렇게 distribution을 출력하였을 경우 얻을 수 있는 이득중의 하나는 <strong>Uncertainty</strong>를 알 수 있다는 점입니다. Model이 특정 값을 예측함에 있어서 그 대답이 <strong>얼마나 확실한지, 믿을만 한지</strong>를 알게 되면 여러 분야에 활용 가능합니다. 특히 자율주행과 같이 안전이 우선시되는 분야에서는 인공지능이 스스로 내린 결정이 정말 믿을만 한지에 대한 정보를 알 필요가 있습니다. 이번 포스팅에서는 이러한 <strong>Uncertainty</strong>에 집중하면서 <strong>Bayesian Deep Learning</strong>에 대해 알아보도록 하고, 후반부에는 각 알고리즘을 텐서플로우로 구현한 코드를 제공할 예정입니다. 그럼 시작해보도록 하겠습니다.</p>
+<p>우리가 일반적으로 사용하는 <strong>Deep Learning</strong>은 <strong>Frequentest View</strong>입니다. Model의 Parameter들이 하나의 값으로 정해져 있고, 그에 따라 output도 하나의 값으로 출력하기 때문입니다. 하지만 이번 포스트에서 다룰 <strong>Bayesian Deep Learning</strong>은 <strong>Bayesian View</strong>에 해당합니다. 즉 정답 뿐만 아니라 정답이 어느 값일 확률이 높은지에 대한 <strong>distribution</strong>을 출력합니다. 이렇게 distribution을 출력하였을 경우 얻을 수 있는 이득중의 하나는 <strong>Uncertainty</strong>를 알 수 있다는 점입니다. Model이 특정 값을 예측함에 있어서 그 대답이 <strong>얼마나 확실한지, 믿을만 한지</strong>를 알게 되면 여러 분야에 활용 가능합니다. 특히 자율주행과 같이 안전이 우선시되는 분야에서는 인공지능이 스스로 내린 결정이 정말 믿을만 한지에 대한 정보를 알 필요가 있습니다. 이번 포스팅에서는 이러한 <strong>Uncertainty</strong>에 집중하면서 <strong>Bayesian Deep Learning</strong>에 대해 알아 볼 예정입니다. 그럼 시작해보도록 하겠습니다.</p>
 
 <p><br/></p>
 
@@ -266,14 +266,6 @@
   <ul>
     
     <li><a href="/blog/gan/">Image Generation with GAN</a></li>
-    
-    <li><a href="/post/bnn002_mle_map/">Maximum Likelihood Estimation(MLE) &amp; Maximum A Posterior(MAP)</a></li>
-    
-    <li><a href="/post/bnn001_bayes_rule/">Bayes Rule (베이즈 룰)</a></li>
-    
-    <li><a href="/post/gan005_discogan/">[GAN]DiscoGAN</a></li>
-    
-    <li><a href="/post/gan004_pix2pix/">[GAN]Pix2Pix</a></li>
     
   </ul>
 </div>

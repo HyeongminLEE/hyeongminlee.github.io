@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108616338-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-108616338-1');
+</script>
+
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme" content="hugo-academic">
+  <meta name="generator" content="Hugo 0.29" />
+  <meta name="author" content="Hyeongmin Lee">
+  <meta name="description" content="M.S/Ph.D sutdent of Computer Vision">
+
+  
+  
+  
+  
+    
+  
+  
+    
+    
+    <link rel="stylesheet" href="/css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.1/css/academicons.min.css" integrity="sha512-NThgw3XKQ1absAahW6to7Ey42uycrVvfNfyjqcFNgCmOCQ5AR4AO0SiXrN+8ZtYeappp56lk1WtvjVmEa+VR6A==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
+  
+  
+
+
+  
+
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700%7cRoboto:400,400italic,700%7cRoboto&#43;Mono">
+  
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+
+  <link rel="alternate" href="" type="application/rss+xml" title="Hyeongmin Lee&#39;s Website">
+  <link rel="feed" href="" type="application/rss+xml" title="Hyeongmin Lee&#39;s Website">
+
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/apple-touch-icon.png">
+
+  <link rel="canonical" href="https://hyeongminlee.github.io/post/bnn003_vi/">
+
+  
+
+  <title>Variational Inference | Hyeongmin Lee&#39;s Website</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+      <a class="navbar-brand" href="/">Hyeongmin Lee&#39;s Website</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#about">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#news">
+            
+            <span>News</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#publications">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#posts">
+            
+            <span>Recent Posts</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#blog">
+            
+            <span>Blog</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="/#contact">
+            
+            <span>Contact</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+  <div class="article-container">
+    <h1 itemprop="name">Variational Inference</h1>
+    
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2019-01-17 00:00:00 &#43;0900 KST" itemprop="datePublished">
+      Jan 17, 2019
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    7 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="https://hyeongminlee.github.io/post/bnn003_vi/#disqus_thread"></a>
+  
+
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<hr />
+
+<p>앞선 <a href="https://hyeongminlee.github.io/post/bnn002_mle_map/" target="_blank">포스팅</a>에서 우리는 <strong>MLE</strong>와 <strong>MAP</strong>에 대하여 알아봤습니다. <strong>MLE</strong>는 Likelihood만 주어진 경우 이를 최대로 하는 parameter를 찾는 일이고 <strong>MAP</strong>는 Likelihood와 사전 지식인 Prior가 전부 주어진 경우 Posterior를 최대로 하는 parameter를 찾는 일이었습니다. 하지만 이런 방식으로 <strong>parameter $w$</strong>를 구하는 일은 아직 <strong>Bayesian View</strong>라고 할 수 없습니다. <strong>$w$의 분포를 구하는 게 아니라 $w$의 값을 확정짓는 방법들이기 때문</strong>입니다. 우리가 알고자 하는 <strong>Bayesian View</strong>는 구하고자 하는 값인 $w$의 확률 분포, 즉 <strong>posterior</strong>입니다. MAP에서 구하지 않냐구요? MAP에서조차 posterior를 최대로 하는 $w$를 구할 뿐 posterior를 정확히 구하지는 않습니다. 이번 포스팅을 시작으로 $w$의 분포, 즉 <strong>posterior</strong>를 구함으로 인해 진정한 Bayesian View에 접근해 나가도록 하겠습니다.
+<br/></p>
+
+<ul>
+<li><strong>선수 지식:</strong> 이 포스트를 이해하기 위해서는 <a href="https://hyeongminlee.github.io/post/bnn002_mle_map/" target="_blank">MLE &amp; MAP</a>에 관한 지식이 필요합니다.<br /></li>
+<li><strong>참고 논문:</strong> <a href="https://arxiv.org/pdf/1505.05424.pdf" target="_blank">Weight Uncertainty in Neural Networks</a></li>
+<li>추가적인 예시를 원하시는 분들께서는 Variational Inference를 Auto Encoder에 응용한 알고리즘인 Variational Auto Encoder(VAE) 를 참고하셔도 좋을 것 같습니다. <a href="https://www.youtube.com/watch?v=KYA-GEhObIs&amp;list=PLlMkM4tgfjnJhhd4wn5aj8fVTYJwIpWkS" target="_blank">PR12 링크</a></li>
+</ul>
+
+<hr />
+
+<p><br/></p>
+
+<h2 id="span-style-color-royalblue-font-weight-bold-험난하기만-한-posterior로의-길-span"><span style="color: royalblue; font-weight: bold">험난하기만 한 Posterior로의 길</span></h2>
+
+<h3 id="장애물-1-evidence">장애물 1: Evidence</h3>
+
+<p>이전 <a href="https://hyeongminlee.github.io/post/bnn002_mle_map/" target="_blank">포스팅</a>의 기억을 되살릴 겸 우리의 목표를 상기시켜 보자. 우리의 목표는 Neural Network의 parameter인 $w$를 찾는 것이다. 하지만 그냥 찾는 것은 쉽다. Loss를 설정해주고 Gradient Descent 알고리즘을 돌리면 되기 때문이다. 이 걸 <strong>Frequentest View</strong>라고 했었다. 우리는 $w$의 값만 알고 싶은 것이 아니라 $w$의 분포, 즉 Posterior를 알고 싶다. 이 걸 <strong>Bayesian View</strong>라고 했었다. 그러면 Posterior를 구하기 위해 Bayesian Equation을 적어보도록 하자.</p>
+
+<p><br/>
+$$p(w|D) = \frac {p(D|w)p(w)}{\int {p(D|w)p(w)} dw}$$
+<br/></p>
+
+<p>식을 하나 하나 뜯어보도록 하자. 먼저 우리가 구하고자 하는 <strong>Posterior</strong> $p(w|D)$는 Train Data D가 주어졌을 때 이를 가장 잘 재현하기 위한 parameter $w$가 있을 텐데, 이 값을 정확히 뭐라고 확정 짓지 않고 확률 분포로 대답한 결과라고 했었다. 이 내용은 <a href="https://hyeongminlee.github.io/post/bnn002_mle_map/" target="_blank">이전 포스팅</a>에 잘 정리 되어 있다. 이 Posterior는 우리가 구해야 할 값이기도 하다. 다음은 <strong>Likelihood</strong> $p(D|w)$이다. 이 분포는 <a href="https://hyeongminlee.github.io/post/bnn002_mle_map/" target="_blank">이전 포스팅</a>에서 살펴 봤듯이 보통 Gaussian으로 가정한다. 그 옆에는 <strong>Prior</strong> $p(w)$가 있는데, 이 분포는 우리의 사전 지식에 의해 설정되는 분포다. 사전 지식이 없다면 Prior를 설정해줌으로 인해 우리가 원하는 방향의 $w$가 구해지게끔 할 수도 있다.</p>
+
+<p>이렇게 보면 우리가 중요하게 다뤘던 모든 조건들은 전부 주어지거나 우리가 설정할 수 있다. 그런데도 불구하고 Posterior를 구하지 못하는 이유는 뭘까? 뜬금없게도 분모에 있는 $p(D) = \int p(D|w)p(w)$ 때문이다. 이 값은 <strong>Evidence</strong>라고 부르는데, 이전에도 살펴 봤듯이 상수 값이기 때문에, Posterior를 최대로 하는 $w$만 구하면 됐었던 MAP에서는 따로 구하지 않았었다. 하지만 Posterior 분포를 정확히 알고 싶은 지금은 <strong>꼼짝 없이 구해야 하는 값</strong>이 되어 버렸다. 구하면 되지 않을까? 알다시피 $w$는 이렇게 변수 하나로 적어 놔서 그렇지, 보통 <strong>굉장히 차원이 높은 편</strong>이고 Neural Net의 Layer가 깊어질 수록 그 <strong>개수 또한 어마어마하게 많아</strong>진다. 이렇게 넓은 차원에 퍼져 있는 모든 가능한 $w$에 대하여 적분 연산을 한다는 것은 <strong>사실상 불가능</strong>에 가깝다.</p>
+
+<p><br/></p>
+
+<h3 id="장애물-2-output">장애물 2: Output</h3>
+
+<p>어찌어찌 위의 문제가 잘 해결되어 $w$의 Posterior $p(w|D)$를 구해 냈다고 치자. <strong>MAP</strong>에서는 <strong>Posterior가 최대가 되는 $w$ 값</strong>을 구해서 이 $w$로 이루어 진 Neural Network를 통과시켜, 그대로 Output을 얻기만 하면 됐었다. 하지만 Posterior를 정확히 알고 있는 지금, MAP에서 처럼 Posterior가 최대가 되는 $w$를 찾아 쓰기만 하면 될까? 이럴 거였으면 고생해가면서 Posterior를 구할 이유도 없었다. <strong>MAP</strong>랑 다를 것이 없기 때문이다. Posterior를 온전히 알고 있으면 우리는 <strong>$w$에 따른 Output의 기댓값</strong>을 구할 수 있게 된다. MAP에 비해 Posterior 전체에 담긴 정보를 훨씬 많이 반영한 결과이기 때문에 더 신뢰할 수 있는 output이라고 할 수 있다. 그리고 output의 기댓값은 다음 식을 통해 구할 수 있다.</p>
+
+<p><br/>
+$$E[f(w)] = \int {f(w)p(w|D)} dw$$
+<br/></p>
+
+<p>눈치 채셨겠지만, <strong>또 적분</strong>이다. 그것도 그냥 적분이 아니라 위에서 말한 것 처럼 매우 고차원에다가 개수까지 많은 $w$에 대한 적분이다. 이 적분 역시 현실적으로 계산하는 것이 <strong>불가능</strong>하다.</p>
+
+<p><br/>
+<br/>
+<br/></p>
+
+<h2 id="span-style-color-royalblue-font-weight-bold-monte-carlo-method-span"><span style="color: royalblue; font-weight: bold">Monte Carlo method</span></h2>
+
+<p><strong>Evidence</strong>도 못 구하고, 구했다 치더라도 <strong>Output</strong>을 못 구한다고 한다. 이 상황을 어떻게 타파할 것인가? 두 적분 식을 잘 살펴보자.</p>
+
+<p><br/>
+$$p(D) = \int {p(D|w)p(w)} dw$$
+$$E[f(w)] = \int {f(w)p(w|D)} dw$$
+<br/></p>
+
+<p>위 두 식의 공통점은 적분 식이라는 점도 있지만 바로 확률 분포를 곱하여 진행하는 적분, 즉 <strong>기댓값 연산</strong>이라는 공통점이 존재한다. 기댓값 연산을 근사적으로 우회할 수 있는 방법을 우리는 알고 있다. 바로 <strong>Sampling</strong>이다. 기댓값이라는 것은 확률 분포를 곱한 식의 적분을 통해서도 구할 수 있지만, <strong>해당 랜덤 변수를 충분히 많이 Sampling하여 평균을 내는 방법</strong>으로도 구할 수 있다. 이를 <strong>Monte Carlo Method</strong>라고 한다. 그러면 우리는 다음과 같은 전략을 통해 Output의 기댓값을 얻어낼 수 있을 것이다.</p>
+
+<ol>
+<li>$w$를 random하게 초기화한다.</li>
+<li>Neural Network를 학습시킨다.</li>
+<li>1~2를 여러 번 반복하여 여러 개의 Output을 얻는다.</li>
+<li>얻은 Output들의 평균을 취한다.</li>
+</ol>
+
+<p>이 과정을 우리는 간단하게 <strong>Ensemble Learning</strong>이라고 부른다는 사실을 알고 있다. 즉 Ensemble Learning을 하는 것 만으로도 <strong>우리는 이미 Bayesian Learning을 하고 있었다</strong>는 결론을 얻을 수 있다. 우리도 모르는 새에 우리는 Bayesian Learning을 하고 있었던 것이다.</p>
+
+<p>하지만 뭔가 허무하기도 하고 이상하다. Bayesian Learning을 하면 $w$의 distribution을 얻게 될 것이라고 알고 있었는데, $w$의 distribution 비스무리한 무언가도 우리한테 남겨진 것이 없다. 그도 그럴 것이, 이 Ensemble Learning은 Bayesian Learning의 장애물들을 해결한 것이 아니라 그 장애물들을 교묘하게 피해서 적분을 하지 않고 output의 기댓값만 구한 것에 지나지 않는다. 즉 <strong>$w$의 distribution도 구하지 않고 output의 기댓값을 구한 것</strong>이다. 이는 우리가 원하는 형태의 Bayesian Learning이 아니다.</p>
+
+<p><br/>
+<br/>
+<br/></p>
+
+<h2 id="span-style-color-royalblue-font-weight-bold-variational-inference-span"><span style="color: royalblue; font-weight: bold">Variational Inference</span></h2>
+
+<p>Deep Learning의 중요한 본질들 중 하나는 바로 <strong>우리가 모르는 함수 $f$가 있을 때, 비교적 적은 미지수를 갖고 우리가 아는 함수$g$를 정의하여 $g$가 $f$를 잘 흉내내도록 미지수들을 정해주는것</strong>이다. 우리는 똑같은 논리를 이 곳에 적용시킬 것이다. 즉 우리가 알고 비교적 적은 parameter $\theta$를 갖는 분포 $q(w|\theta)$를 정의하여 이 $q(w|\theta)$가 $p(w|D)$를 가장 <strong>잘 흉내내도록</strong> $q(w|\theta)$의 parameter $\theta$를 정해주는 것이다. 다만 이 둘은 함수가 아니기 때문에 기존의 Deep Learning에서 쓰는 방법과는 다른 접근이 필요하다.</p>
+
+<p>먼저 $q(w|\theta)$가 $p(w|D)$를 얼마나 잘 흉내내고 있는지의 척도를 정의해 줄 필요가 있다. 이 척도만 있다면 Deep Learning에서의 Loss처럼 써먹을 수 있을 것 같다. 두 Distribution이 얼마나 닮았는지를 비교하는 척도로는 Kullback-Leibler Divergence가 있는데, 다음과 같이 정의된다. 왜 이렇게 정의되는지를 알고 싶은 분들 께서는 <a href="https://hyeongminlee.github.io/post/prob002_kld_jsd/" target="_blank">이 포스트</a>를 참고해주시길 바란다.</p>
+
+<p><br/>
+$$D_{KL} [q(w|\theta)||p(w|D)] = \int {q(w|\theta) \log{\frac{q(w|\theta)}{p(w|D)}}} dw$$
+<br/></p>
+
+<p>우리는 $w$를 연속으로 가정하고 있기 때문에 포스트와는 다르게 Integral 형태로 식을 작성하였다. 이제 위 식에 Bayesian Equation을 적용시키면 다음과 같이 전개할 수 있다.</p>
+
+<p><br/>
+$$\int {q(w|\theta) \log{\frac{q(w|\theta)}{p(w|D)}}} dw$$
+$$= \int {q(w|\theta) \log{\frac{q(w|\theta)p(D)}{p(w)p(D|w)}}} dw$$
+$$= \int {q(w|\theta) [\log{\frac{q(w|\theta)}{p(w)}}} + \log{p(D)} - \log{p(D|w)}] dw$$
+$$= \int {q(w|\theta) \log{\frac{q(w|\theta)}{p(w)}}} dw + E_ q{[\log{p(D)}]} - E_ q{[\log{p(D|w)}]}$$
+$$= D_ {KL} [q(w|\theta)||p(w)] + E_ q{[\log{p(D)}]} - E_ q{[\log{p(D|w)}]}$$
+<br/></p>
+
+<p>여기서 $E_ q{[\log{p(D)}]}$는 $q$와 무관하므로 제거하면 최종적으로 우리는 다음 식을 <strong>Minimize</strong> 하는 $\theta$를 찾아야 한다. 그렇게 $\theta$를 찾으면, 완벽히 같진 않겠지만 우리는 $q(w|\theta)$를 $w$의 Posterior라고 주장할 수 있게 된다.</p>
+
+<p><br/>
+$$D_ {KL} [q(w|\theta)||p(w)] - E_ q{[\log{p(D|w)}]}$$
+<br/></p>
+
+<p>위 식의 두 항을 살펴보도록 하자. 먼저 $D_ {KL} [q(w|\theta)||p(w)]$은 $D_{KL} [q(w|\theta)||p(w|D)]$과는 달리 계산 가능한 값이다. $p(w)$도 알고 $q(w|\theta)$는 우리가 정의해주는 분포이기 때문이다. 이제 뒤의 식을 살펴보면 먼저 $\log{p(D|w)}$가 보인다. <strong>Likelihood</strong>이다. 이 값을 Maximize 시킨다는 것인데, 이는 Maximum Likelihood Estimation(MLE)에 해당하기 때문에 일반적인 Neural Network를 학습시키는 일과 동치이다. 이에 대한 증명은 역시 <a href="https://hyeongminlee.github.io/post/bnn002_mle_map/" target="_blank">이전 포스팅</a>에 있다. 그런데 단순히 Neural Net을 학습시키는 것이 아니다. 그냥 Likelihood가 아니라 $q(w|\theta)$에 대한 Likelihood의 기댓값이기 때문이다. 여기에 우리는 Monte Carlo Method를 응용하도록 하자. $E_ q{[\log{p(D|w)}]}$를 $q(w|\theta)$로부터 Sampling된 $w$인 $\overline{w}$에 대하여 $\log{p(D|\overline{w})}$로 대체하는 것이다. 뭔가 복잡하지만, 정리하면 다음과 같다.</p>
+
+<p><strong>$q(w|\theta)$로부터 sampling된 $w$에 대하여 얻은 output과 label 사이의 loss, 그리고 $D_ {KL} [q(w|\theta)||p(w)]$를 계산하여 얻은 식의 합을 최종적인 loss로 하여 back propagation을 진행한다. 학습되는 parameter는 $w$가 아니라 $q$의 parameter인 $\theta$이다.</strong></p>
+
+<p><br/>
+<br/>
+<br/></p>
+
+<h2 id="span-style-color-royalblue-font-weight-bold-practical-implementation-span"><span style="color: royalblue; font-weight: bold">Practical Implementation</span></h2>
+
+<p>앞에서 너무 일반적인 얘기를 하여 이해가 어려우셨던 분들을 위해 실제 상황을 예로 들어 <strong>Variational Inference</strong>를 실제로 진행해보도록 할 것이다. 우리가 Bayesian Learning으로 학습할 Neural Network에는 $N$개의 parameter들 $w_1, w_2, &hellip; , w_N$이 있다고 하자. 먼저 Prior $p(w_i)$를 정해줘야 할 텐데, $i$에 상관 없이 <strong>Standard Normal Distribution</strong>으로 가정하도록 하자.</p>
+
+<p><br/>
+$$p(w_i)=N(0,1^2)=\frac {1} {\sqrt{2\pi}} e^{-\frac{w^2}{2}}$$
+<br/></p>
+
+<p>그리고 $q$또한 Gaussian으로 놓자. $w_i$는 $i$에 따라 다른 분포를 따를 수 있기 때문에 우리가 최적화시켜야 할 parameter들은 $\mu_i$와 $\sigma_i$로, 총 $2N$개가 된다. 그리고 $q(w_i|\mu_i, \sigma_i)$는 다음과 같다.</p>
+
+<p><br/>
+$$q(w_i|\mu_i, \sigma_i)=N(\mu_i, (\sigma_i)^2)=\frac {1} {\sqrt{2\pi}\sigma_i} e^{-\frac{w_i^2}{2\sigma_i^2}}$$
+<br/></p>
+
+<p>여기서 헷갈리면 안되는 게, 우리는 기존의 딥러닝처럼 <strong>$w_ i$를 업데이트하는 것이 아니다.</strong> $\mu_ i$와 $\sigma_ i$를 업데이트 할 것이고, 이로부터 $w_ i$가 sampling 되도록 할 것이다. 이제 정의해줘야 할 것들이 전부 충족되었으니, $D_ {KL} [q(w_i|\mu_i, \sigma_i)||p(w)]$를 먼저 계산해 놓도록 하자. 그 결과는 다음과 같게 된다.</p>
+
+<p><br/>
+$$D_ {KL} [q(w|\theta)||p(w)] = -\sum _{i=1} ^{N} {[(1 + \log{(\sigma_i^2)})-\mu_i ^2 - \sigma_i ^2]}$$
+<br/></p>
+
+<p>자, 이제 $E_ q{[\log{p(D|w)}]}$ 항을 해결해야 하는데, 위에서 말했듯이 MLE에 해당하기 때문에 $w_i$들로 구성된 네트워크를 통과해서 나온 결과 값 $y$와 실제 값$t$ 사이의 loss를 구해서 backprop하면 되는 것이다. 간단하게 $L_2$ Loss를 쓰도록 하자.</p>
+
+<p><br/>
+$$L_2 = (y-t)^2$$
+<br/></p>
+
+<p>이제 마지막 관문이 남았다. $w_i$를 어떻게 sampling하냐는 것이다. 안타깝게도 단순히 $w_i$들을 각각의 distrbution에 따라 random sampling 하여 Neural Network에 집어 넣게 되면 $\mu_i$와 $\sigma_i$까지 gradient가 도달하게 만들 수 없다. Sampling 과정이 미분 불가능하기 때문이다. 그래서 다음과 같은 방법을 사용한다.</p>
+
+<p><br/>
+$$w_i = \mu_i + \sigma_i \times \epsilon_i, \quad \epsilon_i \sim N(0,1^1)$$
+<br/></p>
+
+<p>위 식을 통해 $w_i$를 sampling 하면 $w_i$까지 도달한 gradient를 $\mu_i$와 $\sigma_i$ 까지 propagate할 수 있다. 최종적으로 정리하자면, variational inference를 이용하여 $w_i$들을 알아내는 과정은 다음과 같다.</p>
+
+<ol>
+<li>$\mu_i$와 $\sigma_i$를 전부 초기화 한다.</li>
+<li>$w_i = \mu_i + \sigma_i \times \epsilon_i$를 이용하여 학습시킬 Neural Network의 parameter들을 결정한다.</li>
+<li>$w_i$ 들이 결정 된 Neural Network에 input $x$를 통과시켜 output $y$를 얻는다.</li>
+<li>$y$와 정답 $t$ 사이의 loss를 계산한다. $L_2 = (y-t)^2$</li>
+<li>최종 Loss는 $Loss = -\sum _{i=1} ^{N} {[(1 + \log{(\sigma_i^2)})-\mu_i ^2 - \sigma_i ^2]} + (y-t)^2$가 되고, 이를 통해 backpropagation 한다. 그러면 $\mu_i$와 $\sigma_i$들이 업데이트 된다.</li>
+<li>2~5를 반복한다.(학습)</li>
+</ol>
+
+<p>이런 과정을 통해 학습이 완료되면 우리는 최종적인 $\mu_i$와 $\sigma_i$들을 얻을 수 있고, 이렇게 얻은 값들을 parameter로 하는 gaussian distribution $q(w_i|\mu_i, \sigma_i)$를 우리는 $w_i$의 <strong>Posterior</strong>라고 말할 수 있다.</p>
+
+    </div>
+
+    
+    
+    
+    <div class="article-tags">
+      
+      <a class="btn btn-primary btn-outline" href="/tags/bayesian">Bayesian</a>
+      
+    </div>
+    
+    
+
+  </div>
+
+</article>
+
+
+
+<div class="article-container article-widget">
+  <div class="hr-light"></div>
+  <h3>Related</h3>
+  <ul>
+    
+    <li><a href="/post/bnn002_mle_map/">Maximum Likelihood Estimation(MLE) &amp; Maximum A Posterior(MAP)</a></li>
+    
+    <li><a href="/post/bnn001_bayes_rule/">Bayes Rule (베이즈 룰)</a></li>
+    
+  </ul>
+</div>
+
+
+
+
+<div class="article-container">
+  
+<div id="disqus_thread"></div>
+<script>
+
+
+
+
+
+(function() { 
+var d = document, s = d.createElement('script');
+s.src = 'https://hyeongminlee.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="powered-by">
+
+      &copy; 2017 Hyeongmin Lee &middot; 
+
+      Powered by the <a href="https://github.com/gcushen/hugo-academic" target="_blank">Academic
+      theme</a> for <a href="http://gohugo.io" target="_blank">Hugo</a>.
+
+      <span class="pull-right" aria-hidden="true">
+        <a href="#" id="back_to_top">
+          <span class="button_icon">
+            <i class="fa fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span>
+
+    </p>
+  </div>
+</footer>
+
+    
+
+    
+    
+    <script id="dsq-count-scr" src="//hyeongminlee.disqus.com/count.js" async></script>
+    
+
+    
+    <script async defer src="//maps.googleapis.com/maps/api/js"></script>
+    
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.25/gmaps.min.js" integrity="sha256-7vjlAeb8OaTrCXZkCNun9djzuB2owUsaO72kXaFDBJs=" crossorigin="anonymous"></script>
+    
+    <script src="/js/hugo-academic.js"></script>
+    
+
+    
+    
+      
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+      
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_CHTML" integrity="sha512-tOav5w1OjvsSJzePRtt2uQPFwBoHt1VZcUq8l8nm5284LEKE9FSJBQryzMBzHxY5P0zRdNqEcpLIRVYFNgu1jw==" crossorigin="anonymous"></script>
+    
+    
+
+  </body>
+</html>
+
