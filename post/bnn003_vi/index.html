@@ -326,7 +326,7 @@ $$L_2 = (y-t)^2$$
 <p>이제 마지막 관문이 남았다. $w_i$를 어떻게 sampling하냐는 것이다. 안타깝게도 단순히 $w_i$들을 각각의 distrbution에 따라 random sampling 하여 Neural Network에 집어 넣게 되면 $\mu_i$와 $\sigma_i$까지 gradient가 도달하게 만들 수 없다. Sampling 과정이 미분 불가능하기 때문이다. 그래서 다음과 같은 방법을 사용한다.</p>
 
 <p><br/>
-$$w_i = \mu_i + \sigma_i \times \epsilon_i, \quad \epsilon_i \sim N(0,1^1)$$
+$$w_i = \mu_i + \sigma_i \times \epsilon_i, \quad \epsilon_i \sim N(0,1^2)$$
 <br/></p>
 
 <p>위 식을 통해 $w_i$를 sampling 하면 $w_i$까지 도달한 gradient를 $\mu_i$와 $\sigma_i$ 까지 propagate할 수 있다. 최종적으로 정리하자면, variational inference를 이용하여 $w_i$들을 알아내는 과정은 다음과 같다.</p>
