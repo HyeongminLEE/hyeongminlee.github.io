@@ -30,6 +30,15 @@
     
     <url>
     
+      <loc>https://hyeongminlee.github.io/publication/int_conf_004/</loc>
+      <lastmod>2020-06-28T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>https://hyeongminlee.github.io/publication/int_conf_003/</loc>
       <lastmod>2019-10-07T00:00:00+00:00</lastmod>
     </url>
@@ -77,15 +86,6 @@
     
       <loc>https://hyeongminlee.github.io/post/bnn001_bayes_rule/</loc>
       <lastmod>2018-08-30T00:00:00+09:00</lastmod>
-    </url>
-    
-  
-    
-    
-    <url>
-    
-      <loc>https://hyeongminlee.github.io/publication/dom_conf_003/</loc>
-      <lastmod>2018-06-27T00:00:00+00:00</lastmod>
     </url>
     
   
@@ -165,15 +165,6 @@
     
     <url>
     
-      <loc>https://hyeongminlee.github.io/publication/dom_conf_002/</loc>
-      <lastmod>2017-11-24T00:00:00+00:00</lastmod>
-    </url>
-    
-  
-    
-    
-    <url>
-    
       <loc>https://hyeongminlee.github.io/post/gan001_gan/</loc>
       <lastmod>2018-03-14T00:00:00+09:00</lastmod>
     </url>
@@ -185,24 +176,6 @@
     
       <loc>https://hyeongminlee.github.io/post/pr001_dehazing/</loc>
       <lastmod>2017-10-27T00:00:00+09:00</lastmod>
-    </url>
-    
-  
-    
-    
-    <url>
-    
-      <loc>https://hyeongminlee.github.io/publication/dom_journal_001/</loc>
-      <lastmod>2017-10-25T00:00:00+00:00</lastmod>
-    </url>
-    
-  
-    
-    
-    <url>
-    
-      <loc>https://hyeongminlee.github.io/publication/dom_conf_001/</loc>
-      <lastmod>2017-06-21T00:00:00+00:00</lastmod>
     </url>
     
   
@@ -255,28 +228,8 @@
     
     <url>
     
-      <loc>https://hyeongminlee.github.io/publication_types/1/</loc>
-      <lastmod>2018-06-27T00:00:00+00:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    
-    <url>
-    
-      <loc>https://hyeongminlee.github.io/publication_types/2/</loc>
-      <lastmod>2017-10-25T00:00:00+00:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    
-    <url>
-    
       <loc>https://hyeongminlee.github.io/publication_types/3/</loc>
-      <lastmod>2019-10-07T00:00:00+00:00</lastmod>
+      <lastmod>2020-06-28T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -384,7 +337,7 @@
     <url>
     
       <loc>https://hyeongminlee.github.io/publication_types/</loc>
-      <lastmod>2018-06-27T00:00:00+00:00</lastmod>
+      <lastmod>2020-06-28T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
