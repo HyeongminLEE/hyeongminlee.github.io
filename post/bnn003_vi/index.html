@@ -190,7 +190,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    6 min read
+    7 min read
   </span>
   
 
@@ -302,19 +302,31 @@ $$D_ {KL} [q(w|\theta)||p(w)] - E_ q{[\log{p(D|w)}]}$$
 <p>앞에서 너무 일반적인 얘기를 하여 이해가 어려우셨던 분들을 위해 실제 상황을 예로 들어 <strong>Variational Inference</strong>를 실제로 진행해보도록 할 것이다. 우리가 Bayesian Learning으로 학습할 Neural Network에는 $N$개의 parameter들 $w_1, w_2, &hellip; , w_N$이 있다고 하자. 먼저 Prior $p(w_i)$를 정해줘야 할 텐데, $i$에 상관 없이 <strong>Standard Normal Distribution</strong>으로 가정하도록 하자.</p>
 
 <p><br/>
-$$p(w_i)=N(0,1^2)=\frac {1} {\sqrt{2\pi}} e^{-\frac{w^2}{2}}$$
+$$p(w_i)=N(0,1^2)=\frac {1} {\sqrt{2\pi}} e^{-\frac{w_i^2}{2}}$$
 <br/></p>
 
 <p>그리고 $q$또한 Gaussian으로 놓자. $w_i$는 $i$에 따라 다른 분포를 따를 수 있기 때문에 우리가 최적화시켜야 할 parameter들은 $\mu_i$와 $\sigma_i$로, 총 $2N$개가 된다. 그리고 $q(w_i|\mu_i, \sigma_i)$는 다음과 같다.</p>
 
 <p><br/>
-$$q(w_i|\mu_i, \sigma_i)=N(\mu_i, (\sigma_i)^2)=\frac {1} {\sqrt{2\pi}\sigma_i} e^{-\frac{w_i^2}{2\sigma_i^2}}$$
+$$q(w_i|\mu_i, \sigma_i)=N(\mu_i, (\sigma_i)^2)=\frac {1} {\sqrt{2\pi}\sigma_i} e^{-\frac{(w_i-\mu_i)^2}{2\sigma_i^2}}$$
 <br/></p>
 
-<p>여기서 헷갈리면 안되는 게, 우리는 기존의 딥러닝처럼 <strong>$w_ i$를 업데이트하는 것이 아니다.</strong> $\mu_ i$와 $\sigma_ i$를 업데이트 할 것이고, 이로부터 $w_ i$가 sampling 되도록 할 것이다. 이제 정의해줘야 할 것들이 전부 충족되었으니, $D_ {KL} [q(w_i|\mu_i, \sigma_i)||p(w)]$를 먼저 계산해 놓도록 하자. 그 결과는 다음과 같게 된다.</p>
+<p>여기서 헷갈리면 안되는 게, 우리는 기존의 딥러닝처럼 <strong>$w_ i$를 업데이트하는 것이 아니다.</strong> $\mu_ i$와 $\sigma_ i$를 업데이트 할 것이고, 이로부터 $w_ i$가 sampling 되도록 할 것이다. 이제 정의해줘야 할 것들이 전부 충족되었으니, 다음 식을 통해 $D_ {KL} [q(w_i|\mu_i, \sigma_i)||p(w)]$를 먼저 계산해 놓도록 하자.</p>
 
 <p><br/>
-$$D_ {KL} [q(w|\theta)||p(w)] = -\sum _{i=1} ^{N} {[(1 + \log{(\sigma_i^2)})-\mu_i ^2 - \sigma_i ^2]}$$
+$$D_ {KL} [q(w|\theta_ i)||p(w)] = E_ {w \sim q(w|\theta)}[\log(\frac{q(w|\theta)}{p(w)})]$$
+<br/></p>
+
+<p>그 결과는 다음과 같게 된다.</p>
+
+<p><br/>
+$$D_ {KL} [q(w_ i|\theta_ i)||p(w_ i)] = -\frac{1}{2} {[(1 + \log{(\sigma_i^2)})-\mu_i ^2 - \sigma_i ^2]}$$
+<br/></p>
+
+<p>그리고 이를 Loss로 이용하기 위하여 상수배 Scale을 제거하고 모든 $i$에 대한 합을 구하면 다음과 같은 Loss 식이 완성된다.</p>
+
+<p><br/>
+$$-\sum _{i=1} ^{N} {[(1 + \log{(\sigma_i^2)})-\mu_i ^2 - \sigma_i ^2]}$$
 <br/></p>
 
 <p>자, 이제 $E_ q{[\log{p(D|w)}]}$ 항을 해결해야 하는데, 위에서 말했듯이 MLE에 해당하기 때문에 $w_i$들로 구성된 네트워크를 통과해서 나온 결과 값 $y$와 실제 값$t$ 사이의 loss를 구해서 backprop하면 되는 것이다. 간단하게 $L_2$ Loss를 쓰도록 하자.</p>
