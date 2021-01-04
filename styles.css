@@ -1272,3 +1272,18 @@ div.alert a:hover {
   background-color: #f44336; /* Material Red500 */
   border-color: #ebccd1;
 }
+
+#teleport{
+    text-decoration: none;
+    color: #3794de;
+    display: block;
+    text-align: right;
+    font-size: 19px;
+    }
+#teleport:hover{
+    text-decoration: none;
+    font-weight: bold;
+    color: #3794de;
+    display: block;
+    text-align: right;
+    }

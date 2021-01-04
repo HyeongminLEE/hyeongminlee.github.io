@@ -5,7 +5,7 @@
     
     <url>
     
-      <loc>https://hyeongminlee.github.io/blog/bayesian/</loc>
+      <loc>https://hyeongminlee.github.io/series/bayesian/</loc>
     </url>
     
   
@@ -13,7 +13,7 @@
     
     <url>
     
-      <loc>https://hyeongminlee.github.io/blog/gan/</loc>
+      <loc>https://hyeongminlee.github.io/series/gan/</loc>
     </url>
     
   
@@ -21,7 +21,7 @@
     
     <url>
     
-      <loc>https://hyeongminlee.github.io/blog/paper_review/</loc>
+      <loc>https://hyeongminlee.github.io/series/paper_review/</loc>
       <lastmod>2017-10-25T00:00:00+00:00</lastmod>
     </url>
     
@@ -276,16 +276,6 @@
     
     <url>
     
-      <loc>https://hyeongminlee.github.io/blog/</loc>
-      <lastmod>2017-10-25T00:00:00+00:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    
-    <url>
-    
       <loc>https://hyeongminlee.github.io/categories/</loc>
       <priority>0</priority>
     </url>
@@ -326,6 +316,16 @@
     
       <loc>https://hyeongminlee.github.io/publication_types/</loc>
       <lastmod>2020-10-25T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>https://hyeongminlee.github.io/series/</loc>
+      <lastmod>2017-10-25T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     

@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
@@ -57,11 +55,11 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/apple-touch-icon.png">
 
-  <link rel="canonical" href="https://hyeongminlee.github.io/tags/paper-review/">
+  <link rel="canonical" href="https://hyeongminlee.github.io/series/bayesian/">
 
   
 
-  <title>Paper-review | Hyeongmin Lee&#39;s Website</title>
+  <title>Bayesian Deep Learning | Hyeongmin Lee&#39;s Website</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -158,31 +156,124 @@
 </nav>
 
 
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
 
 
+  <div class="article-container">
+    <h1 itemprop="name" id="top-of-page">Bayesian Deep Learning</h1>
+    
 
-<div class="universal-wrapper">
+<div class="article-metadata">
 
-  <h1>Paper-review</h1>
+  <span class="article-date">
+    
+    <time datetime="0001-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+      Jan 1, 0001
+    </time>
+  </span>
 
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
   
 
   
   
-  <div>
-    <h2><a href="https://hyeongminlee.github.io/series/paper_review/">논문 리뷰</a></h2>
-    <div class="article-style">
-      
-      각종 분야의 논문들을 읽고 요약/정리해놓은 포스트입니다.
-      
-    </div>
-  </div>
+  <span class="middot-divider"></span>
+  <a href="https://hyeongminlee.github.io/series/bayesian/#disqus_thread"></a>
   
 
   
 
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+
+  </ul>
+</div>
+
+
+  
 
 </div>
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<p><strong>Deep Learning</strong>을 비롯한 대부분의 머신러닝 알고리즘들은 주어진 문제를 해결하기 위해 필요한 다양한 <strong>파라미터</strong>들을 주어진 데이터를 통해 학습합니다. 그래서 머신러닝은 <strong>최적의 파라미터를 찾는 일</strong>이라고 볼 수 있습니다. 그런데 사실 이 파라미터를 보는 관점에는 크게 두 가지가 존재합니다.</p>
+
+<ul>
+<li><strong>Frequentest View</strong>: Model의 파라미터들을 Fixed Value로 취급하여 데이터로부터 그 값을 구해 냅니다.</li>
+<li><strong>Bayesian View</strong>: Model의 파라미터들을 각각 하나의 Random Variable로 취급하여 그 Distribution을 구해 냅니다.</li>
+</ul>
+
+<p>예를 들어 봅시다. 전국 대학생의 평균 연령을 알기 위해 전국적으로 100명의 대학생을 Sampling 하여 평균 연령을 구했고, 그 결과 23살이라는 값이 나왔다고 합시다. <strong>Frequentest View</strong>에서는 &ldquo;전국 대학생의 평균 연령을 23살이라고 하면 되겠군!&ldquo;이라고 대답할 것이고, <strong>Bayesian View</strong>에서는 &ldquo;전국 대학생의 평균 연령이 23살일 확률이 높겠지만, 아닐 확률도 존재 한다. 그 확률 분포는 다음과 같다.&ldquo;라는 이야기를 할 것입니다. 이처럼 <strong>Bayesian View</strong>에서는 우리가 구하고자 하는 값을 정확히 구하지 않고, 어떤 값일 확률이 어느 정도인지에 대한 <strong>확률 분포로 대답</strong>합니다.</p>
+
+<p>우리가 일반적으로 사용하는 <strong>Deep Learning</strong>은 <strong>Frequentest View</strong>입니다. Model의 Parameter들이 하나의 값으로 정해져 있고, 그에 따라 output도 하나의 값으로 출력하기 때문입니다. 하지만 이번 포스트에서 다룰 <strong>Bayesian Deep Learning</strong>은 <strong>Bayesian View</strong>에 해당합니다. 즉 정답 뿐만 아니라 정답이 어느 값일 확률이 높은지에 대한 <strong>distribution</strong>을 출력합니다. 이렇게 distribution을 출력하였을 경우 얻을 수 있는 이득중의 하나는 <strong>Uncertainty</strong>를 알 수 있다는 점입니다. Model이 특정 값을 예측함에 있어서 그 대답이 <strong>얼마나 확실한지, 믿을만 한지</strong>를 알게 되면 여러 분야에 활용 가능합니다. 특히 자율주행과 같이 안전이 우선시되는 분야에서는 인공지능이 스스로 내린 결정이 정말 믿을만 한지에 대한 정보를 알 필요가 있습니다. 이번 포스팅에서는 이러한 <strong>Uncertainty</strong>에 집중하면서 <strong>Bayesian Deep Learning</strong>에 대해 알아 볼 예정입니다. 그럼 시작해보도록 하겠습니다.</p>
+
+<p><br/></p>
+
+<h2 id="contents"><strong>contents</strong></h2>
+
+<ul>
+<li><a href="https://hyeongminlee.github.io/post/bnn001_bayes_rule/" target="_blank">Bayes&rsquo; theorem(베이즈 룰)</a></li>
+<li><a href="https://hyeongminlee.github.io/post/bnn002_mle_map/" target="_blank">Maximum Likelihood Estimation(MLE) &amp; Maximum A Posterior(MAP)</a></li>
+<li><a href="https://hyeongminlee.github.io/post/bnn003_vi/" target="_blank">Variational Inference</a></li>
+<li>Being Bayesian using Dropout</li>
+</ul>
+
+    </div>
+    
+   
+
+<a href="#top-of-page" id="teleport">[top]</a>
+
+</article>
+
+<div class="article-container article-widget">
+<div class="hr-light"></div>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-1090380267791915"
+     data-ad-slot="7104891830"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+   
+
+
+
+<div class="article-container">
+  
+<div id="disqus_thread"></div>
+<script>
+
+
+
+
+
+(function() { 
+var d = document, s = d.createElement('script');
+s.src = 'https://hyeongminlee.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+</div>
+
 <footer class="site-footer">
   <div class="container">
     <p class="powered-by">
@@ -244,6 +335,4 @@
 
   </body>
 </html>
-
-
 

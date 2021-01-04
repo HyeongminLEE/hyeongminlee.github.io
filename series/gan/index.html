@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
@@ -57,11 +55,11 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/apple-touch-icon.png">
 
-  <link rel="canonical" href="https://hyeongminlee.github.io/tags/paper-review/">
+  <link rel="canonical" href="https://hyeongminlee.github.io/series/gan/">
 
   
 
-  <title>Paper-review | Hyeongmin Lee&#39;s Website</title>
+  <title>Image Generation with GAN | Hyeongmin Lee&#39;s Website</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -158,31 +156,137 @@
 </nav>
 
 
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
 
 
+  <div class="article-container">
+    <h1 itemprop="name" id="top-of-page">Image Generation with GAN</h1>
+    
 
-<div class="universal-wrapper">
+<div class="article-metadata">
 
-  <h1>Paper-review</h1>
+  <span class="article-date">
+    
+    <time datetime="0001-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+      Jan 1, 0001
+    </time>
+  </span>
 
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
   
 
   
   
-  <div>
-    <h2><a href="https://hyeongminlee.github.io/series/paper_review/">논문 리뷰</a></h2>
-    <div class="article-style">
-      
-      각종 분야의 논문들을 읽고 요약/정리해놓은 포스트입니다.
-      
-    </div>
-  </div>
+  <span class="middot-divider"></span>
+  <a href="https://hyeongminlee.github.io/series/gan/#disqus_thread"></a>
   
 
   
 
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+
+  </ul>
+</div>
+
+
+  
 
 </div>
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<p>인공지능의 궁극적인 목표중의 하나는 <strong>&lsquo;인간의 사고를 모방하는 것&rsquo;</strong> 입니다. GAN 역시 인간의 사고를 일부 모방하는 알고리즘이라고 할 수 있습니다. 머릿속에 &lsquo;사람의 얼굴&rsquo;을 떠올려봅시다. 우리는 어렵지 않게 사람의 얼굴을 떠올릴 수 있습니다. 또한 그림 그리는 실력만 좋다면 그걸 그려낼 수도 있습니다. 태어나서 한번도 보지 못했던 새로운 얼굴도 그려낼 수 있죠. 그게 가능한 이유는 우리는 지금까지 살면서 수많은 사람의 얼굴을 보고 학습해왔기 때문입니다. 우리는 그림을 어떻게 그려야 그게 사람 얼굴이 되는지를 알고 있습니다. GAN은 이러한 방식의 우리 사고를 모방합니다.</p>
+
+<p>GAN(Generative Adversarial Network)은 Generator와 Discriminator의 경쟁적인 학습을 통해 <strong>Data의 Distribution</strong>을 추정하는 알고리즘입니다. 여기서 Data의 Distribution은 쉽게 말하면 <strong>&lsquo;어떻게 생겨먹었는가&rsquo;</strong>를 의미합니다. 예를 들면, 사람 얼굴 이미지를 생성해 내는 알고리즘은 사람의 얼굴을 그럴듯하게 만들어 내기 위하여 &lsquo;사람의 얼굴이 대충 어떻게 생겼는가&rsquo;, &lsquo;어떤 식으로 생겨야 사람 얼굴이라고 하는가&rsquo;를 먼저 학습해야 할 필요가 있습니다. 이것을 바로 &lsquo;사람 얼굴 이미지의 Distribution&rsquo;이라고 할 수 있고, GAN은 그 것을 학습합니다.</p>
+
+<p>이 포스트에서는 <a href="http://papers.nips.cc/paper/5423-generative-adversarial-nets.pdf" target="_blank">2014년 첫 논문</a>을 시작으로 하여 DiscoGAN 알고리즘 까지 제가 직접 공부하고 구현해 봤던 기본적인 <strong>이미지 관련 GAN 알고리즘</strong>들을 한 단계 씩 따라가면서 그들의 <strong>원리</strong>와 <strong>Tensorflow 소스코드</strong>까지 소개해 보려고 합니다. 논문 리뷰가 아닌 만큼 필요한 부분만 간단하게 다룰 예정이니, 구체적인 정보가 궁금하신 분들은 각 포스트에 인용된 논문들을 참고해주시길 바랍니다. <strong>질문</strong>이나 <strong>피드백</strong>은 언제든지 환영이니, 자유롭게 댓글 남겨주세요!<br />
+<br/></p>
+
+<h2 id="이런-분들께-도움이-되기를-기대합니다"><strong>이런 분들께 도움이 되기를 기대합니다.</strong></h2>
+
+<ul>
+<li>딥러닝은 알지만, GAN에 관한 지식이 전무하신 분들</li>
+<li>이미지 처리에 사용되는 기초적인 수준의 GAN 알고리즘의 발전 흐름을 알고 싶으신 분들</li>
+<li>GAN 논문(Generative Adversarial Network)의 수식들이 쉽게 이해 되지 않으신 분들</li>
+<li>그 외에 다양한 지식과 관심사를 가진 분들의 방문도 환영합니다!</li>
+</ul>
+
+<p><br/></p>
+
+<h2 id="contents"><strong>contents</strong></h2>
+
+<div style="font-size: 15.5px;">&ensp;&ensp; &#9888; GAN의 세 Subsection들은 GAN에 대한 수학적인 Background를 다루기 때문에, 관심 없으시거나 어려우시다면 넘기셔도 좋습니다! &#9888;</div>
+
+<ul>
+<li><a href="https://hyeongminlee.github.io/post/gan001_gan/" target="_blank">Generative Adversarial Network</a><br />
+
+<ul>
+<li><a href="https://hyeongminlee.github.io/post/prob001_information_theory/" target="_blank">Entropy &amp; Information Theory</a></li>
+<li><a href="https://hyeongminlee.github.io/post/prob002_kld_jsd/" target="_blank">Kullback-Leibler Divergence &amp; Jensen-Shannon Divergence</a></li>
+<li><a href="https://hyeongminlee.github.io/post/gan002_gan_math/" target="_blank">GAN with Mathematics</a></li>
+</ul></li>
+<li><a href="https://hyeongminlee.github.io/post/gan003_dcgan/" target="_blank">DCGAN(Deep Convolutional GAN)</a></li>
+<li><a href="https://hyeongminlee.github.io/post/gan004_pix2pix/" target="_blank">Pix2Pix</a></li>
+<li><a href="https://hyeongminlee.github.io/post/gan005_discogan/" target="_blank">DiscoGAN</a></li>
+</ul>
+
+    </div>
+    
+   
+
+<a href="#top-of-page" id="teleport">[top]</a>
+
+</article>
+
+<div class="article-container article-widget">
+<div class="hr-light"></div>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-1090380267791915"
+     data-ad-slot="7104891830"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+   
+
+
+
+<div class="article-container">
+  
+<div id="disqus_thread"></div>
+<script>
+
+
+
+
+
+(function() { 
+var d = document, s = d.createElement('script');
+s.src = 'https://hyeongminlee.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+</div>
+
 <footer class="site-footer">
   <div class="container">
     <p class="powered-by">
@@ -244,6 +348,4 @@
 
   </body>
 </html>
-
-
 
