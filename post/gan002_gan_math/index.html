@@ -266,7 +266,7 @@
 <p>$$\min_ G \max_ D \{ \log(D(x)) + \log(1-D(G(z))) \}$$
 <br/></p>
 
-<p>이 식은 일반적인 $x$와 $z$에 대한 식인데, 실제로는 $x$는 우리가 가진 Dataset으로부터 sampling되고 z 또한 random한 방식으로 sampling된다. <strong>sampling에 따른 불확실성</strong>을 반영하기 위해, 우리는 식에 절댓값을 적용시키게 된다.</p>
+<p>이 식은 일반적인 $x$와 $z$에 대한 식인데, 실제로는 $x$는 우리가 가진 Dataset으로부터 sampling되고 z 또한 random한 방식으로 sampling된다. <strong>sampling에 따른 불확실성</strong>을 반영하기 위해, 우리는 식에 기댓값을 적용시키게 된다.</p>
 
 <p>이 식을 바탕으로 G와 D를 최적화시킬 것인데, 먼저 G가 고정되었다고 가정하고 D를 최적화시켜보도록 하자.</p>
 
@@ -280,7 +280,7 @@ $$V(G, D) = E_ {x \sim p_ {data} (x)} [ \log(D(x)) ] + E_ {z \sim p_ {z} (z)} [ 
 $$V(G, D) = E_ {x \sim p_ {data} (x)} [ \log(D(x)) ] + E_ {y \sim p_ {g} (y)} [ \log(1-D(y)) ]$$
 <br/></p>
 
-<p>그러므로 절댓값의 정의에 의해 다음과 같이 계산이 가능하다.</p>
+<p>그러므로 기댓값의 정의에 의해 다음과 같이 계산이 가능하다.</p>
 
 <p>$$V(G, D) = \int_ {x} {p_ {data} (x) \log(D(x)) dx} + \int_ {y} {p_ {g} (y) \log(1-D(y)) dy}$$
 $$ \qquad = \int_ {x} {p_ {data} (x) \log(D(x)) + p_ {g} (x) \log(1-D(x)) dx}$$
