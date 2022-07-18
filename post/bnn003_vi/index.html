@@ -258,7 +258,7 @@ $$p(w|D) = \frac {p(D|w)p(w)}{\int {p(D|w)p(w)} dw}$$
 <p>어찌어찌 위의 문제가 잘 해결되어 $w$의 Posterior $p(w|D)$를 구해 냈다고 치자. <strong>MAP</strong>에서는 <strong>Posterior가 최대가 되는 $w$ 값</strong>을 구해서 이 $w$로 이루어 진 Neural Network를 통과시켜, 그대로 Output을 얻기만 하면 됐었다. 하지만 Posterior를 정확히 알고 있는 지금, MAP에서 처럼 Posterior가 최대가 되는 $w$를 찾아 쓰기만 하면 될까? 이럴 거였으면 고생해가면서 Posterior를 구할 이유도 없었다. <strong>MAP</strong>랑 다를 것이 없기 때문이다. Posterior를 온전히 알고 있으면 우리는 <strong>$w$에 따른 Output의 기댓값</strong>을 구할 수 있게 된다. MAP에 비해 Posterior 전체에 담긴 정보를 훨씬 많이 반영한 결과이기 때문에 더 신뢰할 수 있는 output이라고 할 수 있다. 그리고 output의 기댓값은 다음 식을 통해 구할 수 있다.</p>
 
 <p><br/>
-$$E[f(w)] = \int {f(w)p(w|D)} dw$$
+$$E_ {p_{w|D}} [f(w)] = \int {f(w)p(w|D)} dw$$
 <br/></p>
 
 <p>눈치 채셨겠지만, <strong>또 적분</strong>이다. 그것도 그냥 적분이 아니라 위에서 말한 것 처럼 매우 고차원에다가 개수까지 많은 $w$에 대한 적분이다. 이 적분 역시 현실적으로 계산하는 것이 <strong>불가능</strong>하다.</p>
