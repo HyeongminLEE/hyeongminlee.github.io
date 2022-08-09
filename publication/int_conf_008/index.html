@@ -55,11 +55,11 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/apple-touch-icon.png">
 
-  <link rel="canonical" href="https://hyeongminlee.github.io/publication/int_journal_002/">
+  <link rel="canonical" href="https://hyeongminlee.github.io/publication/int_conf_008/">
 
   
 
-  <title>Enhanced Standard Compatible Image Compression Framework based on Auxiliary Codec Networks | Hyeongmin Lee&#39;s Website</title>
+  <title>Expanded Adaptive Scaling Normalization for End to End Image Compression | Hyeongmin Lee&#39;s Website</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -161,10 +161,10 @@
 
 
   <div class="container pub-title">
-    <h1 itemprop="name">Enhanced Standard Compatible Image Compression Framework based on Auxiliary Codec Networks</h1>
+    <h1 itemprop="name">Expanded Adaptive Scaling Normalization for End to End Image Compression</h1>
     <span class="pub-authors" itemprop="author">
       
-      Hanbin Son, Taeoh Kim, <strong>Hyeongmin Lee</strong>, Sangyoun Lee
+      Chajin Shin, <strong>Hyeongmin Lee</strong>, Hanbin Son, Sangjin Lee, Dogyoon Lee, Sangyoun Lee
       
     </span>
     <span class="pull-right">
@@ -185,7 +185,7 @@
   
 
   <h3>Abstract</h3>
-  <p class="pub-abstract" itemprop="text">To enhance image compression performance, recent deep neural network-based research can be divided into three categories: a learnable codec, a postprocessing network, and a compact representation network. The learnable codec has been designed for an end-to-end learning beyond the conventional compression modules. The postprocessing network increases the quality of decoded images using an example-based learning. The compact representation network is learned to reduce the capacity of an input image to reduce the bitrate while keeping the quality of the decoded image. However, these approaches are not compatible with the existing codecs or not optimal to increase the coding efficiency. Specifically, it is difficult to achieve optimal learning in the previous studies using the compact representation network, due to the inaccurate consideration of the codecs. In this paper, we propose a novel standard compatible image compression framework based on Auxiliary Codec Networks (ACNs). ACNs are designed to imitate image degradation operations of the existing codec, which delivers more accurate gradients to the compact representation network. Therefore, the compact representation and the postprocessing networks can be learned effectively and optimally. We demonstrate that our proposed framework based on JPEG and High Efficiency Video Coding (HEVC) standard substantially outperforms existing image compression algorithms in a standard compatible manner.</p>
+  <p class="pub-abstract" itemprop="text">Recently, learning-based image compression methods that utilize convolutional neural layers have been developed rapidly. Rescaling modules such as batch normalization which are often used in convolutional neural networks do not operate adaptively for the various inputs. Therefore, Generalized Divisible Normalization(GDN) has been widely used in image compression to rescale the input features adaptively across both spatial and channel axes. However, the representation power or degree of freedom of GDN is severely limited. Additionally, GDN cannot consider the spatial correlation of an image. To handle the limitations of GDN, we construct an expanded form of the adaptive scaling module, named Expanded Adaptive Scaling Normalization(EASN). First, we exploit the swish function to increase the representation ability. Then, we increase the receptive field to make the adaptive rescaling module consider the spatial correlation. Furthermore, we introduce an input mapping function to give the module a higher degree of freedom. We demonstrate how our EASN works in an image compression network using the visualization results of the feature map, and we conduct extensive experiments to show that our EASN increases the rate-distortion performance remarkably, and even outperforms the VVC intra at a high bit rate.</p>
 
   
   <div class="row">
@@ -195,8 +195,8 @@
         <div class="col-xs-12 col-sm-3 pub-row-heading">Type</div>
         <div class="col-xs-12 col-sm-9">
           
-          <a href="/publication/#4">
-            International Journal
+          <a href="/publication/#3">
+            International Conference proceedings
           </a>
           
         </div>
@@ -212,7 +212,7 @@
     <div class="col-sm-10">
       <div class="row">
         <div class="col-xs-12 col-sm-3 pub-row-heading">Publication</div>
-        <div class="col-xs-12 col-sm-9">In <em>IEEE TIP</em>.</div>
+        <div class="col-xs-12 col-sm-9">In <em>European Conference on Computer Vision</em>.</div>
       </div>
     </div>
     <div class="col-sm-1"></div>
@@ -225,7 +225,7 @@
       <div class="row">
         <div class="col-xs-12 col-sm-3 pub-row-heading">Date</div>
         <div class="col-xs-12 col-sm-9" itemprop="datePublished">
-          June, 2022
+          October, 2022
         </div>
       </div>
     </div>
@@ -245,7 +245,7 @@
 
 
 
-<a class="btn btn-primary btn-outline" href="https://arxiv.org/abs/2009.14754" target="_blank">
+<a class="btn btn-primary btn-outline" href="https://arxiv.org/abs/2208.03049" target="_blank">
   PDF
 </a>
 
@@ -274,13 +274,10 @@
   <nav>
   <ul class="pager">
     
-    <li class="previous"><a href="https://hyeongminlee.github.io/publication/int_conf_007/"><span
-      aria-hidden="true">&larr;</span> Regularization Strategy for Point Cloud via Rigidly Mixed Sample</a></li>
+    <li class="previous"><a href="https://hyeongminlee.github.io/publication/int_journal_002/"><span
+      aria-hidden="true">&larr;</span> Enhanced Standard Compatible Image Compression Framework based on Auxiliary Codec Networks</a></li>
     
 
-    
-    <li class="next"><a href="https://hyeongminlee.github.io/publication/int_conf_008/">Expanded Adaptive Scaling Normalization for End to End Image Compression <span
-      aria-hidden="true">&rarr;</span></a></li>
     
   </ul>
 </nav>
