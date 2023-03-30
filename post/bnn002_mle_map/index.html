@@ -337,7 +337,7 @@ $$\mbox{likelihood} = p(D|w) = \prod_ {i=1} ^ {N} {p(t_ i|x_ i)} = \prod_ {i=1} 
 $$\mbox{log likelihood} = \log{(p(D|w))} = \sum_ {i=1} ^ {N} \{ {-\log{(\sqrt{2\pi}\sigma)}-\frac{(t_ i-y(x_ i|w))^2}{2\sigma^2}} \}$$
 <br/></p>
 
-<p>이제 이 log likelihood를 최대가 되게 하는 $w$를 찾아주면 되는데, 알다시피 위 식의 $\sigma$와 $\pi$는 상수 값이다. 그렇기 때문에 log likelihood를 최대화시키는 $w$에 영향을 주지 않는다. 그래서 관련된 term들을 전부 제거하면 다음 식이 남게 된다.</p>
+<p>이제 이 log likelihood를 최대가 되게 하는 $w$를 찾아주면 되는데, 알다시피 위 식의 $\sigma$와 $\pi$는 상수 값이다. 그렇기 때문에 log likelihood를 최대화시키는 $w$에 영향을 주지 않는다. 그래서 관련된 term들을 전부 제거한 다음, 앞의 부호를 바꿔주어 maximize 대신 minimize하기로 하면 다음 식이 남게 된다.</p>
 
 <p><br/>
 $$\sum_ {i=1} ^ {N} (t_ i-y(x_ i|w))^2$$
