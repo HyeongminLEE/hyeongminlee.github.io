@@ -55,11 +55,11 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/apple-touch-icon.png">
 
-  <link rel="canonical" href="https://hyeongminlee.github.io/publication/int_conf_004/">
+  <link rel="canonical" href="https://hyeongminlee.github.io/publication/int_journal_003/">
 
   
 
-  <title>AdaCoF: Adaptive Collaboration of Flows for Video Frame Interpolation | Hyeongmin Lee&#39;s Website</title>
+  <title>A Nonlinear, Regularized, and Data-independent Modulation for Continuously Interactive Image Processing Network | Hyeongmin Lee&#39;s Website</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -161,10 +161,10 @@
 
 
   <div class="container pub-title">
-    <h1 itemprop="name">AdaCoF: Adaptive Collaboration of Flows for Video Frame Interpolation</h1>
+    <h1 itemprop="name">A Nonlinear, Regularized, and Data-independent Modulation for Continuously Interactive Image Processing Network</h1>
     <span class="pub-authors" itemprop="author">
       
-      <strong>Hyeongmin Lee</strong>, Taeoh Kim, Tae-young Chung, Daehyun Pak, Yuseok Ban, Sangyoun Lee
+      <strong>Hyeongmin Lee</strong>, Taeoh Kim, Hanbin Son, Sangwook Baek, Minsu Cheon, Sangyoun Lee
       
     </span>
     <span class="pull-right">
@@ -185,7 +185,7 @@
   
 
   <h3>Abstract</h3>
-  <p class="pub-abstract" itemprop="text">Video frame interpolation is one of the most challenging tasks in video processing research. Recently, many studies based on deep learning have been suggested. Most of these methods focus on finding locations with useful information to estimate each output pixel using their own frame warping operations. However, many of them have Degrees of Freedom (DoF) limitations and fail to deal with the complex motions found in real world videos. To solve this problem, we propose a new warping module named Adaptive Collaboration of Flows (AdaCoF). Our method estimates both kernel weights and offset vectors for each target pixel to synthesize the output frame. AdaCoF is one of the most generalized warping modules compared to other approaches, and covers most of them as special cases of it. Therefore, it can deal with a significantly wide domain of complex motions. To further improve our framework and synthesize more realistic outputs, we introduce dual-frame adversarial loss which is applicable only to video frame interpolation tasks. The experimental results show that our method outperforms the state-of-the-art methods for both fixed training set environments and the Middlebury benchmark.</p>
+  <p class="pub-abstract" itemprop="text">Most studies on convolutional Neural Network (CNN) based image processing have proposed networks that can be optimized for a single level. Here, the term &ldquo;level&rdquo; refers to the specific objective defined for each task, such as the degree of noise in denoising tasks. Hence, they underperform on other levels and must be retrained to deliver optimal performance. Using multiple models to cover multiple levels involves very high computational costs. To solve these problems, recent approaches train the networks on two different levels and propose their own modulation methods to enable the arbitrary intermediate levels. However, many of them 1) have difficulty adapting from one level to the other, 2) suffer from unintended artifacts in the intermediate levels, or 3) require large memory and computational cost. In this paper, we propose a novel framework using Filter Transition Network (FTN), which is a non-linear module that easily adapts to new levels, is regularized to prevent undesirable side-effects, and extremely lightweight being a data-independent module. Additionally, for stable learning of FTN, we newly propose a method to initialize nonlinear CNNs with identity mappings. Extensive results for various image processing tasks indicate that the performance of FTN is stable regarding adaptation and modulation and is comparable to that of the other heavy frameworks.</p>
 
   
   <div class="row">
@@ -195,8 +195,8 @@
         <div class="col-xs-12 col-sm-3 pub-row-heading">Type</div>
         <div class="col-xs-12 col-sm-9">
           
-          <a href="/publication/#3">
-            International Conference
+          <a href="/publication/#4">
+            International Journal
           </a>
           
         </div>
@@ -212,7 +212,7 @@
     <div class="col-sm-10">
       <div class="row">
         <div class="col-xs-12 col-sm-3 pub-row-heading">Publication</div>
-        <div class="col-xs-12 col-sm-9"><em>IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)</em></div>
+        <div class="col-xs-12 col-sm-9"><em>International Journal of Computer Vision</em></div>
       </div>
     </div>
     <div class="col-sm-1"></div>
@@ -225,7 +225,7 @@
       <div class="row">
         <div class="col-xs-12 col-sm-3 pub-row-heading">Date</div>
         <div class="col-xs-12 col-sm-9" itemprop="datePublished">
-          June, 2020
+          August, 2023
         </div>
       </div>
     </div>
@@ -245,20 +245,12 @@
 
 
 
-<a class="btn btn-primary btn-outline" href="https://openaccess.thecvf.com/content_CVPR_2020/html/Lee_AdaCoF_Adaptive_Collaboration_of_Flows_for_Video_Frame_Interpolation_CVPR_2020_paper.html" target="_blank">
+<a class="btn btn-primary btn-outline" href="https://link.springer.com/article/10.1007/s11263-023-01874-y" target="_blank">
   PDF
 </a>
 
 
 
-<a class="btn btn-primary btn-outline" href="https://www.youtube.com/watch?v=Z3q0YrBsNJc" target="_blank">
-  Video
-</a>
-
-
-<a class="btn btn-primary btn-outline" href="https://github.com/HyeongminLEE/AdaCoF-pytorch" target="_blank">
-  Code
-</a>
 
 
 
@@ -282,13 +274,10 @@
   <nav>
   <ul class="pager">
     
-    <li class="previous"><a href="https://hyeongminlee.github.io/publication/int_conf_003/"><span
-      aria-hidden="true">&larr;</span> N-RPN: Hard Example Learning For Region Proposal Networks</a></li>
+    <li class="previous"><a href="https://hyeongminlee.github.io/publication/int_conf_009/"><span
+      aria-hidden="true">&larr;</span> Exploring Discontinuity for Video Frame Interpolation</a></li>
     
 
-    
-    <li class="next"><a href="https://hyeongminlee.github.io/publication/int_conf_006/">Learning Temporally Invariant and Localizable Features via Data Augmentation for Video Recognition <span
-      aria-hidden="true">&rarr;</span></a></li>
     
   </ul>
 </nav>
