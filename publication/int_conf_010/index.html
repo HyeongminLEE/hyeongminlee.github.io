@@ -55,11 +55,11 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/apple-touch-icon.png">
 
-  <link rel="canonical" href="https://hyeongminlee.github.io/publication/tech_repo_001/">
+  <link rel="canonical" href="https://hyeongminlee.github.io/publication/int_conf_010/">
 
   
 
-  <title>TWLV-I: Analysis and Insights from Holistic Evaluation on Video Foundation Models | Hyeongmin Lee&#39;s Website</title>
+  <title>Temporal Smoothness-Aware Rate-Distortion Optimized 4D Gaussian Splatting | Hyeongmin Lee&#39;s Website</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -161,10 +161,10 @@
 
 
   <div class="container pub-title">
-    <h1 itemprop="name">TWLV-I: Analysis and Insights from Holistic Evaluation on Video Foundation Models</h1>
+    <h1 itemprop="name">Temporal Smoothness-Aware Rate-Distortion Optimized 4D Gaussian Splatting</h1>
     <span class="pub-authors" itemprop="author">
       
-      <strong>Hyeongmin Lee</strong>, Jin-Young Kim, Kyungjune Baek, Jihwan Kim, et. al
+      <strong>Hyeongmin Lee</strong>, Kyungjune Baek
       
     </span>
     <span class="pull-right">
@@ -185,7 +185,7 @@
   
 
   <h3>Abstract</h3>
-  <p class="pub-abstract" itemprop="text">In this work, we discuss evaluating video foundation models in a fair and robust manner. Unlike language or image foundation models, many video foundation models are evaluated with differing parameters (such as sampling rate, number of frames, pretraining steps, etc.), making fair and robust comparisons challenging. Therefore, we present a carefully designed evaluation framework for measuring two core capabilities of video comprehension: appearance and motion understanding. Our findings reveal that existing video foundation models, whether text-supervised like UMT or InternVideo2, or self-supervised like V-JEPA, exhibit limitations in at least one of these capabilities. As an alternative, we introduce TWLV-I, a new video foundation model that constructs robust visual representations for both motion- and appearance-based videos. Based on the average top-1 accuracy of linear probing on five action recognition benchmarks, pretrained only on publicly accessible datasets, our model shows a 4.6%p improvement compared to V-JEPA (ViT-L) and a 7.7%p improvement compared to UMT (ViT-L). Even when compared to much larger models, our model demonstrates a 7.2%p improvement compared to DFN (ViT-H), a 2.7%p improvement compared to V-JEPA (ViT-H) and a 2.8%p improvement compared to InternVideo2 (ViT-g). We provide embedding vectors obtained by TWLV-I from videos of several commonly used video benchmarks, along with evaluation source code that can directly utilize these embeddings. The code is available at <a href="https://github.com/twelvelabs-io/video-embeddings-evaluation-framework" target="_blank">https://github.com/twelvelabs-io/video-embeddings-evaluation-framework</a>.</p>
+  <p class="pub-abstract" itemprop="text">Dynamic 4D Gaussian Splatting (4DGS) effectively extends the high-speed rendering capabilities of 3D Gaussian Splatting (3DGS) to represent volumetric videos. However, the large number of Gaussians, substantial temporal redundancies, and especially the absence of an entropy-aware compression framework result in large storage requirements. Consequently, this poses significant challenges for practical deployment, efficient edge-device processing, and data transmission. In this paper, we introduce a novel end-to-end RD-optimized compression framework tailored for 4DGS, aiming to enable flexible, high-fidelity rendering across varied computational platforms. Leveraging Fully Explicit Dynamic Gaussian Splatting (Ex4DGS), one of the state-of-the-art 4DGS methods, as our baseline, we start from the existing 3DGS compression methods for compatibility while effectively addressing additional challenges introduced by the temporal axis. In particular, instead of storing motion trajectories independently per point, we employ a wavelet transform to reflect the real-world smoothness prior, significantly enhancing storage efficiency. This approach yields significantly improved compression ratios and provides a user-controlled balance between compression efficiency and rendering quality. Extensive experiments demonstrate the effectiveness of our method, achieving up to 91x compression compared to the original Ex4DGS model while maintaining high visual fidelity. These results highlight the applicability of our framework for real-time dynamic scene rendering in diverse scenarios, from resource-constrained edge devices to high-performance environments.</p>
 
   
   <div class="row">
@@ -195,8 +195,8 @@
         <div class="col-xs-12 col-sm-3 pub-row-heading">Type</div>
         <div class="col-xs-12 col-sm-9">
           
-          <a href="/publication/#5">
-            Technical Report
+          <a href="/publication/#3">
+            International Conference
           </a>
           
         </div>
@@ -212,7 +212,7 @@
     <div class="col-sm-10">
       <div class="row">
         <div class="col-xs-12 col-sm-3 pub-row-heading">Publication</div>
-        <div class="col-xs-12 col-sm-9"><em>Twelve Labs Technical Report</em></div>
+        <div class="col-xs-12 col-sm-9"><em>Neural Information Processing Systems (NeurIPS)</em></div>
       </div>
     </div>
     <div class="col-sm-1"></div>
@@ -225,7 +225,7 @@
       <div class="row">
         <div class="col-xs-12 col-sm-3 pub-row-heading">Date</div>
         <div class="col-xs-12 col-sm-9" itemprop="datePublished">
-          August, 2024
+          July, 2025
         </div>
       </div>
     </div>
@@ -245,7 +245,7 @@
 
 
 
-<a class="btn btn-primary btn-outline" href="https://arxiv.org/abs/2408.11318" target="_blank">
+<a class="btn btn-primary btn-outline" href="https://arxiv.org/abs/2507.17336" target="_blank">
   PDF
 </a>
 
@@ -274,13 +274,10 @@
   <nav>
   <ul class="pager">
     
-    <li class="previous"><a href="https://hyeongminlee.github.io/publication/tech_repo_002/"><span
-      aria-hidden="true">&larr;</span> Pegasus-v1 Technical Report</a></li>
+    <li class="previous"><a href="https://hyeongminlee.github.io/publication/tech_repo_001/"><span
+      aria-hidden="true">&larr;</span> TWLV-I: Analysis and Insights from Holistic Evaluation on Video Foundation Models</a></li>
     
 
-    
-    <li class="next"><a href="https://hyeongminlee.github.io/publication/int_conf_010/">Temporal Smoothness-Aware Rate-Distortion Optimized 4D Gaussian Splatting <span
-      aria-hidden="true">&rarr;</span></a></li>
     
   </ul>
 </nav>
