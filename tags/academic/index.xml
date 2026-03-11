@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Content tagged as &#39;Academic&#39; on Hyeongmin Lee&#39;s Website</title>
+    <link>https://hyeongminlee.github.io/tags/academic/</link>
+    <description>Recent content in Content tagged as &#39;Academic&#39; on Hyeongmin Lee&#39;s Website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2017 Hyeongmin Lee</copyright>
+    <lastBuildDate>Sun, 01 Jan 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hyeongminlee.github.io/tags/academic/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Bayesian Deep Learning</title>
+      <link>https://hyeongminlee.github.io/blog/bayesian/</link>
+      <pubDate>Thu, 30 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://hyeongminlee.github.io/blog/bayesian/</guid>
+      <description>Deep Learning을 비롯한 대부분의 머신러닝 알고리즘들은 주어진 문제를 해결하기 위해 필요한 다양한 파라미터들을 주어진 데이터를 통해 학습합니다. 그래서 머신러닝은 최적의 파라미터를 찾는 일이라고 볼 수 있습니다. 그런데 사실 이 파라미터를 보는 관점에는 크게 두 가지가 존재합니다.
+ Frequentest View: Model의 파라미터들을 Fixed Value로 취급하여 데이터로부터 그 값을 구해 냅니다. Bayesian View: Model의 파라미터들을 각각 하나의 Random Variable로 취급하여 그 Distribution을 구해 냅니다.  예를 들어 봅시다. 전국 대학생의 평균 연령을 알기 위해 전국적으로 100명의 대학생을 Sampling 하여 평균 연령을 구했고, 그 결과 23살이라는 값이 나왔다고 합시다.</description>
+    </item>
+    
+    <item>
+      <title>Image Generation with GAN</title>
+      <link>https://hyeongminlee.github.io/blog/gan/</link>
+      <pubDate>Thu, 09 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hyeongminlee.github.io/blog/gan/</guid>
+      <description>인공지능의 궁극적인 목표중의 하나는 &amp;lsquo;인간의 사고를 모방하는 것&amp;rsquo; 입니다. GAN 역시 인간의 사고를 일부 모방하는 알고리즘이라고 할 수 있습니다. 머릿속에 &amp;lsquo;사람의 얼굴&amp;rsquo;을 떠올려봅시다. 우리는 어렵지 않게 사람의 얼굴을 떠올릴 수 있습니다. 또한 그림 그리는 실력만 좋다면 그걸 그려낼 수도 있습니다. 태어나서 한번도 보지 못했던 새로운 얼굴도 그려낼 수 있죠. 그게 가능한 이유는 우리는 지금까지 살면서 수많은 사람의 얼굴을 보고 학습해왔기 때문입니다. 우리는 그림을 어떻게 그려야 그게 사람 얼굴이 되는지를 알고 있습니다.</description>
+    </item>
+    
+    <item>
+      <title>논문 리뷰</title>
+      <link>https://hyeongminlee.github.io/blog/paper_review/</link>
+      <pubDate>Wed, 25 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hyeongminlee.github.io/blog/paper_review/</guid>
+      <description> 각종 분야의 논문들을 읽고 요약/정리해놓은 포스트입니다.
+Paper List  K. He, J. Sun, and X. Tang, “Single Image Haze Removal Using Dark Channel Prior,” Proc. IEEE Conf. Computer Vision and Pattern Recognition, 2009. Q. You, H. Jin, Z. Wang, C.Fang, and J. Luo, &amp;ldquo;Image Captioning with Semantic Attention&amp;rdquo; Proc. IEEE Conf. Computer Vision and Pattern Recognition, 2016.  </description>
+    </item>
+    
+    <item>
+      <title>Variational Inference</title>
+      <link>https://hyeongminlee.github.io/post/bnn003_vi/</link>
+      <pubDate>Thu, 17 Jan 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://hyeongminlee.github.io/post/bnn003_vi/</guid>
+      <description>앞선 포스팅에서 우리는 MLE와 MAP에 대하여 알아봤습니다. MLE는 Likelihood만 주어진 경우 이를 최대로 하는 parameter를 찾는 일이고 MAP는 Likelihood와 사전 지식인 Prior가 전부 주어진 경우 Posterior를 최대로 하는 parameter를 찾는 일이었습니다. 하지만 이런 방식으로 parameter $w$를 구하는 일은 아직 Bayesian View라고 할 수 없습니다. $w$의 분포를 구하는 게 아니라 $w$의 값을 확정짓는 방법들이기 때문입니다. 우리가 알고자 하는 Bayesian View는 구하고자 하는 값인 $w$의 확률 분포, 즉 posterior입니다. MAP에서 구하지 않냐구요?</description>
+    </item>
+    
+    <item>
+      <title>Maximum Likelihood Estimation(MLE) &amp; Maximum A Posterior(MAP)</title>
+      <link>https://hyeongminlee.github.io/post/bnn002_mle_map/</link>
+      <pubDate>Tue, 04 Sep 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://hyeongminlee.github.io/post/bnn002_mle_map/</guid>
+      <description>Bayes Rule을 이용한 방식의 가장 큰 단점들 중 하나는 Likelihood의 Probability Distribution을 알아야 한다는 점입니다. 물론 앞선 포스팅에서는 관찰을 통해 Likelihood를 얻었지만, 여간 귀찮은 일이 아닐 뿐더러 완벽한 Distribution Function을 얻을 수 있는 것도 아닙니다. 그래서 우리는 Data로부터 직접 decision policy를 얻고자 합니다. 정해지지 않은 몇 개의 parameter로 이루어진 함수로 모델링을 한 후에, 이 모델이 주어진 Data를 가장 잘 설명하도록 parameter들을 구해낼 수 있다면 어떨까요? 사실 이러한 방식을 이용하는 대표적인 알고리즘이 바로 Deep Learning 입니다.</description>
+    </item>
+    
+    <item>
+      <title>Bayes Rule (베이즈 룰)</title>
+      <link>https://hyeongminlee.github.io/post/bnn001_bayes_rule/</link>
+      <pubDate>Thu, 30 Aug 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://hyeongminlee.github.io/post/bnn001_bayes_rule/</guid>
+      <description>Bayes Rule은 Bayesian Deep Learning에서 가장 기본이 되는 개념입니다. 어떤 값을 예측하기 위한 수단으로서 딥러닝 이전부터 굉장히 많이 쓰여 왔던 방식이기 때문에 Bayesian Deep Learning이 아니더라도 알아두면 굉장히 유용한 정리이기 때문에 머신러닝이나 통계학을 공부하신 분들이라면 대부분 들어보셨을 만한 유명한 정리입니다. 이번 포스트에서는 이 Bayes Rule에 대해 간단히 살펴보고, 수식의 Notation들이 각각 무엇을 의미하는지 알아보도록 하겠습니다. 
+ 선수 지식: 이 포스트를 이해하기 위해서는 고등학교 수준의 확률 지식이 필요합니다.
+    &amp;#9749; 대학원생의 커피 한 잔을 위한 광고 &amp;#9749;   [Simple AdSense]   (adsbygoogle = window.</description>
+    </item>
+    
+    <item>
+      <title>[GAN]DiscoGAN</title>
+      <link>https://hyeongminlee.github.io/post/gan005_discogan/</link>
+      <pubDate>Mon, 28 May 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://hyeongminlee.github.io/post/gan005_discogan/</guid>
+      <description>Pix2Pix의 가장 큰 한계점은 뭘까요? 바로 Paired Dataset이 필요하다는 점입니다. 예를 들어 흑백 영상에 색을 입히는 Colorization Method의 경우 흑백 영상과 이에 대응하는 Color 영상이 필요합니다. 이러한 문제들의 경우 Paired Data를 생성하는 것이 쉽습니다. Color 영상만 있으면 이로부터 쉽게 흑백 영상을 얻을 수 있기 때문입니다. 하지만 영상 속 사람의 성별을 바꾸는 알고리즘, 나이를 바꾸는 알고리즘들은 어떨까요? 특정 사람의 데이터를 갖고 있다고 해도, 그 사람의 성별이 바뀐 상태 또는 몇십년 후나 전의 영상 데이터를 얻기란 쉽지 않습니다.</description>
+    </item>
+    
+    <item>
+      <title>[GAN]Pix2Pix</title>
+      <link>https://hyeongminlee.github.io/post/gan004_pix2pix/</link>
+      <pubDate>Tue, 01 May 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://hyeongminlee.github.io/post/gan004_pix2pix/</guid>
+      <description>이전까지의 GAN 알고리즘들을 공부하면서 뭔가 답답함을 느끼신 분들이 계실 수도 있을 것 같습니다. GAN은 random noise를 input으로 하기 때문에 무작위의 데이터를 생성합니다. 그렇기 때문에 우리가 원하는 데이터를 얻을수도 없고, 어떤 데이터가 나올지 예측하는 일 조차 쉽지 않습니다. 그렇기 때문에 실생활 등에 적용하기에는 한계가 있습니다. 이번 포스트에서 다룰 Pix2Pix 알고리즘과 다음 포스트에서 다룰 DiscoGAN 알고리즘의 경우 이전의 알고리즘들과는 다르게 실제 Application에 바로 적용이 가능합니다.
+Pix2Pix 알고리즘은 이미지의 Style을 변형시키는 알고리즘입니다. Image Translation이라고도 불리는데, 이름 그대로 언어로 따지면 번역으로 비유할 수 있습니다.</description>
+    </item>
+    
+    <item>
+      <title>[GAN]DCGAN</title>
+      <link>https://hyeongminlee.github.io/post/gan003_dcgan/</link>
+      <pubDate>Thu, 12 Apr 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://hyeongminlee.github.io/post/gan003_dcgan/</guid>
+      <description>일반적인 DNN의 Fully Connected Layer들을 Convolution 연산으로 대체한 CNN(Convolutional Neural Network)는 각 픽셀들의 Spatial한 관계를 고려함으로 인해 이미지 인식에 대한 성능을 큰폭 상승시킨 바 있습니다. 이번 포스트에서는 GAN의 Layer 연산을 Transposed Convolution 연산으로 대체하여 이미지 생성에 관한 성능을 높인 DCGAN에 대해 알아보도록 하겠습니다. 이번 포스팅부터는 해당 알고리즘의 Tensorflow Source Code가 제공되니, 참고 부탁드립니다. 
+ 선수 지식: 이 포스트를 이해하기 위해서는 GAN과 Convolutional Neural Network에 대한 지식이 필요합니다.(수학적인 detail에 관한 지식은 필요 없습니다.</description>
+    </item>
+    
+    <item>
+      <title>[GAN]GAN with Mathematics</title>
+      <link>https://hyeongminlee.github.io/post/gan002_gan_math/</link>
+      <pubDate>Fri, 23 Mar 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://hyeongminlee.github.io/post/gan002_gan_math/</guid>
+      <description>이번 포스트에서는 앞에서 배운 KLD와 JSD를 이용하여 GAN에 대해 조금 더 수학적으로 파고 들어 보겠습니다. GAN은 단순히 이미지를 생성하는 알고리즘이 아닙니다. 주어진 데이터의 분포를 파악하고, 이렇게 파악한 결과로 학습한 데이터들과 유사한 데이터를 만들어낼 수 있게끔 하는 학습 알고리즘입니다. 여기서 주목할 점은 데이터의 분포를 파악한다는 점입니다. 어떻게 해서 파악할까요? 본문에서 알아보도록 하겠습니다.
+
+ 선수 지식: 이 포스트를 이해하기 위해서는 KL Divergence &amp;amp; Jensen-Shannon Divergence에 대한 지식이 필요합니다.
+ 참고 논문: Generative Adversarial Nets</description>
+    </item>
+    
+    <item>
+      <title>Kullback-Leibler Divergence &amp; Jensen-Shannon Divergence</title>
+      <link>https://hyeongminlee.github.io/post/prob002_kld_jsd/</link>
+      <pubDate>Sat, 03 Mar 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://hyeongminlee.github.io/post/prob002_kld_jsd/</guid>
+      <description>기계학습에서는 특정 dataset의 분포를 추정하기 위해 그 집단을 대표하는 Sample을 뽑아 관찰하는 기법을 사용합니다. 예를 들어 참치와 고등어가 서식하는 바다에서 10마리의 물고기를 잡았을 때 참치 1마리와 9마리의 고등어가 잡혔다면, 우리는 이 바다에 살고 있는 물고기가 대략 참치 10%와 고등어 90%로 이루어져 있다고 짐작할 수 있습니다.
+그렇다면 우리가 데이터의 분포를 추정했을 때 얼마나 잘 추정한 것인지 측정하는 방법은 없을까요? 오늘 소개해 드릴 Kullback-Leibler Divergence 와 Jensen-Shannon Divergence는 서로 다른 확률 분포의 차이를 즉정하는 척도입니다.</description>
+    </item>
+    
+    <item>
+      <title>[논문 리뷰]Image Captioning with Semantic Attention</title>
+      <link>https://hyeongminlee.github.io/post/pr002_image_captioning/</link>
+      <pubDate>Fri, 08 Dec 2017 00:00:00 +0900</pubDate>
+      
+      <guid>https://hyeongminlee.github.io/post/pr002_image_captioning/</guid>
+      <description>안녕하세요. 오늘은 Quanzeng You의 CVPR 논문인 [Image Captioning with Semantic Attention]에 대한 리뷰를 하려고 합니다. Image Captioning은 인공지능 학계의 거대한 두 흐름인 &amp;lsquo;Computer Vision(컴퓨터 비전)&amp;rsquo;과 &amp;lsquo;Natural Language Processing(자연어 처리)&amp;rsquo;를 연결하는, 매우 중요한 의의를 갖는 연구 분야입니다. 이번 논문을 통해 제 주 관심 분야인 Video Understanding의 가장 기초라고 할 수 있는 Image Captioning 알고리즘이 어떠한 방식으로 구현되는지 알아보도록 하겠습니다.
+  &amp;#9749; 대학원생의 커피 한 잔을 위한 광고 &amp;#9749;   [Simple AdSense]   (adsbygoogle = window.</description>
+    </item>
+    
+    <item>
+      <title>Entropy &amp; Information Theory</title>
+      <link>https://hyeongminlee.github.io/post/prob001_information_theory/</link>
+      <pubDate>Wed, 29 Nov 2017 00:00:00 +0900</pubDate>
+      
+      <guid>https://hyeongminlee.github.io/post/prob001_information_theory/</guid>
+      <description>TV에 신호가 잡히지 않을때 나오는 지저분한 노이즈와 한 편의 명작 영화는 같은 양의 정보를 지니고 있을까요? 같은 시간동안 재생된다고 해도 노이즈로부터는 특별한 정보를 뽑아내기가 힘들어 보입니다. 이번 포스트에서는 클로드 엘우드 섀넌(Claude Elwood Shannon)으로부터 시작된 정보이론(Information Theory)과 엔트로피(Entropy)의 개념에 대해 간단히 알아보도록 하겠습니다.
+
+ 선수 지식: 고등학교 수준의 &amp;lsquo;확률&amp;rsquo;에 대한 지식만 있으면 충분히 이해할 수 있습니다.
+    &amp;#9749; 대학원생의 커피 한 잔을 위한 광고 &amp;#9749;   [Simple AdSense]   (adsbygoogle = window.</description>
+    </item>
+    
+    <item>
+      <title>[GAN]Generative Adversarial Network</title>
+      <link>https://hyeongminlee.github.io/post/gan001_gan/</link>
+      <pubDate>Thu, 09 Nov 2017 00:00:00 +0900</pubDate>
+      
+      <guid>https://hyeongminlee.github.io/post/gan001_gan/</guid>
+      <description>이번 포스트에서는 GAN의 기본 개념과 원리에 대해 알아보도록 하겠습니다.
+GAN(Generative Adversarial Network)은 Generator와 Discriminator의 경쟁적인 학습을 통해 Data의 Distribution을 추정하는 알고리즘입니다. 여기서 Data의 Distribution은 쉽게 말하면 &amp;lsquo;어떻게 생겨먹었는가&amp;rsquo;를 의미합니다. 예를 들면, 사람 얼굴 이미지를 생성해 내는 알고리즘은 사람의 얼굴을 그럴듯하게 만들어 내기 위하여 &amp;lsquo;사람의 얼굴이 대충 어떻게 생겼는가&amp;rsquo;, &amp;lsquo;어떤 식으로 생겨야 사람 얼굴이라고 하는가&amp;rsquo;를 먼저 학습해야 할 필요가 있습니다. 이것을 바로 &amp;lsquo;사람 얼굴 이미지의 Distribution&amp;rsquo;이라고 할 수 있고, GAN은 그 것을 학습합니다.</description>
+    </item>
+    
+    <item>
+      <title>[논문 리뷰]Single Image Haze Removal Using Dark Channel Prior</title>
+      <link>https://hyeongminlee.github.io/post/pr001_dehazing/</link>
+      <pubDate>Fri, 27 Oct 2017 00:00:00 +0900</pubDate>
+      
+      <guid>https://hyeongminlee.github.io/post/pr001_dehazing/</guid>
+      <description>안녕하세요. 오늘은 Deep Residual Learning, Guided Filtering, Faster R-CNN 등으로 유명한 Kaiming He의 CVPR 논문인 [Single Image Haze Reduction Removal Using Dark Channel Prior]에 대한 리뷰를 하려고 합니다. 아이디어도 대단하지만 논문이 매우 논리적이고 쉽게 구성되어 있어, 논문을 처음 접하시는 분들 께서도 비교적 쉽게 읽어나갈 수 있으니 원문도 한 번 읽어보시기를 추천드립니다.
+  &amp;#9749; 대학원생의 커피 한 잔을 위한 광고 &amp;#9749;   [Simple AdSense]   (adsbygoogle = window.</description>
+    </item>
+    
+  </channel>
+</rss>

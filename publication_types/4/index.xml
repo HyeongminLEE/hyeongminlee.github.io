@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>4 on Hyeongmin Lee&#39;s Website</title>
+    <link>https://hyeongminlee.github.io/publication_types/4/</link>
+    <description>Recent content in 4 on Hyeongmin Lee&#39;s Website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2017 Hyeongmin Lee</copyright>
+    <lastBuildDate>Tue, 22 Aug 2023 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hyeongminlee.github.io/publication_types/4/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>A Nonlinear, Regularized, and Data-independent Modulation for Continuously Interactive Image Processing Network</title>
+      <link>https://hyeongminlee.github.io/publication/int_journal_003/</link>
+      <pubDate>Tue, 22 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://hyeongminlee.github.io/publication/int_journal_003/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Enhanced Standard Compatible Image Compression Framework based on Auxiliary Codec Networks</title>
+      <link>https://hyeongminlee.github.io/publication/int_journal_002/</link>
+      <pubDate>Wed, 22 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://hyeongminlee.github.io/publication/int_journal_002/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>AHD: Thermal-Image Based Adaptive Hand Detection for Enhanced Tracking System</title>
+      <link>https://hyeongminlee.github.io/publication/int_journal_001/</link>
+      <pubDate>Fri, 02 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://hyeongminlee.github.io/publication/int_journal_001/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

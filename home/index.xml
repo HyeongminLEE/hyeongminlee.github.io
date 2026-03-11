@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Homes on Hyeongmin Lee&#39;s Website</title>
+    <link>https://hyeongminlee.github.io/home/</link>
+    <description>Recent content in Homes on Hyeongmin Lee&#39;s Website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2017 Hyeongmin Lee</copyright>
+    <lastBuildDate>Wed, 11 Apr 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hyeongminlee.github.io/home/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>https://hyeongminlee.github.io/home/about/</link>
+      <pubDate>Wed, 11 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://hyeongminlee.github.io/home/about/</guid>
+      <description>Biography I am an Assistant Professor at Seoul National University of Science and Technology and received my Ph.D degree in Electrical &amp;amp; Electronic Engineering from Yonsei University. I&amp;rsquo;m interested in exploring the fundamental nature of Images &amp;amp; Videos and any technology for Representing &amp;amp; Enhancing them.
+To know more about me, please check out my cv or visit my github.
+Thank you :)</description>
+    </item>
+    
+    <item>
+      <title>Recent Publications</title>
+      <link>https://hyeongminlee.github.io/home/publications/</link>
+      <pubDate>Wed, 20 Apr 2016 00:00:00 +0900</pubDate>
+      
+      <guid>https://hyeongminlee.github.io/home/publications/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Recent Posts</title>
+      <link>https://hyeongminlee.github.io/home/posts/</link>
+      <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hyeongminlee.github.io/home/posts/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Contact</title>
+      <link>https://hyeongminlee.github.io/home/contact/</link>
+      <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://hyeongminlee.github.io/home/contact/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

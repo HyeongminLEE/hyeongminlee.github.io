@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blogs on Hyeongmin Lee&#39;s Website</title>
+    <link>https://hyeongminlee.github.io/blog/</link>
+    <description>Recent content in Blogs on Hyeongmin Lee&#39;s Website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2017 Hyeongmin Lee</copyright>
+    <lastBuildDate>Thu, 30 Aug 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hyeongminlee.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Bayesian Deep Learning</title>
+      <link>https://hyeongminlee.github.io/blog/bayesian/</link>
+      <pubDate>Thu, 30 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://hyeongminlee.github.io/blog/bayesian/</guid>
+      <description>Deep Learning을 비롯한 대부분의 머신러닝 알고리즘들은 주어진 문제를 해결하기 위해 필요한 다양한 파라미터들을 주어진 데이터를 통해 학습합니다. 그래서 머신러닝은 최적의 파라미터를 찾는 일이라고 볼 수 있습니다. 그런데 사실 이 파라미터를 보는 관점에는 크게 두 가지가 존재합니다.
+ Frequentest View: Model의 파라미터들을 Fixed Value로 취급하여 데이터로부터 그 값을 구해 냅니다. Bayesian View: Model의 파라미터들을 각각 하나의 Random Variable로 취급하여 그 Distribution을 구해 냅니다.  예를 들어 봅시다. 전국 대학생의 평균 연령을 알기 위해 전국적으로 100명의 대학생을 Sampling 하여 평균 연령을 구했고, 그 결과 23살이라는 값이 나왔다고 합시다.</description>
+    </item>
+    
+    <item>
+      <title>Image Generation with GAN</title>
+      <link>https://hyeongminlee.github.io/blog/gan/</link>
+      <pubDate>Thu, 09 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hyeongminlee.github.io/blog/gan/</guid>
+      <description>인공지능의 궁극적인 목표중의 하나는 &amp;lsquo;인간의 사고를 모방하는 것&amp;rsquo; 입니다. GAN 역시 인간의 사고를 일부 모방하는 알고리즘이라고 할 수 있습니다. 머릿속에 &amp;lsquo;사람의 얼굴&amp;rsquo;을 떠올려봅시다. 우리는 어렵지 않게 사람의 얼굴을 떠올릴 수 있습니다. 또한 그림 그리는 실력만 좋다면 그걸 그려낼 수도 있습니다. 태어나서 한번도 보지 못했던 새로운 얼굴도 그려낼 수 있죠. 그게 가능한 이유는 우리는 지금까지 살면서 수많은 사람의 얼굴을 보고 학습해왔기 때문입니다. 우리는 그림을 어떻게 그려야 그게 사람 얼굴이 되는지를 알고 있습니다.</description>
+    </item>
+    
+    <item>
+      <title>논문 리뷰</title>
+      <link>https://hyeongminlee.github.io/blog/paper_review/</link>
+      <pubDate>Wed, 25 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://hyeongminlee.github.io/blog/paper_review/</guid>
+      <description> 각종 분야의 논문들을 읽고 요약/정리해놓은 포스트입니다.
+Paper List  K. He, J. Sun, and X. Tang, “Single Image Haze Removal Using Dark Channel Prior,” Proc. IEEE Conf. Computer Vision and Pattern Recognition, 2009. Q. You, H. Jin, Z. Wang, C.Fang, and J. Luo, &amp;ldquo;Image Captioning with Semantic Attention&amp;rdquo; Proc. IEEE Conf. Computer Vision and Pattern Recognition, 2016.  </description>
+    </item>
+    
+  </channel>
+</rss>

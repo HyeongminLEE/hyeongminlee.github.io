@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>3 on Hyeongmin Lee&#39;s Website</title>
+    <link>https://hyeongminlee.github.io/publication_types/3/</link>
+    <description>Recent content in 3 on Hyeongmin Lee&#39;s Website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2017 Hyeongmin Lee</copyright>
+    <lastBuildDate>Wed, 23 Jul 2025 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hyeongminlee.github.io/publication_types/3/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Temporal Smoothness-Aware Rate-Distortion Optimized 4D Gaussian Splatting</title>
+      <link>https://hyeongminlee.github.io/publication/int_conf_010/</link>
+      <pubDate>Wed, 23 Jul 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://hyeongminlee.github.io/publication/int_conf_010/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Exploring Discontinuity for Video Frame Interpolation</title>
+      <link>https://hyeongminlee.github.io/publication/int_conf_009/</link>
+      <pubDate>Sun, 18 Jun 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://hyeongminlee.github.io/publication/int_conf_009/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Expanded Adaptive Scaling Normalization for End to End Image Compression</title>
+      <link>https://hyeongminlee.github.io/publication/int_conf_008/</link>
+      <pubDate>Sun, 23 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://hyeongminlee.github.io/publication/int_conf_008/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Regularization Strategy for Point Cloud via Rigidly Mixed Sample</title>
+      <link>https://hyeongminlee.github.io/publication/int_conf_007/</link>
+      <pubDate>Sat, 19 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://hyeongminlee.github.io/publication/int_conf_007/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Extrapolative-Interpolative Cycle-Consistency Learning for Video Frame Extrapolation</title>
+      <link>https://hyeongminlee.github.io/publication/int_conf_005/</link>
+      <pubDate>Sun, 25 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://hyeongminlee.github.io/publication/int_conf_005/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Learning Temporally Invariant and Localizable Features via Data Augmentation for Video Recognition</title>
+      <link>https://hyeongminlee.github.io/publication/int_conf_006/</link>
+      <pubDate>Sun, 23 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://hyeongminlee.github.io/publication/int_conf_006/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>AdaCoF: Adaptive Collaboration of Flows for Video Frame Interpolation</title>
+      <link>https://hyeongminlee.github.io/publication/int_conf_004/</link>
+      <pubDate>Sun, 28 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://hyeongminlee.github.io/publication/int_conf_004/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>N-RPN: Hard Example Learning For Region Proposal Networks</title>
+      <link>https://hyeongminlee.github.io/publication/int_conf_003/</link>
+      <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://hyeongminlee.github.io/publication/int_conf_003/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SF-CNN: A Fast Compression Artifacts Removal via Spatial-To-Frequency Convolutional Neural Networks</title>
+      <link>https://hyeongminlee.github.io/publication/int_conf_002/</link>
+      <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://hyeongminlee.github.io/publication/int_conf_002/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CollaboNet: Collaboration of Generative Models by Unsupervised Classification</title>
+      <link>https://hyeongminlee.github.io/publication/int_conf_001/</link>
+      <pubDate>Sun, 07 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://hyeongminlee.github.io/publication/int_conf_001/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
