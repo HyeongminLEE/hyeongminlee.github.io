@@ -1,0 +1,170 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><link rel="preconnect" href="https://rsms.me/"><link rel="stylesheet" href="https://rsms.me/inter/inter.css"><title>Research Intro 2026 — Hyeongmin Lee</title><link rel="stylesheet" href="/_astro/global.gXqfi47p.css">
+<style>.showcase-root{scroll-snap-type:y mandatory;overflow-y:scroll;height:100vh;scroll-behavior:smooth}.showcase-section{scroll-snap-align:start;scroll-snap-stop:always;min-height:100vh;width:100%;display:flex;flex-direction:column;justify-content:center;padding:4rem 1.5rem}@media(min-width:1024px){.showcase-section{padding:5rem 2rem}}
+</style></head> <body class="overflow-hidden"> <div id="showcase" class="showcase-root">     <section class="showcase-section"> <div class="max-w-5xl mx-auto w-full"> <p class="text-base lg:text-lg uppercase tracking-[0.22em] text-cyan-deep font-semibold">
+Research Introduction
+</p> <h1 class="mt-8 font-display text-[2.75rem] lg:text-[3.75rem] leading-[1.1] tracking-tight font-semibold text-ink">
+Computer Vision for Videos<br> <span class="text-navy">— studying motion.</span> </h1> <p class="mt-12 text-lg lg:text-xl text-ink-soft">
+Hyeongmin Lee · SeoulTech, Dept. of Electronic Engineering
+</p> </div> </section>    <section class="showcase-section"> <div class="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center"> <div class="lg:col-span-4 flex justify-center"> <img src="/slides/research-intro-2026/portrait.jpg" alt="Hyeongmin Lee" class="w-56 h-56 lg:w-72 lg:h-72 rounded-full object-cover border border-line shadow-sm"> </div> <div class="lg:col-span-8"> <p class="text-base lg:text-lg uppercase tracking-[0.22em] text-cyan-deep font-semibold">
+About
+</p> <h2 class="mt-3 font-display text-4xl lg:text-5xl tracking-tight font-semibold text-ink leading-tight">
+Hyeongmin Lee
+</h2> <p class="mt-2 text-lg text-ink-soft">
+Assistant Professor · SeoulTech EE
+</p> <ul class="mt-8 space-y-3 text-base lg:text-lg text-ink"> <li class="flex items-baseline gap-5"> <span class="text-sm uppercase tracking-[0.16em] text-ink-mute font-semibold whitespace-nowrap w-32 shrink-0"> 2018 – 2023 </span> <span> <span class="font-semibold text-ink">Yonsei University</span> <span class="text-ink-soft"> — Ph.D., Electrical &amp; Electronic Engineering</span> </span> </li><li class="flex items-baseline gap-5"> <span class="text-sm uppercase tracking-[0.16em] text-ink-mute font-semibold whitespace-nowrap w-32 shrink-0"> 2021 </span> <span> <span class="font-semibold text-ink">Adobe Research</span> <span class="text-ink-soft"> — Research intern · video stabilization</span> </span> </li><li class="flex items-baseline gap-5"> <span class="text-sm uppercase tracking-[0.16em] text-ink-mute font-semibold whitespace-nowrap w-32 shrink-0"> 2023 – 2026 </span> <span> <span class="font-semibold text-ink">Twelve Labs</span> <span class="text-ink-soft"> — ML Research Scientist · video foundation models</span> </span> </li><li class="flex items-baseline gap-5"> <span class="text-sm uppercase tracking-[0.16em] text-ink-mute font-semibold whitespace-nowrap w-32 shrink-0"> 2026 – </span> <span> <span class="font-semibold text-ink">SeoulTech</span> <span class="text-ink-soft"> — Assistant Professor · ViViD Lab</span> </span> </li> </ul> </div> </div> </section>    <section class="showcase-section"> <div class="max-w-6xl mx-auto w-full"> <header class="max-w-6xl mx-auto w-full"> <div class="font-display text-base lg:text-lg tracking-[0.22em] text-cyan-deep font-semibold uppercase"> Single-frame ambiguity · 01 </div> <h2 class="mt-3 font-display text-4xl lg:text-5xl tracking-tight font-semibold text-ink leading-tight"> Sunset, or sunrise? </h2> <p class="mt-3 text-lg lg:text-xl text-ink-soft">From a single frame, you cannot tell.</p> </header> <div class="mt-12 flex justify-center"> <img src="/slides/research-intro-2026/sunset-sunrise.png" alt="Sunset and sunrise icons" class="max-w-3xl w-full h-auto"> </div> <p class="mt-10 max-w-3xl mx-auto text-base lg:text-lg italic text-ink-soft border-l-2 border-cyan pl-4 leading-relaxed">
+Direction of motion exists only <em>between</em> frames.
+</p> </div> </section>    <section class="showcase-section"> <div class="max-w-6xl mx-auto w-full"> <header class="max-w-6xl mx-auto w-full"> <div class="font-display text-base lg:text-lg tracking-[0.22em] text-cyan-deep font-semibold uppercase"> Counterpoint </div> <h2 class="mt-3 font-display text-4xl lg:text-5xl tracking-tight font-semibold text-ink leading-tight"> You can still call this “ice skating”. </h2> <p class="mt-3 text-lg lg:text-xl text-ink-soft">The rink, the blade, the posture — the action category is in the frame.</p> </header> <div class="mt-12 flex justify-center"> <img src="/slides/research-intro-2026/skating.jpeg" alt="A single still frame of a person ice skating" class="max-w-2xl w-full h-auto rounded-lg border border-line"> </div> <p class="mt-10 max-w-3xl mx-auto text-base lg:text-lg italic text-ink-soft border-l-2 border-cyan pl-4 leading-relaxed">
+Single-frame appearance is enough to pick the right class label.
+        But recognizing the activity is not the same as understanding the motion.
+</p> </div> </section>    <section class="showcase-section"> <div class="max-w-6xl mx-auto w-full"> <header class="max-w-6xl mx-auto w-full"> <div class="font-display text-base lg:text-lg tracking-[0.22em] text-cyan-deep font-semibold uppercase"> Single-frame ambiguity · 02 </div> <h2 class="mt-3 font-display text-4xl lg:text-5xl tracking-tight font-semibold text-ink leading-tight"> Glasses going up, or coming down? </h2> <p class="mt-3 text-lg lg:text-xl text-ink-soft">Same problem with a real photograph.</p> </header> <div class="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center"> <div class="lg:col-span-7"> <img src="/slides/research-intro-2026/eyeglasses.jpeg" alt="A single ambiguous frame of glasses near the eyes" class="w-full h-auto rounded-lg border border-line"> </div> <div class="lg:col-span-5 space-y-5"> <div class="rounded-lg bg-paper border border-line p-5"> <div class="text-xs uppercase tracking-[0.16em] text-ink-mute font-semibold mb-2">
+From this image alone
+</div> <p class="text-lg font-display text-ink leading-relaxed">
+No model — and no human — can decide.
+</p> </div> <p class="text-base text-ink-soft leading-relaxed">
+The intent, the before, the after — these all live in
+<em>change</em>, not in any single frame.
+</p> </div> </div> </div> </section>    <section class="showcase-section bg-paper-soft"> <div class="max-w-6xl mx-auto w-full"> <p class="text-base lg:text-lg uppercase tracking-[0.22em] text-cyan-deep font-semibold">
+The thesis
+</p> <h2 class="mt-10 font-display text-4xl lg:text-6xl xl:text-7xl tracking-tight font-semibold text-ink leading-[1.05]">
+Video understanding is not the same as
+<span class="text-navy">image understanding.</span> </h2> <p class="mt-12 text-lg lg:text-xl text-ink-soft max-w-3xl leading-relaxed">
+Modern vision models are excellent at recognizing
+<em>what</em> appears in a frame. They are far less
+        capable at reasoning about <em>change</em> across frames.
+</p> </div> </section>    <section class="showcase-section"> <div class="max-w-6xl mx-auto w-full"> <header class="max-w-6xl mx-auto w-full"> <div class="font-display text-base lg:text-lg tracking-[0.22em] text-cyan-deep font-semibold uppercase"> How models actually see video </div> <h2 class="mt-3 font-display text-4xl lg:text-5xl tracking-tight font-semibold text-ink leading-tight"> Like an LED sign. </h2> <p class="mt-3 text-lg lg:text-xl text-ink-soft">Each LED is fixed. Lights flip on and off. The motion is invented by our eyes.</p> </header> <div class="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center"> <div class="lg:col-span-6"> <img src="/slides/research-intro-2026/led-sign.png" alt="A restaurant LED sign — fixed LEDs, blinking patterns that look like moving shapes" class="w-full h-auto rounded-lg border border-line"> </div> <div class="lg:col-span-6 space-y-5"> <div class="rounded-lg bg-paper-soft border border-line p-5"> <div class="text-xs uppercase tracking-[0.16em] text-ink-mute font-semibold mb-2">
+The illusion
+</div> <p class="text-base lg:text-lg text-ink leading-relaxed">
+No LED moves. They blink in a pattern, and our visual
+              system sews that pattern into a moving shape.
+</p> </div> <p class="text-base lg:text-lg text-ink-soft leading-relaxed">
+Most video models work the same way: each frame is a still
+            image. The model detects <em>which patches change between
+            frames</em> — but never models the motion itself. The "video"
+            lives in our perception, not in the model's representation.
+</p> </div> </div> </div> </section>    <section class="showcase-section bg-paper-soft"> <div class="max-w-6xl mx-auto w-full"> <header class="max-w-6xl mx-auto w-full"> <div class="font-display text-base lg:text-lg tracking-[0.22em] text-cyan-deep font-semibold uppercase"> Empirical evidence </div> <h2 class="mt-3 font-display text-4xl lg:text-5xl tracking-tight font-semibold text-ink leading-tight"> Today&#39;s video foundation models cannot tell direction apart. </h2> <p class="mt-3 text-lg lg:text-xl text-ink-soft">LDA visualization of “moving something up” vs. its reversed video.</p> </header> <div class="mt-10 flex justify-center"> <img src="/slides/research-intro-2026/twlv-i-lda.png" alt="LDA visualization of moving up vs. reversed across video FMs" class="max-w-5xl w-full h-auto"> </div> <p class="mt-8 max-w-4xl mx-auto text-sm text-ink-soft leading-snug"> <a href="https://arxiv.org/abs/2408.11318" target="_blank" rel="noopener" class="hover:text-navy underline-offset-2 hover:underline">
+TWLV-I: Analysis and Insights from Holistic Evaluation on Video Foundation Models
+</a> <span class="text-ink-soft"> · Twelve Labs, 2024</span> <span class="ml-2 inline-block px-2 py-0.5 rounded text-xs uppercase tracking-wider bg-navy-soft text-navy font-semibold">
+Technical report
+</span> </p> <p class="mt-6 max-w-3xl mx-auto text-base lg:text-lg italic text-ink-soft border-l-2 border-cyan pl-4 leading-relaxed">
+UMT and InternVideo2 — strong on appearance — collapse forward and
+        reverse motion into the same embedding cloud.
+</p> </div> </section>    <section class="showcase-section"> <div class="w-full text-center"> <p class="text-base lg:text-lg uppercase tracking-[0.22em] text-ink-soft font-semibold">
+Where I work
+</p> <h2 class="mt-10 font-display text-7xl lg:text-9xl tracking-tight font-semibold text-ink leading-[1.05]">
+Motion
+</h2> <p class="mt-14 font-display text-2xl lg:text-3xl text-ink-soft tracking-wide max-w-3xl mx-auto leading-snug">
+Models are good at seeing <em class="text-ink-mute not-italic">things</em>,<br>
+not at understanding <em class="text-navy">motion</em>.
+</p> </div> </section>    <section class="showcase-section"> <div class="max-w-6xl mx-auto w-full"> <header class="max-w-6xl mx-auto w-full"> <div class="font-display text-base lg:text-lg tracking-[0.22em] text-cyan-deep font-semibold uppercase"> Image interpolation </div> <h2 class="mt-3 font-display text-4xl lg:text-5xl tracking-tight font-semibold text-ink leading-tight"> For images, interpolation is a pixel problem. </h2> <p class="mt-3 text-lg lg:text-xl text-ink-soft">Decide each missing pixel from the values of its neighbors.</p> </header> <div class="mt-12 flex justify-center"> <img src="/slides/research-intro-2026/pixel-interp.png" alt="Pixel interpolation comparison: nearest, bilinear, bicubic" class="max-w-5xl w-full h-auto"> </div> <p class="mt-10 max-w-3xl mx-auto text-base lg:text-lg text-ink-soft leading-relaxed">
+Nearest-neighbor, bilinear, bicubic — all decided by the
+<em>spatial neighborhood</em>. The methods differ in smoothness,
+        but the underlying problem is the same: <strong class="text-ink">interpolate
+        pixels from pixels right next to them</strong>.
+</p> </div> </section>    <section class="showcase-section bg-paper-soft"> <div class="max-w-6xl mx-auto w-full"> <header class="max-w-6xl mx-auto w-full"> <div class="font-display text-base lg:text-lg tracking-[0.22em] text-cyan-deep font-semibold uppercase"> Video interpolation </div> <h2 class="mt-3 font-display text-4xl lg:text-5xl tracking-tight font-semibold text-ink leading-tight"> For video, neighboring pixels are the wrong neighbors. </h2> <p class="mt-3 text-lg lg:text-xl text-ink-soft">Naively averaging two adjacent frames gives a ghosted double image.</p> </header> <div class="mt-12 flex justify-center"> <img src="/slides/research-intro-2026/vfi-juggling.png" alt="Naive frame overlap produces ghosted, double-imaged result" class="max-w-4xl w-full h-auto"> </div> <p class="mt-10 max-w-3xl mx-auto text-base lg:text-lg text-ink-soft leading-relaxed">
+The juggling balls in the input frames are at different
+        positions. Treating "between" as a pixel average leaves both
+        balls visible — neither was actually there at that moment.
+</p> </div> </section>    <section class="showcase-section bg-paper-soft"> <div class="max-w-6xl mx-auto w-full"> <header class="max-w-6xl mx-auto w-full"> <div class="font-display text-base lg:text-lg tracking-[0.22em] text-cyan-deep font-semibold uppercase"> Video interpolation </div> <h2 class="mt-3 font-display text-4xl lg:text-5xl tracking-tight font-semibold text-ink leading-tight"> What we actually want. </h2> <p class="mt-3 text-lg lg:text-xl text-ink-soft">A single ball, at the position it would have occupied between the two frames.</p> </header> <div class="mt-12 flex justify-center"> <img src="/slides/research-intro-2026/vfi-juggling-want.png" alt="Desired intermediate frame: a single ball at the in-between position" class="max-w-4xl w-full h-auto"> </div> <p class="mt-10 max-w-3xl mx-auto text-base lg:text-lg text-ink-soft leading-relaxed">
+To get here, the model has to know <em>where</em> each pixel in
+        the new frame came from — i.e., it has to model the motion.
+</p> </div> </section>    <section class="showcase-section"> <div class="max-w-6xl mx-auto w-full"> <header class="max-w-6xl mx-auto w-full"> <div class="font-display text-base lg:text-lg tracking-[0.22em] text-cyan-deep font-semibold uppercase"> Motion estimation </div> <h2 class="mt-3 font-display text-4xl lg:text-5xl tracking-tight font-semibold text-ink leading-tight"> Find where each output pixel came from. </h2> <p class="mt-3 text-lg lg:text-xl text-ink-soft">The core operation behind every video frame interpolation method.</p> </header> <div class="mt-12 flex justify-center"> <img src="/slides/research-intro-2026/motion-estimation.png" alt="Motion estimation: input patches at different positions linked to the output patch" class="max-w-5xl w-full h-auto"> </div> <p class="mt-10 max-w-3xl mx-auto text-base lg:text-lg text-ink-soft leading-relaxed">
+For every pixel of the new frame, look at the two adjacent frames
+        and figure out <em>where</em> that content was. The vector linking
+        these locations is the <strong class="text-ink">motion</strong>.
+        How a method defines this vector — single pixel, fixed window,
+        learned sampling — determines what it can handle.
+</p> </div> </section>    <section class="showcase-section"> <div class="max-w-6xl mx-auto w-full"> <header class="max-w-6xl mx-auto w-full"> <div class="font-display text-base lg:text-lg tracking-[0.22em] text-cyan-deep font-semibold uppercase"> Paper · CVPR 2020 </div> <h2 class="mt-3 font-display text-4xl lg:text-5xl tracking-tight font-semibold text-ink leading-tight"> AdaCoF: Adaptive Collaboration of Flows </h2> <p class="mt-3 text-lg lg:text-xl text-ink-soft">Video frame interpolation as motion modeling.</p> </header> <div class="mt-10 flex justify-center"> <img src="/slides/research-intro-2026/adacof-overview.png" alt="AdaCoF: flow-based vs kernel-based vs ours" class="max-w-5xl w-full h-auto"> </div> <p class="mt-8 max-w-3xl mx-auto text-base lg:text-lg text-ink-soft leading-relaxed">
+Prior VFI either referenced <em>one</em> location (flow-based) or
+        a small fixed window (kernel-based). AdaCoF samples
+<strong class="text-ink">any location, any shape, with multiple pixels</strong> —
+        a single operation that subsumes both.
+</p> <p class="mt-5 max-w-3xl mx-auto text-sm text-ink-soft leading-snug"> <a href="https://openaccess.thecvf.com/content_CVPR_2020/papers/Lee_AdaCoF_Adaptive_Collaboration_of_Flows_for_Video_Frame_Interpolation_CVPR_2020_paper.pdf" target="_blank" rel="noopener" class="hover:text-navy underline-offset-2 hover:underline">
+Lee et al., CVPR 2020
+</a> </p> </div> </section>    <section class="showcase-section bg-paper-soft"> <div class="max-w-6xl mx-auto w-full"> <header> <div class="font-display text-base lg:text-lg tracking-[0.22em] text-cyan-deep font-semibold uppercase"> What VFI looks like </div> <h2 class="mt-3 font-display text-4xl lg:text-5xl tracking-tight font-semibold text-ink leading-tight"> Frame Interpolation </h2> <p class="mt-3 text-lg lg:text-xl text-ink-soft">Synthesizing the frames between adjacent frames.</p> </header> <div class="mt-6 lg:mt-8"> <div class="text-base uppercase tracking-[0.16em] text-ink font-semibold mb-3"> Slow-motion · drag-free comparison </div> <div class="rounded-lg overflow-hidden bg-paper-soft border border-line">  <video src="/slides/research-intro-2026/vfi_compare.mp4" autoplay muted loop playsinline class="w-full h-auto block"></video>  </div> <p class="mt-3 text-sm text-ink-soft leading-snug"> <a href="https://github.com/megvii-research/ECCV2022-RIFE" target="_blank" rel="noopener" class="hover:text-navy underline-offset-2 hover:underline"> RIFE: Real-Time Intermediate Flow Estimation </a> <span class="text-ink-soft"> · Huang et al.</span> <span class="ml-2 inline-block px-2 py-0.5 rounded text-xs uppercase tracking-wider bg-navy-soft text-navy font-semibold"> ECCV 2022 </span> </p> </div> </div> </section>    <section class="showcase-section"> <div class="max-w-6xl mx-auto w-full"> <header class="max-w-6xl mx-auto w-full"> <div class="font-display text-base lg:text-lg tracking-[0.22em] text-cyan-deep font-semibold uppercase"> Paper · CVPR 2023 (Highlight, top 10%) </div> <h2 class="mt-3 font-display text-4xl lg:text-5xl tracking-tight font-semibold text-ink leading-tight"> Exploring Discontinuity for VFI </h2> <p class="mt-3 text-lg lg:text-xl text-ink-soft">Real videos have logos, subtitles, UI — discontinuous motion is everywhere.</p> </header> <div class="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center"> <div class="lg:col-span-5"> <p class="text-xs uppercase tracking-[0.16em] text-ink-mute font-semibold mb-3">
+The problem
+</p> <img src="/slides/research-intro-2026/discontinuous-motion.png" alt="Examples of discontinuous motion in real videos" class="w-full h-auto"> </div> <div class="lg:col-span-7"> <p class="text-xs uppercase tracking-[0.16em] text-ink-mute font-semibold mb-3">
+One of our solutions — Discontinuity Map
+</p> <img src="/slides/research-intro-2026/dmap-arch.png" alt="Discontinuity Map architecture and visualization" class="w-full h-auto"> </div> </div> <p class="mt-10 max-w-3xl mx-auto text-base lg:text-lg text-ink-soft leading-relaxed">
+Two ideas to make any VFI network robust to discontinuity:
+<strong class="text-ink">Figure-Text Mixing (FTM)</strong> as augmentation,
+        and a lightweight <strong class="text-ink">Discontinuity Map (D-map)</strong> module that
+        decides per-pixel where to copy vs. interpolate.
+</p> <p class="mt-5 max-w-3xl mx-auto text-sm text-ink-soft leading-snug"> <a href="https://arxiv.org/abs/2202.07291" target="_blank" rel="noopener" class="hover:text-navy underline-offset-2 hover:underline">
+Lee*, Lee*, Shin, Son, Lee — CVPR 2023 Highlight
+</a> </p> </div> </section>    <section class="showcase-section bg-paper-soft"> <div class="max-w-6xl mx-auto w-full"> <header class="max-w-6xl mx-auto w-full"> <div class="font-display text-base lg:text-lg tracking-[0.22em] text-cyan-deep font-semibold uppercase"> Paper · NeurIPS 2025 </div> <h2 class="mt-3 font-display text-4xl lg:text-5xl tracking-tight font-semibold text-ink leading-tight"> Compressing 4D Gaussian Splatting with motion priors </h2> <p class="mt-3 text-lg lg:text-xl text-ink-soft">When the video is a 3D scene moving over time, motion lives in the trajectories.</p> </header> <div class="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start"> <div class="lg:col-span-5"> <img src="/slides/research-intro-2026/pixel-vs-location.png" alt="Pixel-grid vs location-based representation" class="w-full h-auto"> <p class="mt-5 text-base text-ink-soft leading-relaxed">
+Stop treating each frame as a fresh pixel array. Represent the
+            scene <strong class="text-ink">once</strong> as 3D points and
+<strong class="text-ink">move them</strong> through time.
+</p> </div> <div class="lg:col-span-7"> <img src="/slides/research-intro-2026/neurips25-results.png" alt="NeurIPS 2025 results: wavelet transform + 99% size reduction" class="w-full h-auto rounded-lg border border-line"> <p class="mt-5 text-base text-ink-soft leading-relaxed">
+We apply a <strong class="text-ink">wavelet transform on each point's trajectory</strong>
+and discard the noisy high-frequency detail — exploiting the
+            inherent smoothness of real motion. Up to
+<strong class="text-ink">~99% storage reduction</strong> at competitive fidelity.
+</p> </div> </div> <p class="mt-8 max-w-3xl mx-auto text-sm text-ink-soft leading-snug"> <a href="https://arxiv.org/abs/2507.17336" target="_blank" rel="noopener" class="hover:text-navy underline-offset-2 hover:underline">
+Lee & Baek — NeurIPS 2025
+</a> </p> </div> </section>    <section class="showcase-section"> <div class="max-w-6xl mx-auto w-full"> <p class="text-base lg:text-lg uppercase tracking-[0.22em] text-cyan-deep font-semibold">
+Looking forward
+</p> <h2 class="mt-6 font-display text-4xl lg:text-5xl tracking-tight font-semibold text-ink leading-tight max-w-4xl">
+From <span class="text-ink-mute">predicting frames</span><br>
+to <span class="text-navy">predicting the world.</span> </h2> <div class="mt-14 max-w-5xl"> <svg viewBox="0 0 600 340" class="w-full h-auto" xmlns="http://www.w3.org/2000/svg"> <defs> <marker id="arrow-w" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"> <path d="M0,0 L0,6 L9,3 z" fill="#0a0e1a"></path> </marker> <marker id="arrow-w-cyan" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"> <path d="M0,0 L0,6 L9,3 z" fill="#0891b2"></path> </marker> <clipPath id="wm-now-clip"><rect x="20" y="55" width="70" height="60" rx="4"></rect></clipPath> <clipPath id="wm-fut-1"><rect x="400" y="40" width="80" height="55" rx="3"></rect></clipPath> <clipPath id="wm-fut-2"><rect x="420" y="60" width="80" height="55" rx="3"></rect></clipPath> <clipPath id="wm-fut-3"><rect x="440" y="80" width="80" height="55" rx="3"></rect></clipPath> <filter id="wm-muted"> <feColorMatrix type="saturate" values="0.2"></feColorMatrix> </filter> </defs> <!-- ===== Observation panel (current scene) ===== --> <g>  <rect x="20" y="55" width="70" height="60" rx="4" fill="#e8eef9"></rect>  <line x1="28" y1="103" x2="82" y2="103" stroke="#94a3b8" stroke-width="1.2"></line>  <rect x="35" y="87" width="16" height="16" rx="2" fill="#0d47a1"></rect>  <circle cx="68" cy="98" r="5" fill="#94a3b8" opacity="0.7"></circle>  <rect x="20" y="55" width="70" height="60" rx="4" fill="none" stroke="#0d47a1" stroke-width="1.5"></rect> <text x="55" y="135" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#0a0e1a">Observation</text> <text x="55" y="150" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#94a3b8">current scene</text> </g> <!-- ===== Big "+" combining observation and action ===== --> <text x="105" y="93" text-anchor="middle" font-family="Inter, sans-serif" font-size="28" font-weight="700" fill="#0d47a1">+</text> <!-- ===== Action panel (D-pad with one direction pressed) ===== --> <g> <rect x="120" y="55" width="70" height="60" rx="4" fill="#ffffff" stroke="#0891b2" stroke-width="1.5" stroke-dasharray="3 2"></rect> <!-- D-pad: cross of arrows, right one highlighted --> <g transform="translate(155, 85)"> <!-- center hub --> <circle cx="0" cy="0" r="3" fill="#0891b2" opacity="0.4"></circle> <!-- up arrow (idle gray) --> <polygon points="-4,-9 0,-17 4,-9" fill="#cbd5e1"></polygon> <rect x="-2.5" y="-9" width="5" height="6" fill="#cbd5e1"></rect> <!-- down arrow --> <polygon points="-4,9 0,17 4,9" fill="#cbd5e1"></polygon> <rect x="-2.5" y="3" width="5" height="6" fill="#cbd5e1"></rect> <!-- left arrow --> <polygon points="-9,-4 -17,0 -9,4" fill="#cbd5e1"></polygon> <rect x="-9" y="-2.5" width="6" height="5" fill="#cbd5e1"></rect> <!-- right arrow (active cyan) --> <polygon points="9,-4 17,0 9,4" fill="#0891b2"></polygon> <rect x="3" y="-2.5" width="6" height="5" fill="#0891b2"></rect> </g> <text x="155" y="135" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#0891b2">Interaction</text> <text x="155" y="150" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#94a3b8">action / control input</text> </g> <!-- ===== Arrow → Diffusion ===== --> <line x1="200" y1="85" x2="225" y2="85" stroke="#0a0e1a" stroke-width="2" marker-end="url(#arrow-w)"></line> <!-- ===== Diffusion model (slightly smaller) ===== --> <g> <rect x="232" y="50" width="125" height="80" rx="40" fill="#ffffff" stroke="#0d47a1" stroke-width="2"></rect> <text x="294" y="85" text-anchor="middle" font-family="Inter, sans-serif" font-size="15" font-weight="600" fill="#0d47a1">Diffusion</text> <text x="294" y="105" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="#0d47a1">World Model</text> </g> <!-- ===== Arrow → Futures ===== --> <line x1="365" y1="85" x2="395" y2="85" stroke="#0a0e1a" stroke-width="2" marker-end="url(#arrow-w)"></line> <!-- ===== Imagined future frames (diagonal stack) ===== --> <g> <rect x="400" y="40" width="80" height="55" rx="3" fill="#06b6d4" opacity="0.15"></rect> <rect x="400" y="40" width="80" height="55" rx="3" fill="none" stroke="#0891b2" stroke-width="1" opacity="0.6"></rect> <rect x="420" y="60" width="80" height="55" rx="3" fill="#06b6d4" opacity="0.25"></rect> <rect x="420" y="60" width="80" height="55" rx="3" fill="none" stroke="#0891b2" stroke-width="1" opacity="0.8"></rect> <rect x="440" y="80" width="80" height="55" rx="3" fill="#06b6d4" opacity="0.4"></rect> <rect x="440" y="80" width="80" height="55" rx="3" fill="none" stroke="#0891b2" stroke-width="1.5"></rect> <text x="460" y="160" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="#475569">Imagined futures</text> </g> <!-- ===== Down arrow → Robot ===== --> <line x1="475" y1="180" x2="475" y2="230" stroke="#0a0e1a" stroke-width="2" marker-end="url(#arrow-w)"></line> <!-- ===== Closed-loop arrow: Robot → Interaction (next action) ===== --> <!-- Curves up from below and stops just under the Interaction labels so it
+       points at the box without crossing the text. --> <path d="M 350,275 C 240,275 155,240 155,170" fill="none" stroke="#0891b2" stroke-width="2" stroke-dasharray="5 4" opacity="0.85" marker-end="url(#arrow-w-cyan)"></path> <text x="255" y="205" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-style="italic" fill="#0891b2">next action · closed loop</text> <!-- ===== Robot training box ===== --> <g> <rect x="350" y="240" width="250" height="85" rx="10" fill="#e8eef9" stroke="#0d47a1" stroke-width="1.5" stroke-dasharray="3 3"></rect> <!-- Robot icon, left --> <circle cx="400" cy="258" r="3" fill="#06b6d4"></circle> <line x1="400" y1="262" x2="400" y2="270" stroke="#0d47a1" stroke-width="2"></line> <rect x="385" y="270" width="30" height="24" rx="3" fill="#0d47a1"></rect> <circle cx="393" cy="282" r="2.5" fill="#06b6d4"></circle> <circle cx="407" cy="282" r="2.5" fill="#06b6d4"></circle> <!-- Text right of icon --> <text x="510" y="278" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#0a0e1a">Robot interacts</text> <text x="510" y="298" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#475569">in its imagination</text> </g> </svg> </div> <p class="mt-10 max-w-3xl text-base lg:text-lg text-ink-soft leading-relaxed">
+Each step has been about modeling motion at a finer level —
+        between adjacent frames (VFI), across a continuous 3D scene (4DGS),
+        and now in response to an agent's actions (world models).
+</p> </div> </section>    <section class="showcase-section bg-paper-soft"> <div class="max-w-6xl mx-auto w-full"> <header> <div class="font-display text-base lg:text-lg tracking-[0.22em] text-cyan-deep font-semibold uppercase"> Where the field is going </div> <h2 class="mt-3 font-display text-4xl lg:text-5xl tracking-tight font-semibold text-ink leading-tight"> World Models </h2> <p class="mt-3 text-lg lg:text-xl text-ink-soft">Generative simulation of the visual world, conditioned on actions.</p> </header> <div class="mt-6 lg:mt-8"> <div class="text-base uppercase tracking-[0.16em] text-ink font-semibold mb-3"> Robot World Model </div> <div class="rounded-lg overflow-hidden bg-paper-soft border border-line">  <video src="/slides/research-intro-2026/dreamdojo.mp4" autoplay muted loop playsinline class="w-full h-auto block"></video>  </div> <p class="mt-3 text-sm text-ink-soft leading-snug"> <a href="https://dreamdojo-world.github.io/" target="_blank" rel="noopener" class="hover:text-navy underline-offset-2 hover:underline"> DreamDojo: A Generalist Robot World Model from Large-Scale Human Videos </a> <span class="text-ink-soft"> · Gao et al.</span> <span class="ml-2 inline-block px-2 py-0.5 rounded text-xs uppercase tracking-wider bg-navy-soft text-navy font-semibold"> 2026 </span> </p> </div> </div> </section>    <section class="showcase-section bg-gradient-to-br from-navy to-navy-deep text-paper"> <div class="max-w-5xl mx-auto w-full"> <p class="text-base lg:text-lg uppercase tracking-[0.22em] text-cyan-soft font-semibold">
+Wrap-up
+</p> <h2 class="mt-8 font-display text-5xl lg:text-6xl tracking-tight font-semibold leading-tight">
+One thread:<br> <span class="text-cyan-soft">studying how things change.</span> </h2> <div class="mt-14 flex flex-wrap items-center gap-3 lg:gap-5 text-base lg:text-lg text-paper/85 font-display"> <span>VFI</span> <span class="text-cyan-soft">→</span> <span>discontinuous motion</span> <span class="text-cyan-soft">→</span> <span>4D representation</span> <span class="text-cyan-soft">→</span> <span class="font-semibold text-paper">world models</span> </div> <div class="mt-14 space-y-3"> <p class="text-lg lg:text-xl"> <a href="mailto:hyeongmin.lee@seoultech.ac.kr" class="hover:text-cyan-soft underline underline-offset-4 decoration-paper/40">
+hyeongmin.lee@seoultech.ac.kr
+</a> </p> <p class="text-lg lg:text-xl"> <a href="https://hyeongminlee.github.io" target="_blank" rel="noopener" class="hover:text-cyan-soft underline underline-offset-4 decoration-paper/40">
+hyeongminlee.github.io
+</a> </p> </div> <p class="mt-14 text-base text-paper/70">
+Thank you.
+</p> </div> </section>  </div> <!-- Back link (top-left) --> <a href="/slides/" class="fixed top-5 left-6 text-[11px] tracking-[0.18em] uppercase text-ink-mute hover:text-navy font-semibold select-none z-50 transition-colors">
+← All decks </a> <!-- Section indicator (top-right) --> <div id="indicator" class="fixed top-5 right-6 text-[11px] tracking-[0.18em] uppercase text-ink-mute font-semibold pointer-events-none select-none z-50"> <span id="cur">01</span><span class="text-ink-mute/50"> / </span><span id="tot">00</span> </div> <!-- Hint (bottom) --> <div class="fixed bottom-5 left-1/2 -translate-x-1/2 text-[10px] tracking-[0.22em] uppercase text-ink-mute/70 pointer-events-none select-none z-50">
+Scroll · ↓ · Space
+</div>  <script>
+      const root = document.getElementById("showcase");
+      const sections = root.querySelectorAll(".showcase-section");
+      const cur = document.getElementById("cur");
+      const tot = document.getElementById("tot");
+      tot.textContent = String(sections.length).padStart(2, "0");
+
+      let activeIdx = 0;
+
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting && e.intersectionRatio > 0.5) {
+              const idx = Array.from(sections).indexOf(e.target);
+              if (idx >= 0) {
+                activeIdx = idx;
+                cur.textContent = String(idx + 1).padStart(2, "0");
+              }
+            }
+          });
+        },
+        { root, threshold: [0.5] }
+      );
+      sections.forEach((s) => io.observe(s));
+
+      const goTo = (i) => {
+        const target = sections[Math.max(0, Math.min(sections.length - 1, i))];
+        if (target) target.scrollIntoView({ behavior: "smooth" });
+      };
+      window.addEventListener("keydown", (e) => {
+        if (["ArrowDown", "PageDown", " ", "j", "ArrowRight"].includes(e.key)) {
+          e.preventDefault();
+          goTo(activeIdx + 1);
+        } else if (["ArrowUp", "PageUp", "k", "ArrowLeft"].includes(e.key)) {
+          e.preventDefault();
+          goTo(activeIdx - 1);
+        } else if (e.key === "Home") {
+          e.preventDefault();
+          goTo(0);
+        } else if (e.key === "End") {
+          e.preventDefault();
+          goTo(sections.length - 1);
+        }
+      });
+    </script> </body> </html>
