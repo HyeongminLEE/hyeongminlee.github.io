@@ -1,0 +1,142 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><link rel="preconnect" href="https://rsms.me/"><link rel="stylesheet" href="https://rsms.me/inter/inter.css"><title>Slide Engine — Demo</title><link rel="stylesheet" href="/_astro/global.DWfEk-MG.css">
+<link rel="stylesheet" href="/_astro/SectionHeader.BabPUOY7.css">
+<style>.t-post,.t-prior{transition:color .6s ease}.showcase-section[data-step="1"] .wm-eq .t-post,.showcase-section[data-step="2"] .wm-eq .t-prior{color:#dc2626}
+</style></head> <body class="overflow-hidden"> <div id="showcase" class="showcase-root">     <section class="showcase-section"> <div class="max-w-5xl mx-auto w-full"> <p class="text-base lg:text-lg uppercase tracking-[0.22em] text-cyan-deep font-semibold">
+Engine demo
+</p> <h1 class="mt-8 font-display text-[2.75rem] lg:text-[3.5rem] leading-[1.1] tracking-tight font-semibold text-ink">
+Fragment build + <span class="text-navy">math animation.</span> </h1> <p class="mt-10 text-lg lg:text-xl text-ink-soft max-w-2xl leading-relaxed"> <strong>→ / Space / ↓</strong> 로 다음 단계. <strong>←</strong> 로 되돌리기.
+        같은 슬라이드 안에서 수식이 단계별로 강조·정리됩니다.
+</p> </div> </section>    <section class="showcase-section bg-paper-soft"> <div class="max-w-5xl mx-auto w-full"> <header class="max-w-6xl mx-auto w-full"> <div class="font-display text-base lg:text-lg tracking-[0.22em] text-cyan-deep font-semibold uppercase"> Effect A · 수식 항 강조 </div> <h2 class="mt-3 font-display text-4xl lg:text-5xl tracking-tight font-semibold text-ink leading-tight"> Posterior vs. Prior </h2> <p class="mt-3 text-lg lg:text-xl text-ink-soft">RSSM의 두 분포 — &#39;다음&#39;을 누르며 하나씩 붉게 강조됩니다.</p> </header> <div class="wm-eq mt-14 flex justify-center text-2xl lg:text-3xl"> <div class="math-block "><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mrow><mi>q</mi><mo stretchy="false">(</mo><msub><mi>s</mi><mi>t</mi></msub><mo>∣</mo><msub><mi>h</mi><mi>t</mi></msub><mo separator="true">,</mo><msub><mi>o</mi><mi>t</mi></msub><mo stretchy="false">)</mo></mrow><mspace width="2em"/><mrow><mi>p</mi><mo stretchy="false">(</mo><msub><mi>s</mi><mi>t</mi></msub><mo>∣</mo><msub><mi>h</mi><mi>t</mi></msub><mo stretchy="false">)</mo></mrow></mrow><annotation encoding="application/x-tex">\htmlClass{t-post}{q(s_t \mid h_t, o_t)} \qquad \htmlClass{t-prior}{p(s_t \mid h_t)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="enclosing t-post"><span class="mord mathnormal" style="margin-right:0.0359em;">q</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord"><span class="mord mathnormal">h</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">o</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span><span class="mspace" style="margin-right:2em;"></span><span class="enclosing t-prior"><span class="mord mathnormal">p</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord"><span class="mord mathnormal">h</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></span></span></div> </div> <div class="mt-12 max-w-3xl mx-auto space-y-4"> <p data-frag="1" class="frag-appear text-lg lg:text-xl text-ink border-l-2 border-[#dc2626] pl-4 leading-relaxed"> <strong class="text-[#dc2626]">Posterior</strong> — 관측 <span class="math-inline "><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>o</mi><mi>t</mi></msub></mrow><annotation encoding="application/x-tex">o_t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">o</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span> 를
+          보고 추론. <em>눈 뜨고 현재를 확인</em>.
+</p> <p data-frag="2" class="frag-appear text-lg lg:text-xl text-ink border-l-2 border-[#dc2626] pl-4 leading-relaxed"> <strong class="text-[#dc2626]">Prior</strong> — 관측 없이 예측.
+<em>눈 감고 미래를 상상</em>. 학습은 이 둘을 가깝게 만든다.
+</p> </div> </div> </section>    <section class="showcase-section"> <div class="max-w-6xl mx-auto w-full"> <header class="max-w-6xl mx-auto w-full"> <div class="font-display text-base lg:text-lg tracking-[0.22em] text-cyan-deep font-semibold uppercase"> Effect B · 사라지고 가운데로 </div> <h2 class="mt-3 font-display text-4xl lg:text-5xl tracking-tight font-semibold text-ink leading-tight"> World model loss → the term that matters </h2> <p class="mt-3 text-lg lg:text-xl text-ink-soft">&#39;다음&#39;을 누르면 양옆이 사라지고 핵심 항만 남아 확대됩니다.</p> </header> <div class="mt-16 flex items-center justify-center gap-10 lg:gap-16 text-xl lg:text-2xl"> <div data-frag="1" class="frag-out text-ink-soft"> <div class="math-block "><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi mathvariant="double-struck">E</mi><mo fence="false" stretchy="true" minsize="1.2em" maxsize="1.2em">[</mo><mi>ln</mi><mo>⁡</mo><mi>p</mi><mo stretchy="false">(</mo><msub><mi>o</mi><mi>t</mi></msub><mo>∣</mo><msub><mi>h</mi><mi>t</mi></msub><mo separator="true">,</mo><msub><mi>s</mi><mi>t</mi></msub><mo stretchy="false">)</mo><mo fence="false" stretchy="true" minsize="1.2em" maxsize="1.2em">]</mo></mrow><annotation encoding="application/x-tex">\mathbb{E}\big[\ln p(o_t \mid h_t, s_t)\big]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2em;vertical-align:-0.35em;"></span><span class="mord mathbb">E</span><span class="mord"><span class="delimsizing size1">[</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop">ln</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">p</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">o</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.2em;vertical-align:-0.35em;"></span><span class="mord"><span class="mord mathnormal">h</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mord"><span class="delimsizing size1">]</span></span></span></span></span></span></div> <p class="mt-3 text-center text-sm uppercase tracking-[0.16em] text-ink-mute">
+reconstruction
+</p> </div> <div data-frag="1" class="frag-focus text-navy"> <div class="math-block "><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mo>−</mo><mtext> </mtext><mrow><mi mathvariant="normal">K</mi><mi mathvariant="normal">L</mi></mrow><mo fence="false" stretchy="true" minsize="1.2em" maxsize="1.2em">[</mo><mi>q</mi><mtext> </mtext><mi mathvariant="normal">∥</mi><mtext> </mtext><mi>p</mi><mo fence="false" stretchy="true" minsize="1.2em" maxsize="1.2em">]</mo></mrow><annotation encoding="application/x-tex">-\,\mathrm{KL}\big[q \,\Vert\, p\big]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2em;vertical-align:-0.35em;"></span><span class="mord">−</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathrm">KL</span></span><span class="mord"><span class="delimsizing size1">[</span></span><span class="mord mathnormal" style="margin-right:0.0359em;">q</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">∥</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">p</span><span class="mord"><span class="delimsizing size1">]</span></span></span></span></span></span></div> <p class="mt-3 text-center text-sm uppercase tracking-[0.16em] text-cyan-deep font-semibold">
+prior ← posterior
+</p> </div> <div data-frag="1" class="frag-out text-ink-soft"> <div class="math-block "><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi mathvariant="double-struck">E</mi><mo fence="false" stretchy="true" minsize="1.2em" maxsize="1.2em">[</mo><mi>ln</mi><mo>⁡</mo><mi>p</mi><mo stretchy="false">(</mo><msub><mi>r</mi><mi>t</mi></msub><mo>∣</mo><msub><mi>h</mi><mi>t</mi></msub><mo separator="true">,</mo><msub><mi>s</mi><mi>t</mi></msub><mo stretchy="false">)</mo><mo fence="false" stretchy="true" minsize="1.2em" maxsize="1.2em">]</mo></mrow><annotation encoding="application/x-tex">\mathbb{E}\big[\ln p(r_t \mid h_t, s_t)\big]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2em;vertical-align:-0.35em;"></span><span class="mord mathbb">E</span><span class="mord"><span class="delimsizing size1">[</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop">ln</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">p</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0278em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.2em;vertical-align:-0.35em;"></span><span class="mord"><span class="mord mathnormal">h</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mord"><span class="delimsizing size1">]</span></span></span></span></span></span></div> <p class="mt-3 text-center text-sm uppercase tracking-[0.16em] text-ink-mute">
+reward
+</p> </div> </div> <p data-frag="2" class="frag-appear mt-20 text-center text-xl lg:text-2xl font-display text-ink">
+핵심은 <span class="text-cyan-deep font-semibold">KL</span> — 상상(prior)이
+        현실(posterior)을 따라가게 만든다.
+</p> </div> </section>    <section class="showcase-section bg-paper-soft"> <div class="max-w-4xl mx-auto w-full text-center"> <p class="text-base uppercase tracking-[0.22em] text-cyan-deep font-semibold">
+Engine ready
+</p> <h2 class="mt-8 font-display text-4xl lg:text-5xl tracking-tight font-semibold text-ink leading-tight">
+두 효과 모두 <span class="text-navy">정상 작동</span>.
+</h2> <p class="mt-10 text-lg text-ink-soft">
+이제 이 엔진 위에 World Model 세미나 본자료를 쌓습니다.
+</p> </div> </section>  </div> <!-- Back link (top-left) --> <a href="/slides/" class="fixed top-5 left-6 text-[11px] tracking-[0.18em] uppercase text-ink-mute hover:text-navy font-semibold select-none z-50 transition-colors">
+← All decks </a> <!-- Section indicator (top-right) --> <div id="indicator" class="fixed top-5 right-6 text-[11px] tracking-[0.18em] uppercase text-ink-mute font-semibold pointer-events-none select-none z-50"> <span id="cur">01</span><span class="text-ink-mute/50"> / </span><span id="tot">00</span> </div> <!-- Hint (bottom) --> <div class="fixed bottom-5 left-1/2 -translate-x-1/2 text-[10px] tracking-[0.22em] uppercase text-ink-mute/70 pointer-events-none select-none z-50">
+Scroll · ↓ · Space
+</div>  <script>
+      const root = document.getElementById("showcase");
+      const sections = Array.from(root.querySelectorAll(".showcase-section"));
+      const cur = document.getElementById("cur");
+      const tot = document.getElementById("tot");
+      tot.textContent = String(sections.length).padStart(2, "0");
+
+      let activeIdx = 0;
+
+      // --- Fragment bookkeeping -------------------------------------
+      // For each section, group [data-frag] elements by their integer step.
+      function stepGroups(section) {
+        const els = Array.from(section.querySelectorAll("[data-frag]"));
+        if (!els.length) return [];
+        const map = new Map();
+        for (const e of els) {
+          const k = Number(e.dataset.frag || 0);
+          if (!map.has(k)) map.set(k, []);
+          map.get(k).push(e);
+        }
+        return Array.from(map.keys())
+          .sort((a, b) => a - b)
+          .map((k) => map.get(k));
+      }
+      // How many steps revealed so far, per section index.
+      const revealed = sections.map(() => 0);
+
+      function applyReveal(i) {
+        const groups = stepGroups(sections[i]);
+        groups.forEach((g, idx) => {
+          const on = idx < revealed[i];
+          g.forEach((e) => e.classList.toggle("on", on));
+        });
+        // Expose the current step on the section so CSS can target
+        // arbitrary descendants (e.g. a KaTeX sub-term) per step via
+        // .showcase-section[data-step="k"] .my-term { … }
+        sections[i].dataset.step = String(revealed[i]);
+      }
+      // Initialize: every section starts with 0 steps revealed.
+      sections.forEach((_, i) => applyReveal(i));
+
+      // --- Navigation ----------------------------------------------
+      function scrollToSection(i) {
+        const target = sections[Math.max(0, Math.min(sections.length - 1, i))];
+        if (target) target.scrollIntoView({ behavior: "smooth" });
+      }
+
+      function enterSection(i, dir) {
+        activeIdx = i;
+        const groups = stepGroups(sections[i]);
+        // entering forward → no steps revealed yet;
+        // entering backward → all steps already shown.
+        revealed[i] = dir === "backward" ? groups.length : 0;
+        applyReveal(i);
+        scrollToSection(i);
+        cur.textContent = String(i + 1).padStart(2, "0");
+      }
+
+      function next() {
+        const groups = stepGroups(sections[activeIdx]);
+        if (revealed[activeIdx] < groups.length) {
+          revealed[activeIdx]++;
+          applyReveal(activeIdx);
+        } else if (activeIdx < sections.length - 1) {
+          enterSection(activeIdx + 1, "forward");
+        }
+      }
+
+      function prev() {
+        if (revealed[activeIdx] > 0) {
+          revealed[activeIdx]--;
+          applyReveal(activeIdx);
+        } else if (activeIdx > 0) {
+          enterSection(activeIdx - 1, "backward");
+        }
+      }
+
+      // Keyboard drives the build; scroll/touch is secondary.
+      window.addEventListener("keydown", (e) => {
+        if (["ArrowDown", "PageDown", " ", "j", "ArrowRight"].includes(e.key)) {
+          e.preventDefault();
+          next();
+        } else if (["ArrowUp", "PageUp", "k", "ArrowLeft"].includes(e.key)) {
+          e.preventDefault();
+          prev();
+        } else if (e.key === "Home") {
+          e.preventDefault();
+          enterSection(0, "forward");
+        } else if (e.key === "End") {
+          e.preventDefault();
+          enterSection(sections.length - 1, "backward");
+        }
+      });
+
+      // Keep the indicator + activeIdx in sync if the user scrolls
+      // manually (touchpad). Does not change reveal state.
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting && e.intersectionRatio > 0.5) {
+              const idx = sections.indexOf(e.target);
+              if (idx >= 0) {
+                activeIdx = idx;
+                cur.textContent = String(idx + 1).padStart(2, "0");
+              }
+            }
+          });
+        },
+        { root, threshold: [0.5] }
+      );
+      sections.forEach((s) => io.observe(s));
+    </script> </body> </html>
