@@ -1,0 +1,281 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><link rel="preconnect" href="https://rsms.me/"><link rel="stylesheet" href="https://rsms.me/inter/inter.css"><title>Modern Computer Vision — Image Processing Week 14</title><link rel="stylesheet" href="/_astro/global.Dzr-vs1R.css">
+<link rel="stylesheet" href="/_astro/SectionHeader.BabPUOY7.css"></head> <body class="overflow-hidden"> <div id="showcase" class="showcase-root">     <section class="showcase-section relative"> <div class="max-w-5xl mx-auto w-full"> <p class="text-base lg:text-lg uppercase tracking-[0.22em] text-cyan-deep font-semibold">
+Image Processing · Week 14
+</p> <h1 class="mt-8 font-display text-[3rem] lg:text-[4.5rem] leading-[1.05] tracking-tight font-semibold text-ink">
+Modern Computer Vision
+</h1> <p class="mt-8 text-xl lg:text-2xl text-ink-soft max-w-3xl leading-relaxed">
+From Detection and Segmentation to <span class="text-navy font-semibold">generation, 3D, and World Models</span>
+— a tour of what computer vision can do today.
+</p> <p class="mt-10 text-base lg:text-lg text-ink-soft">
+Hyeongmin Lee · SeoulTech, Dept. of Electronic Engineering
+</p> </div> <img src="/slides/modern-cv-2026/seoultech.gif" alt="SeoulTech" class="absolute bottom-10 right-10 lg:right-14 w-20 lg:w-24 opacity-90 select-none pointer-events-none"> </section>    <section class="showcase-section bg-paper-soft"> <div class="max-w-6xl mx-auto w-full"> <header class="max-w-6xl mx-auto w-full"> <div class="font-display text-base lg:text-lg tracking-[0.22em] text-cyan-deep font-semibold uppercase"> Where we are </div> <h2 class="mt-3 font-display text-4xl lg:text-5xl tracking-tight font-semibold text-ink leading-tight"> From image to feature vector </h2> <p class="mt-3 text-lg lg:text-xl text-ink-soft">CNN · ViT · CLIP · SSL — all ways to turn an image into a feature vector.</p> </header> <div class="mt-14 flex flex-wrap items-center justify-center gap-4 lg:gap-7 text-center"> <div> <div class="w-36 h-28 lg:w-44 lg:h-32 rounded-xl border border-line bg-paper flex items-center justify-center text-lg text-ink-soft">
+Image
+</div> <p class="mt-2 text-sm text-ink-soft">input</p> </div> <div class="text-3xl text-navy">→</div> <div> <div class="px-7 py-7 lg:px-9 lg:py-8 rounded-xl bg-navy text-paper text-lg lg:text-xl font-semibold leading-snug">
+CNN · ViT<br>encoder
+</div> <p class="mt-2 text-sm text-ink-soft">what we studied</p> </div> <div class="text-3xl text-navy">→</div> <div> <div class="w-28 h-28 lg:w-32 lg:h-32 rounded-full bg-cyan-soft border-2 border-cyan-deep flex items-center justify-center text-xl font-semibold text-cyan-deep">
+vector z
+</div> <p class="mt-2 text-sm text-cyan-deep font-semibold">feature</p> </div> </div> <p class="mt-12 text-center text-xl lg:text-2xl font-display text-ink">
+What can we <span class="text-navy font-semibold">do</span> with this vector?
+</p> </div> </section>    <section class="showcase-section"> <div class="max-w-4xl mx-auto w-full text-center"> <p class="text-base lg:text-lg uppercase tracking-[0.22em] text-cyan-deep font-semibold">
+This week
+</p> <h2 class="mt-8 font-display text-5xl lg:text-7xl tracking-tight font-semibold text-ink leading-[1.05]">
+What can we do?
+</h2> <p class="mt-10 text-xl lg:text-2xl text-ink-soft leading-relaxed">
+Not on the exam. A quick tour of modern computer-vision tasks.
+</p> </div> </section>    <section class="showcase-section bg-paper-soft"> <div class="max-w-6xl mx-auto w-full"> <header> <div class="font-display text-base lg:text-lg tracking-[0.22em] text-cyan-deep font-semibold uppercase"> Core task · 01 </div> <h2 class="mt-3 font-display text-4xl lg:text-5xl tracking-tight font-semibold text-ink leading-tight"> Object Detection </h2> <p class="mt-3 text-lg lg:text-xl text-ink-soft">Predict each object&#39;s location (box) and class — a detection head on top of the encoder.</p> </header> <div class="mt-6 lg:mt-8"> <div class="text-base uppercase tracking-[0.16em] text-ink font-semibold mb-3"> YOLO11 · run live </div> <div class="rounded-lg overflow-hidden bg-paper-soft border border-line">  <img src="/slides/modern-cv-2026/detection.jpg" alt="YOLO11 detection result on a street scene" class="mx-auto max-h-[58vh] w-auto block">  </div> <p class="mt-3 text-sm text-ink-soft leading-snug"> <a href="https://github.com/ultralytics/ultralytics" target="_blank" rel="noopener" class="hover:text-navy underline-offset-2 hover:underline"> Ultralytics YOLO11 </a>  <span class="ml-2 inline-block px-2 py-0.5 rounded text-xs uppercase tracking-wider bg-navy-soft text-navy font-semibold"> 2024 </span> </p> </div> </div> </section>    <section class="showcase-section"> <div class="max-w-6xl mx-auto w-full"> <header> <div class="font-display text-base lg:text-lg tracking-[0.22em] text-cyan-deep font-semibold uppercase"> Core task · 02 </div> <h2 class="mt-3 font-display text-4xl lg:text-5xl tracking-tight font-semibold text-ink leading-tight"> Segmentation </h2> <p class="mt-3 text-lg lg:text-xl text-ink-soft">Label objects as pixel masks, not boxes. Foundation models like SAM (Segment Anything) generalize this to arbitrary objects.</p> </header> <div class="mt-6 lg:mt-8"> <div class="text-base uppercase tracking-[0.16em] text-ink font-semibold mb-3"> Instance segmentation · run live </div> <div class="rounded-lg overflow-hidden bg-paper-soft border border-line">  <img src="/slides/modern-cv-2026/segmentation.jpg" alt="instance segmentation masks on a street scene" class="mx-auto max-h-[58vh] w-auto block">  </div> <p class="mt-3 text-sm text-ink-soft leading-snug"> <a href="https://github.com/ultralytics/ultralytics" target="_blank" rel="noopener" class="hover:text-navy underline-offset-2 hover:underline"> Ultralytics YOLO11-seg </a>  <span class="ml-2 inline-block px-2 py-0.5 rounded text-xs uppercase tracking-wider bg-navy-soft text-navy font-semibold"> 2024 </span> </p> </div> </div> </section>    <section class="showcase-section"> <div class="max-w-4xl mx-auto w-full text-center"> <p class="text-base lg:text-lg uppercase tracking-[0.22em] text-cyan-deep font-semibold">
+From here on
+</p> <h2 class="mt-8 font-display text-5xl lg:text-7xl tracking-tight font-semibold text-ink leading-[1.05]">
+Recent directions
+</h2> <p class="mt-10 text-xl lg:text-2xl text-ink-soft leading-relaxed">
+Classification, Detection, Segmentation are the classics.<br>
+Now the actively-developing areas.
+</p> </div> </section>    <section class="showcase-section"> <div class="max-w-4xl mx-auto w-full text-center"> <p class="text-base lg:text-lg uppercase tracking-[0.22em] text-cyan-deep font-semibold">
+01 · Video Processing
+</p> <h2 class="mt-8 font-display text-5xl lg:text-7xl tracking-tight font-semibold text-ink leading-[1.05]">
+Improving video
+</h2> <p class="mt-10 text-xl lg:text-2xl text-ink-soft leading-relaxed">
+Super-resolution · frame interpolation · stabilization · compression
+</p> </div> </section>  <section class="showcase-section"> <div class="max-w-6xl mx-auto w-full"> <header> <div class="font-display text-base lg:text-lg tracking-[0.22em] text-cyan-deep font-semibold uppercase"> Video Processing </div> <h2 class="mt-3 font-display text-4xl lg:text-5xl tracking-tight font-semibold text-ink leading-tight"> Super-Resolution </h2> <p class="mt-3 text-lg lg:text-xl text-ink-soft">Reconstruct a high-resolution image from a low-resolution input. Drag the handle to compare.</p> </header> <div class="mt-6 lg:mt-8"> <div class="text-base uppercase tracking-[0.16em] text-ink font-semibold mb-3"> Bicubic vs Real-ESRGAN </div> <div class="rounded-lg overflow-hidden bg-paper-soft border border-line">  <div class="ba-container relative w-full select-none cursor-ew-resize" id="ba-k2gfwwi"> <!-- AFTER (underneath) --> <img src="/slides/modern-cv-2026/sr_after.jpg" alt="after" class="ba-after w-full h-auto block pointer-events-none" draggable="false"> <!-- BEFORE (overlay, clipped from right) --> <img src="/slides/modern-cv-2026/sr_before.jpg" alt="before" class="ba-before absolute inset-0 w-full h-auto pointer-events-none" draggable="false" style="clip-path: inset(0 50% 0 0);"> <div class="ba-handle absolute top-0 bottom-0 w-[2px] bg-white pointer-events-none shadow-[0_0_0_1px_rgba(0,0,0,0.4)]" style="left: 50%;"> <div class="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white border-2 border-navy flex items-center justify-center shadow-md"> <span class="text-navy text-xs font-bold leading-none">‹›</span> </div> </div> <div class="absolute top-3 left-3 px-3 py-1.5 text-xs uppercase tracking-[0.16em] font-bold text-white bg-black/55 rounded"> Bicubic </div> <div class="absolute top-3 right-3 px-3 py-1.5 text-xs uppercase tracking-[0.16em] font-bold text-white bg-navy/80 rounded"> Real-ESRGAN </div> </div> <script>(function(){const id = "ba-k2gfwwi";
+
+  const root = document.getElementById(id);
+  if (root) {
+    const before = root.querySelector(".ba-before");
+    const handle = root.querySelector(".ba-handle");
+    let dragging = false;
+
+    const setPos = (clientX) => {
+      const rect = root.getBoundingClientRect();
+      let pct = ((clientX - rect.left) / rect.width) * 100;
+      pct = Math.max(0, Math.min(100, pct));
+      before.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+      handle.style.left = `${pct}%`;
+    };
+
+    root.addEventListener("pointerdown", (e) => {
+      dragging = true;
+      root.setPointerCapture(e.pointerId);
+      setPos(e.clientX);
+    });
+    root.addEventListener("pointermove", (e) => {
+      if (dragging) setPos(e.clientX);
+    });
+    root.addEventListener("pointerup", (e) => {
+      dragging = false;
+      root.releasePointerCapture(e.pointerId);
+    });
+    root.addEventListener("pointercancel", () => {
+      dragging = false;
+    });
+  }
+})();</script>  </div> <p class="mt-3 text-sm text-ink-soft leading-snug"> <a href="https://github.com/xinntao/Real-ESRGAN" target="_blank" rel="noopener" class="hover:text-navy underline-offset-2 hover:underline"> Real-ESRGAN </a> <span class="text-ink-soft"> · Wang et al.</span> <span class="ml-2 inline-block px-2 py-0.5 rounded text-xs uppercase tracking-wider bg-navy-soft text-navy font-semibold"> ICCVW 2021 </span> </p> </div> </div> </section>  <section class="showcase-section bg-paper-soft"> <div class="max-w-6xl mx-auto w-full"> <header> <div class="font-display text-base lg:text-lg tracking-[0.22em] text-cyan-deep font-semibold uppercase"> Video Processing </div> <h2 class="mt-3 font-display text-4xl lg:text-5xl tracking-tight font-semibold text-ink leading-tight"> Frame Interpolation </h2> <p class="mt-3 text-lg lg:text-xl text-ink-soft">Synthesize the in-between frame from two adjacent frames. The core is motion estimation.</p> </header> <div class="mt-6 lg:mt-8"> <div class="text-base uppercase tracking-[0.16em] text-ink font-semibold mb-3"> Frame Interpolation </div> <div class="rounded-lg overflow-hidden bg-paper-soft border border-line">  <video src="/slides/modern-cv-2026/vfi_compare.mp4" autoplay muted loop playsinline class="w-full h-auto block"></video>  </div> <p class="mt-3 text-sm text-ink-soft leading-snug"> <a href="https://github.com/megvii-research/ECCV2022-RIFE" target="_blank" rel="noopener" class="hover:text-navy underline-offset-2 hover:underline"> RIFE: Real-Time Intermediate Flow Estimation </a> <span class="text-ink-soft"> · Huang et al.</span> <span class="ml-2 inline-block px-2 py-0.5 rounded text-xs uppercase tracking-wider bg-navy-soft text-navy font-semibold"> ECCV 2022 </span> </p> </div> </div> </section>  <section class="showcase-section"> <div class="max-w-6xl mx-auto w-full"> <header> <div class="font-display text-base lg:text-lg tracking-[0.22em] text-cyan-deep font-semibold uppercase"> Video Processing </div> <h2 class="mt-3 font-display text-4xl lg:text-5xl tracking-tight font-semibold text-ink leading-tight"> Video Stabilization </h2> <p class="mt-3 text-lg lg:text-xl text-ink-soft">Estimate and remove unwanted camera shake.</p> </header> <div class="mt-6 lg:mt-8"> <div class="text-base uppercase tracking-[0.16em] text-ink font-semibold mb-3"> Shaky → Stabilized </div> <div class="rounded-lg overflow-hidden bg-paper-soft border border-line">  <video src="/slides/modern-cv-2026/stab_compare.mp4" autoplay muted loop playsinline class="w-full h-auto block"></video>  </div> <p class="mt-3 text-sm text-ink-soft leading-snug"> <a href="https://sinoyou.github.io/gavs/" target="_blank" rel="noopener" class="hover:text-navy underline-offset-2 hover:underline"> GaVS: 3D-Grounded Video Stabilization </a> <span class="text-ink-soft"> · You et al.</span> <span class="ml-2 inline-block px-2 py-0.5 rounded text-xs uppercase tracking-wider bg-navy-soft text-navy font-semibold"> SIGGRAPH 2025 </span> </p> </div> </div> </section>  <section class="showcase-section"> <div class="max-w-6xl mx-auto w-full"> <header class="max-w-6xl mx-auto w-full"> <div class="font-display text-base lg:text-lg tracking-[0.22em] text-cyan-deep font-semibold uppercase"> How it works · JPEG </div> <h2 class="mt-3 font-display text-4xl lg:text-5xl tracking-tight font-semibold text-ink leading-tight"> Image compression — JPEG </h2> <p class="mt-3 text-lg lg:text-xl text-ink-soft">Throw away the detail the eye won&#39;t miss.</p> </header> <div class="mt-12 flex flex-wrap items-center justify-center gap-2.5 lg:gap-3 text-center"> <div class="px-4 py-3 rounded-lg bg-paper border border-line"> <div class="text-sm lg:text-base font-display font-semibold text-ink">Image</div> <div class="mt-0.5 text-xs text-ink-soft">RGB</div> </div> <span class="text-xl text-navy">→</span> <div class="px-4 py-3 rounded-lg bg-paper border border-line"> <div class="text-sm lg:text-base font-display font-semibold text-ink">RGB → YCbCr</div> <div class="mt-0.5 text-xs text-ink-soft">color + subsample</div> </div> <span class="text-xl text-navy">→</span> <div class="px-4 py-3 rounded-lg bg-paper border border-line"> <div class="text-sm lg:text-base font-display font-semibold text-ink">8×8 DCT</div> <div class="mt-0.5 text-xs text-ink-soft">to frequency</div> </div> <span class="text-xl text-navy">→</span> <div class="px-4 py-3 rounded-lg bg-cyan-soft border-2 border-cyan-deep"> <div class="text-sm lg:text-base font-display font-semibold text-cyan-deep">Quantize</div> <div class="mt-0.5 text-xs text-cyan-deep/80">lossy — discards detail</div> </div> <span class="text-xl text-navy">→</span> <div class="px-4 py-3 rounded-lg bg-navy text-paper"> <div class="text-sm lg:text-base font-display font-semibold">Entropy code</div> <div class="mt-0.5 text-xs text-paper/80">→ .jpg</div> </div> </div> <p class="mt-10 text-center text-base lg:text-lg text-ink-soft">
+DCT moves to the frequency domain; <strong class="text-ink">quantization drops high frequencies</strong>; entropy coding packs the rest losslessly.
+</p> </div> </section>  <section class="showcase-section bg-paper-soft"> <div class="max-w-6xl mx-auto w-full"> <header class="max-w-6xl mx-auto w-full"> <div class="font-display text-base lg:text-lg tracking-[0.22em] text-cyan-deep font-semibold uppercase"> How it works · H.264 / HEVC </div> <h2 class="mt-3 font-display text-4xl lg:text-5xl tracking-tight font-semibold text-ink leading-tight"> Video compression </h2> <p class="mt-3 text-lg lg:text-xl text-ink-soft">Don&#39;t store every frame — store the motion and the difference.</p> </header> <div class="mt-12 flex flex-wrap items-center justify-center gap-2.5 lg:gap-3 text-center"> <div class="px-4 py-3 rounded-lg bg-paper border border-line"> <div class="text-sm lg:text-base font-display font-semibold text-ink">Predict from<br>reference frame</div> <div class="mt-0.5 text-xs text-ink-soft">motion compensation</div> </div> <span class="text-xl text-navy">→</span> <div class="px-4 py-3 rounded-lg bg-cyan-soft border-2 border-cyan-deep"> <div class="text-sm lg:text-base font-display font-semibold text-cyan-deep">Residual</div> <div class="mt-0.5 text-xs text-cyan-deep/80">current − prediction</div> </div> <span class="text-xl text-navy">→</span> <div class="px-4 py-3 rounded-lg bg-paper border border-line"> <div class="text-sm lg:text-base font-display font-semibold text-ink">DCT · Quantize</div> <div class="mt-0.5 text-xs text-ink-soft">like JPEG</div> </div> <span class="text-xl text-navy">→</span> <div class="px-4 py-3 rounded-lg bg-navy text-paper"> <div class="text-sm lg:text-base font-display font-semibold">Entropy code</div> <div class="mt-0.5 text-xs text-paper/80">→ bits</div> </div> </div> <p class="mt-9 text-center text-base lg:text-lg text-ink-soft"> <strong class="text-ink">I-frame</strong>: coded spatially, like JPEG.
+<strong class="text-ink"> P/B-frame</strong>: keep only motion vectors + a small residual.
+</p> <p class="mt-3 text-center text-sm text-ink-mute">
+Same motion estimation as frame interpolation — here it removes temporal redundancy.
+</p> </div> </section>    <section class="showcase-section bg-paper-soft"> <div class="max-w-4xl mx-auto w-full text-center"> <p class="text-base lg:text-lg uppercase tracking-[0.22em] text-cyan-deep font-semibold">
+02 · 3D / 4D
+</p> <h2 class="mt-8 font-display text-5xl lg:text-7xl tracking-tight font-semibold text-ink leading-[1.05]">
+3D Reconstruction
+</h2> <p class="mt-10 text-xl lg:text-2xl text-ink-soft leading-relaxed">
+Reconstruct 3D structure from multiple photos and render new viewpoints.
+</p> </div> </section>  <section class="showcase-section"> <div class="max-w-6xl mx-auto w-full"> <header class="max-w-6xl mx-auto w-full"> <div class="font-display text-base lg:text-lg tracking-[0.22em] text-cyan-deep font-semibold uppercase"> How it works · 3D </div> <h2 class="mt-3 font-display text-4xl lg:text-5xl tracking-tight font-semibold text-ink leading-tight"> Photos in, any view out </h2> <p class="mt-3 text-lg lg:text-xl text-ink-soft">Optimize a 3D representation so that it reproduces the input photos.</p> </header> <div class="mt-14 flex flex-wrap items-center justify-center gap-3 lg:gap-5 text-center"> <div class="px-6 py-5 rounded-xl bg-paper border border-line"> <div class="text-lg lg:text-xl font-display font-semibold text-ink">Multiple photos</div> <div class="mt-1 text-sm text-ink-soft">different viewpoints</div> </div> <div class="text-3xl text-navy">→</div> <div class="px-6 py-5 rounded-xl bg-paper border border-line"> <div class="text-lg lg:text-xl font-display font-semibold text-ink">3D representation</div> <div class="mt-1 text-sm text-ink-soft">points / Gaussians</div> </div> <div class="text-3xl text-navy">→</div> <div class="px-6 py-5 rounded-xl bg-navy text-paper"> <div class="text-lg lg:text-xl font-display font-semibold">Render any view</div> <div class="mt-1 text-sm text-paper/80">novel viewpoints</div> </div> </div> <p class="mt-12 text-center text-lg lg:text-xl text-ink-soft">
+The representation is fit by comparing its renders against the real photos.
+</p> </div> </section>  <section class="showcase-section"> <div class="max-w-6xl mx-auto w-full"> <header> <div class="font-display text-base lg:text-lg tracking-[0.22em] text-cyan-deep font-semibold uppercase"> 3D Reconstruction </div> <h2 class="mt-3 font-display text-4xl lg:text-5xl tracking-tight font-semibold text-ink leading-tight"> Real-time 3D — Gaussian Splatting </h2> <p class="mt-3 text-lg lg:text-xl text-ink-soft">A real-time successor to NeRF. Renders arbitrary viewpoints from a set of photos.</p> </header> <div class="mt-6 lg:mt-8"> <div class="text-base uppercase tracking-[0.16em] text-ink font-semibold mb-3"> 3D Gaussian Splatting </div> <div class="rounded-lg overflow-hidden bg-paper-soft border border-line">  <video src="/slides/modern-cv-2026/3dgs_garden.mp4" autoplay muted loop playsinline class="w-full h-auto block bg-ink"></video>  </div> <p class="mt-3 text-sm text-ink-soft leading-snug"> <a href="https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/" target="_blank" rel="noopener" class="hover:text-navy underline-offset-2 hover:underline"> 3D Gaussian Splatting for Real-Time Radiance Field Rendering </a> <span class="text-ink-soft"> · Kerbl et al.</span> <span class="ml-2 inline-block px-2 py-0.5 rounded text-xs uppercase tracking-wider bg-navy-soft text-navy font-semibold"> SIGGRAPH 2023 </span> </p> </div> </div> </section>  <section class="showcase-section"> <div class="max-w-6xl mx-auto w-full"> <header> <div class="font-display text-base lg:text-lg tracking-[0.22em] text-cyan-deep font-semibold uppercase"> 4D · dynamic scenes </div> <h2 class="mt-3 font-display text-4xl lg:text-5xl tracking-tight font-semibold text-ink leading-tight"> Add time — 4D </h2> <p class="mt-3 text-lg lg:text-xl text-ink-soft">Beyond a static 3D scene: reconstruct scenes that change over time.</p> </header> <div class="mt-6 lg:mt-8"> <div class="text-base uppercase tracking-[0.16em] text-ink font-semibold mb-3"> 4D Gaussian Splatting </div> <div class="rounded-lg overflow-hidden bg-paper-soft border border-line">  <video src="/slides/modern-cv-2026/ex4dgs_birthday.mp4" autoplay muted loop playsinline class="w-full h-auto block bg-ink"></video>  </div> <p class="mt-3 text-sm text-ink-soft leading-snug"> <a href="https://leejunoh.com/Ex4DGS/" target="_blank" rel="noopener" class="hover:text-navy underline-offset-2 hover:underline"> Fully Explicit Dynamic Gaussian Splatting (Ex4DGS) </a> <span class="text-ink-soft"> · Lee et al.</span> <span class="ml-2 inline-block px-2 py-0.5 rounded text-xs uppercase tracking-wider bg-navy-soft text-navy font-semibold"> NeurIPS 2024 </span> </p> </div> </div> </section>    <section class="showcase-section bg-paper-soft"> <div class="max-w-4xl mx-auto w-full text-center"> <p class="text-base lg:text-lg uppercase tracking-[0.22em] text-cyan-deep font-semibold">
+03 · Vision-Language
+</p> <h2 class="mt-8 font-display text-5xl lg:text-7xl tracking-tight font-semibold text-ink leading-[1.05]">
+Image + Language — VLM
+</h2> <p class="mt-10 text-xl lg:text-2xl text-ink-soft leading-relaxed">
+Take an image and answer in natural language. The line that follows CLIP.
+</p> </div> </section>  <section class="showcase-section"> <div class="max-w-6xl mx-auto w-full"> <header class="max-w-6xl mx-auto w-full"> <div class="font-display text-base lg:text-lg tracking-[0.22em] text-cyan-deep font-semibold uppercase"> VLM · visual reasoning </div> <h2 class="mt-3 font-display text-4xl lg:text-5xl tracking-tight font-semibold text-ink leading-tight"> It reads the situation in an image </h2>  </header> <div class="mt-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start"> <div class="lg:col-span-7"> <img src="/slides/modern-cv-2026/obama.jpeg" alt="Obama pressing a scale as a prank" class="w-full h-auto rounded-lg border border-line"> </div> <div class="lg:col-span-5 space-y-4"> <div class="rounded-lg bg-paper-soft border border-line p-5"> <div class="text-xs uppercase tracking-[0.16em] text-ink-mute font-semibold mb-2">Question</div> <p class="text-lg font-display font-medium text-ink">Why is this image funny?</p> </div> <div class="rounded-lg border-l-4 border-emerald-500 bg-emerald-50/60 p-5"> <div class="text-xs uppercase tracking-[0.16em] text-emerald-700 font-semibold mb-2">VLM answer</div> <p class="text-base text-ink leading-relaxed">
+Obama is secretly pressing the scale with his foot, so the man weighing
+              himself reads heavier. The people behind are laughing at the prank.
+</p> </div> </div> </div> </div> </section>  <section class="showcase-section"> <div class="max-w-6xl mx-auto w-full"> <header class="max-w-6xl mx-auto w-full"> <div class="font-display text-base lg:text-lg tracking-[0.22em] text-cyan-deep font-semibold uppercase"> VLM · limit → next step </div> <h2 class="mt-3 font-display text-4xl lg:text-5xl tracking-tight font-semibold text-ink leading-tight"> One image isn&#39;t enough </h2> <p class="mt-3 text-lg lg:text-xl text-ink-soft">Is the person raising or lowering the glasses? A single frame can&#39;t tell.</p> </header> <div class="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center"> <div class="lg:col-span-7"> <img src="/slides/modern-cv-2026/eyeglasses.jpeg" alt="A single ambiguous frame of glasses near the eyes" class="w-full h-auto rounded-lg border border-line"> </div> <div class="lg:col-span-5 space-y-5"> <p class="text-base lg:text-lg text-ink-soft leading-relaxed">
+Direction and change live <em>between</em> frames. Modern vision is moving from
+            single images to <strong class="text-ink"> video and time</strong> — the thread
+            through the rest of this tour.
+</p> </div> </div> </div> </section>    <section class="showcase-section"> <div class="max-w-4xl mx-auto w-full text-center"> <p class="text-base lg:text-lg uppercase tracking-[0.22em] text-cyan-deep font-semibold">
+04 · Generation
+</p> <h2 class="mt-8 font-display text-5xl lg:text-7xl tracking-tight font-semibold text-ink leading-[1.05]">
+Image &amp; Video Generation
+</h2> <p class="mt-10 text-xl lg:text-2xl text-ink-soft leading-relaxed">
+Generate images and video from text.
+</p> </div> </section>  <section class="showcase-section bg-paper-soft"> <div class="max-w-6xl mx-auto w-full"> <header class="max-w-6xl mx-auto w-full"> <div class="font-display text-base lg:text-lg tracking-[0.22em] text-cyan-deep font-semibold uppercase"> How it works · Diffusion </div> <h2 class="mt-3 font-display text-4xl lg:text-5xl tracking-tight font-semibold text-ink leading-tight"> Generation by denoising </h2> <p class="mt-3 text-lg lg:text-xl text-ink-soft">Start from pure noise and repeatedly remove a little — an image gradually emerges.</p> </header> <div class="mt-12 flex flex-wrap items-center justify-center gap-3 lg:gap-4"> <div class="flex items-center gap-3 lg:gap-4"> <figure class="text-center"> <img src="/slides/modern-cv-2026/diff_step0.png" alt="denoising step 0" class="w-28 h-28 lg:w-36 lg:h-36 object-cover rounded-lg border border-line bg-ink"> <figcaption class="mt-2 text-xs text-ink-soft"> noise </figcaption> </figure> <span class="text-2xl text-navy">→</span> </div><div class="flex items-center gap-3 lg:gap-4"> <figure class="text-center"> <img src="/slides/modern-cv-2026/diff_step1.png" alt="denoising step 1" class="w-28 h-28 lg:w-36 lg:h-36 object-cover rounded-lg border border-line bg-ink"> <figcaption class="mt-2 text-xs text-ink-soft"> step 1 </figcaption> </figure> <span class="text-2xl text-navy">→</span> </div><div class="flex items-center gap-3 lg:gap-4"> <figure class="text-center"> <img src="/slides/modern-cv-2026/diff_step2.png" alt="denoising step 2" class="w-28 h-28 lg:w-36 lg:h-36 object-cover rounded-lg border border-line bg-ink"> <figcaption class="mt-2 text-xs text-ink-soft"> step 2 </figcaption> </figure> <span class="text-2xl text-navy">→</span> </div><div class="flex items-center gap-3 lg:gap-4"> <figure class="text-center"> <img src="/slides/modern-cv-2026/diff_step3.png" alt="denoising step 3" class="w-28 h-28 lg:w-36 lg:h-36 object-cover rounded-lg border border-line bg-ink"> <figcaption class="mt-2 text-xs text-ink-soft"> image </figcaption> </figure>  </div> </div> <p class="mt-9 text-center text-base lg:text-lg text-ink-soft">
+A network predicts the noise and subtracts it, step by step.
+</p> <p class="mt-4 text-xs text-ink-mute text-center">
+Stable Diffusion XL-Turbo · intermediate steps decoded
+</p> </div> </section>  <section class="showcase-section"> <div class="max-w-6xl mx-auto w-full"> <header class="max-w-6xl mx-auto w-full"> <div class="font-display text-base lg:text-lg tracking-[0.22em] text-cyan-deep font-semibold uppercase"> Generation · Text → Image </div> <h2 class="mt-3 font-display text-4xl lg:text-5xl tracking-tight font-semibold text-ink leading-tight"> Text-to-Image </h2> <p class="mt-3 text-lg lg:text-xl text-ink-soft">Generate an image from a text prompt. Below: generated directly.</p> </header> <div class="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-5"> <figure> <img src="/slides/modern-cv-2026/gen_redpanda.png" alt="a red panda barista making coffee" class="w-full aspect-square object-cover rounded-lg border border-line bg-paper"> <figcaption class="mt-2.5 text-sm text-ink-soft italic leading-snug">
+“a red panda barista making coffee”
+</figcaption> </figure><figure> <img src="/slides/modern-cv-2026/gen_city.png" alt="a futuristic city skyline at golden hour" class="w-full aspect-square object-cover rounded-lg border border-line bg-paper"> <figcaption class="mt-2.5 text-sm text-ink-soft italic leading-snug">
+“a futuristic city skyline at golden hour”
+</figcaption> </figure><figure> <img src="/slides/modern-cv-2026/gen_lighthouse.png" alt="an oil painting of a lighthouse in a storm" class="w-full aspect-square object-cover rounded-lg border border-line bg-paper"> <figcaption class="mt-2.5 text-sm text-ink-soft italic leading-snug">
+“an oil painting of a lighthouse in a storm”
+</figcaption> </figure> </div> <p class="mt-6 text-xs text-ink-mute">
+Images: Stable Diffusion XL-Turbo (Stability AI, 2023) · generated for this deck
+</p> </div> </section>  <section class="showcase-section"> <div class="max-w-6xl mx-auto w-full"> <header> <div class="font-display text-base lg:text-lg tracking-[0.22em] text-cyan-deep font-semibold uppercase"> Generation · Text → Video </div> <h2 class="mt-3 font-display text-4xl lg:text-5xl tracking-tight font-semibold text-ink leading-tight"> Text-to-Video </h2> <p class="mt-3 text-lg lg:text-xl text-ink-soft">Generate video from text — it learns appearance and temporal change from data, but you can&#39;t act inside it.</p> </header> <div class="mt-6 lg:mt-8"> <div class="text-base uppercase tracking-[0.16em] text-ink font-semibold mb-3"> Text → Video </div> <div class="rounded-lg overflow-hidden bg-paper-soft border border-line">  <video src="/slides/modern-cv-2026/sora_demo.mp4" autoplay muted loop playsinline class="w-full h-auto block bg-ink"></video>  </div> <p class="mt-3 text-sm text-ink-soft leading-snug"> <a href="https://openai.com/sora" target="_blank" rel="noopener" class="hover:text-navy underline-offset-2 hover:underline"> Sora </a> <span class="text-ink-soft"> · OpenAI</span> <span class="ml-2 inline-block px-2 py-0.5 rounded text-xs uppercase tracking-wider bg-navy-soft text-navy font-semibold"> 2024 </span> </p> </div> </div> </section>    <section class="showcase-section bg-paper-soft"> <div class="max-w-4xl mx-auto w-full text-center"> <p class="text-base lg:text-lg uppercase tracking-[0.22em] text-cyan-deep font-semibold">
+05 · World Models
+</p> <h2 class="mt-8 font-display text-5xl lg:text-7xl tracking-tight font-semibold text-ink leading-[1.05]">
+Action &amp; Prediction — World Models
+</h2> <p class="mt-10 text-xl lg:text-2xl text-ink-soft leading-relaxed">
+Generation you can act in — give an action, predict the next state.
+</p> </div> </section>  <section class="showcase-section"> <div class="max-w-6xl mx-auto w-full"> <header class="max-w-6xl mx-auto w-full"> <div class="font-display text-base lg:text-lg tracking-[0.22em] text-cyan-deep font-semibold uppercase"> How it works · World Model </div> <h2 class="mt-3 font-display text-4xl lg:text-5xl tracking-tight font-semibold text-ink leading-tight"> Predict the next state </h2> <p class="mt-3 text-lg lg:text-xl text-ink-soft">Take the current frame and an action, predict what happens next — then feed the prediction back in.</p> </header> <div class="mt-14 flex flex-wrap items-center justify-center gap-3 lg:gap-5 text-center"> <div class="px-6 py-5 rounded-xl bg-paper border border-line"> <div class="text-lg lg:text-xl font-display font-semibold text-ink">Current frame</div> </div> <div class="text-3xl text-navy">+</div> <div class="px-6 py-5 rounded-xl bg-paper border border-line"> <div class="text-lg lg:text-xl font-display font-semibold text-ink">Action</div> </div> <div class="text-3xl text-navy">→</div> <div class="px-6 py-5 rounded-xl bg-navy text-paper"> <div class="text-lg lg:text-xl font-display font-semibold">Predict next frame</div> </div> </div> <p class="mt-6 text-center text-sm text-ink-mute">
+↻ the predicted frame becomes the next input (autoregressive)
+</p> <p class="mt-8 text-center text-lg lg:text-xl text-ink-soft">
+Used to let a robot foresee outcomes before acting, or to generate interactive virtual environments.
+</p> </div> </section>  <section class="showcase-section bg-paper-soft"> <div class="max-w-6xl mx-auto w-full"> <header> <div class="font-display text-base lg:text-lg tracking-[0.22em] text-cyan-deep font-semibold uppercase"> World Model · controllable environment </div> <h2 class="mt-3 font-display text-4xl lg:text-5xl tracking-tight font-semibold text-ink leading-tight"> Controllable generated worlds — Genie </h2> <p class="mt-3 text-lg lg:text-xl text-ink-soft">Learns actions from unlabeled video, then generates a world you can navigate in real time.</p> </header> <div class="mt-6 lg:mt-8"> <div class="text-base uppercase tracking-[0.16em] text-ink font-semibold mb-3"> Genie 3 · real-time generated world </div> <div class="rounded-lg overflow-hidden bg-paper-soft border border-line">  <video src="/slides/modern-cv-2026/genie_demo.mp4" autoplay muted loop playsinline class="w-full h-auto block bg-ink"></video>  </div> <p class="mt-3 text-sm text-ink-soft leading-snug"> <a href="https://deepmind.google/discover/blog/genie-3-a-new-frontier-for-world-models/" target="_blank" rel="noopener" class="hover:text-navy underline-offset-2 hover:underline"> Genie 3 — A new frontier for world models </a> <span class="text-ink-soft"> · Google DeepMind</span> <span class="ml-2 inline-block px-2 py-0.5 rounded text-xs uppercase tracking-wider bg-navy-soft text-navy font-semibold"> 2025 </span> </p> </div> </div> </section>  <section class="showcase-section bg-paper-soft"> <div class="max-w-6xl mx-auto w-full"> <header> <div class="font-display text-base lg:text-lg tracking-[0.22em] text-cyan-deep font-semibold uppercase"> World Model · robotics </div> <h2 class="mt-3 font-display text-4xl lg:text-5xl tracking-tight font-semibold text-ink leading-tight"> Robot world model — DreamDojo </h2> <p class="mt-3 text-lg lg:text-xl text-ink-soft">Input joint actions, predict the resulting video — simulate and evaluate a policy before running the real robot.</p> </header> <div class="mt-6 lg:mt-8"> <div class="text-base uppercase tracking-[0.16em] text-ink font-semibold mb-3"> Robot World Model </div> <div class="rounded-lg overflow-hidden bg-paper-soft border border-line">  <video src="/slides/modern-cv-2026/dreamdojo.mp4" autoplay muted loop playsinline class="w-full h-auto block bg-ink"></video>  </div> <p class="mt-3 text-sm text-ink-soft leading-snug"> <a href="https://dreamdojo-world.github.io/" target="_blank" rel="noopener" class="hover:text-navy underline-offset-2 hover:underline"> DreamDojo: A Generalist Robot World Model from Large-Scale Human Videos </a> <span class="text-ink-soft"> · NVIDIA GEAR</span> <span class="ml-2 inline-block px-2 py-0.5 rounded text-xs uppercase tracking-wider bg-navy-soft text-navy font-semibold"> 2026 </span> </p> </div> </div> </section>    <section class="showcase-section"> <div class="max-w-6xl mx-auto w-full"> <p class="text-base lg:text-lg uppercase tracking-[0.22em] text-cyan-deep font-semibold">
+Everything you just saw
+</p> <h2 class="mt-6 font-display text-4xl lg:text-6xl tracking-tight font-semibold text-ink leading-[1.1]">
+is what our lab works on
+</h2> <p class="mt-6 text-lg lg:text-xl text-ink-soft max-w-3xl leading-relaxed"> <strong class="text-navy">ViViD Lab</strong> — Vision &amp; Video Dynamics.
+        We study how video changes over time — motion and dynamics.
+</p> <div class="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-4"> <div class="rounded-lg border border-line bg-paper-soft p-5"> <div class="font-display text-lg font-semibold text-ink leading-tight">Video Processing</div> <div class="mt-3 text-xs uppercase tracking-[0.18em] text-cyan-deep font-semibold">pixels</div> </div><div class="rounded-lg border border-line bg-paper-soft p-5"> <div class="font-display text-lg font-semibold text-ink leading-tight">Video Understanding</div> <div class="mt-3 text-xs uppercase tracking-[0.18em] text-cyan-deep font-semibold">meaning</div> </div><div class="rounded-lg border border-line bg-paper-soft p-5"> <div class="font-display text-lg font-semibold text-ink leading-tight">3D / 4D Vision</div> <div class="mt-3 text-xs uppercase tracking-[0.18em] text-cyan-deep font-semibold">space</div> </div><div class="rounded-lg border border-line bg-paper-soft p-5"> <div class="font-display text-lg font-semibold text-ink leading-tight">World Models</div> <div class="mt-3 text-xs uppercase tracking-[0.18em] text-cyan-deep font-semibold">future</div> </div> </div> <div class="mt-10 flex flex-wrap items-center gap-3 lg:gap-5 text-lg lg:text-xl text-ink-soft font-display"> <span>pixels</span> <span class="text-cyan">→</span> <span>meaning</span> <span class="text-cyan">→</span> <span>space</span> <span class="text-cyan">→</span> <span class="text-ink font-semibold">future</span> </div> <p class="mt-10 text-sm text-ink-mute">
+Hyeongmin Lee · PhD, Yonsei · Adobe Research · Twelve Labs
+</p> </div> </section>    <section class="showcase-section bg-paper-soft"> <div class="max-w-6xl mx-auto w-full"> <p class="text-base lg:text-lg uppercase tracking-[0.22em] text-cyan-deep font-semibold">
+Careers
+</p> <h2 class="mt-4 font-display text-3xl lg:text-4xl tracking-tight font-semibold text-ink leading-tight max-w-3xl">
+Where graduates go
+</h2> <div class="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-8"> <div> <div class="text-xs uppercase tracking-[0.18em] text-ink-mute font-semibold mb-4">Global tech</div> <div class="grid grid-cols-3 gap-4 items-center"> <div class="aspect-square flex items-center justify-center bg-paper rounded-lg border border-line p-3"> <img src="/slides/modern-cv-2026/logos/global/google.png" alt="google.png" class="max-w-full max-h-full object-contain" style="filter: grayscale(100%) opacity(0.85);"> </div><div class="aspect-square flex items-center justify-center bg-paper rounded-lg border border-line p-3"> <img src="/slides/modern-cv-2026/logos/global/meta.png" alt="meta.png" class="max-w-full max-h-full object-contain" style="filter: grayscale(100%) opacity(0.85);"> </div><div class="aspect-square flex items-center justify-center bg-paper rounded-lg border border-line p-3"> <img src="/slides/modern-cv-2026/logos/global/ms.png" alt="ms.png" class="max-w-full max-h-full object-contain" style="filter: grayscale(100%) opacity(0.85);"> </div><div class="aspect-square flex items-center justify-center bg-paper rounded-lg border border-line p-3"> <img src="/slides/modern-cv-2026/logos/global/adobe.png" alt="adobe.png" class="max-w-full max-h-full object-contain" style="filter: grayscale(100%) opacity(0.85);"> </div><div class="aspect-square flex items-center justify-center bg-paper rounded-lg border border-line p-3"> <img src="/slides/modern-cv-2026/logos/global/disney.svg" alt="disney.svg" class="max-w-full max-h-full object-contain" style="filter: grayscale(100%) opacity(0.85);"> </div> </div> </div> <div> <div class="text-xs uppercase tracking-[0.18em] text-ink-mute font-semibold mb-4">Korean industry</div> <div class="grid grid-cols-3 gap-4 items-center"> <div class="aspect-square flex items-center justify-center bg-paper rounded-lg border border-line p-3"> <img src="/slides/modern-cv-2026/logos/korea/samsung.svg" alt="samsung.svg" class="max-w-full max-h-full object-contain" style="filter: grayscale(100%) opacity(0.85);"> </div><div class="aspect-square flex items-center justify-center bg-paper rounded-lg border border-line p-3"> <img src="/slides/modern-cv-2026/logos/korea/lg.webp" alt="lg.webp" class="max-w-full max-h-full object-contain" style="filter: grayscale(100%) opacity(0.85);"> </div><div class="aspect-square flex items-center justify-center bg-paper rounded-lg border border-line p-3"> <img src="/slides/modern-cv-2026/logos/korea/hyungdai.svg" alt="hyungdai.svg" class="max-w-full max-h-full object-contain" style="filter: grayscale(100%) opacity(0.85);"> </div><div class="aspect-square flex items-center justify-center bg-paper rounded-lg border border-line p-3"> <img src="/slides/modern-cv-2026/logos/korea/naver.svg" alt="naver.svg" class="max-w-full max-h-full object-contain" style="filter: grayscale(100%) opacity(0.85);"> </div><div class="aspect-square flex items-center justify-center bg-paper rounded-lg border border-line p-3"> <img src="/slides/modern-cv-2026/logos/korea/kakao.jpeg" alt="kakao.jpeg" class="max-w-full max-h-full object-contain" style="filter: grayscale(100%) opacity(0.85);"> </div><div class="aspect-square flex items-center justify-center bg-paper rounded-lg border border-line p-3"> <img src="/slides/modern-cv-2026/logos/korea/skt.svg" alt="skt.svg" class="max-w-full max-h-full object-contain" style="filter: grayscale(100%) opacity(0.85);"> </div><div class="aspect-square flex items-center justify-center bg-paper rounded-lg border border-line p-3"> <img src="/slides/modern-cv-2026/logos/korea/kt.png" alt="kt.png" class="max-w-full max-h-full object-contain" style="filter: grayscale(100%) opacity(0.85);"> </div><div class="aspect-square flex items-center justify-center bg-paper rounded-lg border border-line p-3"> <img src="/slides/modern-cv-2026/logos/korea/uplus.png" alt="uplus.png" class="max-w-full max-h-full object-contain" style="filter: grayscale(100%) opacity(0.85);"> </div> </div> </div> <div> <div class="text-xs uppercase tracking-[0.18em] text-ink-mute font-semibold mb-4">National research</div> <div class="grid grid-cols-3 gap-4 items-center"> <div class="aspect-square flex items-center justify-center bg-paper rounded-lg border border-line p-3"> <img src="/slides/modern-cv-2026/logos/research/etri.jpg" alt="etri.jpg" class="max-w-full max-h-full object-contain" style="filter: grayscale(100%) opacity(0.85);"> </div><div class="aspect-square flex items-center justify-center bg-paper rounded-lg border border-line p-3"> <img src="/slides/modern-cv-2026/logos/research/kist.svg" alt="kist.svg" class="max-w-full max-h-full object-contain" style="filter: grayscale(100%) opacity(0.85);"> </div><div class="aspect-square flex items-center justify-center bg-paper rounded-lg border border-line p-3"> <img src="/slides/modern-cv-2026/logos/research/add.svg" alt="add.svg" class="max-w-full max-h-full object-contain" style="filter: grayscale(100%) opacity(0.85);"> </div> </div> <p class="mt-6 text-sm text-ink-soft italic leading-relaxed">
+… and grad school, startups,<br>or anywhere visual AI is used.
+</p> </div> </div> </div> </section>    <section class="showcase-section"> <div class="max-w-6xl mx-auto w-full"> <p class="text-base lg:text-lg uppercase tracking-[0.22em] text-cyan-deep font-semibold">
+Why this field
+</p> <h2 class="mt-4 font-display text-3xl lg:text-4xl tracking-tight font-semibold text-ink leading-tight max-w-3xl">
+What makes it a good field
+</h2> <div class="mt-14 grid grid-cols-1 lg:grid-cols-3 gap-8"> <div class="rounded-lg border border-line bg-paper-soft p-7"> <div class="font-display text-sm tracking-[0.22em] text-cyan-deep font-semibold uppercase">01</div> <div class="mt-3 font-display text-2xl font-semibold text-ink leading-tight">Low equipment barrier</div> <p class="mt-4 text-base text-ink-soft leading-relaxed">Research with code, data, and compute — no special lab equipment.</p> </div><div class="rounded-lg border border-line bg-paper-soft p-7"> <div class="font-display text-sm tracking-[0.22em] text-cyan-deep font-semibold uppercase">02</div> <div class="mt-3 font-display text-2xl font-semibold text-ink leading-tight">Fast-moving</div> <p class="mt-4 text-base text-ink-soft leading-relaxed">New methods appear every week. There is always something to work on.</p> </div><div class="rounded-lg border border-line bg-paper-soft p-7"> <div class="font-display text-sm tracking-[0.22em] text-cyan-deep font-semibold uppercase">03</div> <div class="mt-3 font-display text-2xl font-semibold text-ink leading-tight">Short path to impact</div> <p class="mt-4 text-base text-ink-soft leading-relaxed">A method in a paper can become a product within months.</p> </div> </div> </div> </section>    <section class="showcase-section bg-paper-soft"> <div class="max-w-6xl mx-auto w-full"> <header class="max-w-6xl mx-auto w-full"> <div class="font-display text-base lg:text-lg tracking-[0.22em] text-cyan-deep font-semibold uppercase"> A closing thought </div> <h2 class="mt-3 font-display text-4xl lg:text-5xl tracking-tight font-semibold text-ink leading-tight"> Language vs Vision </h2> <p class="mt-3 text-lg lg:text-xl text-ink-soft">Two kinds of AI, grounded in two different things.</p> </header> <div class="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-8"> <div class="rounded-xl bg-paper border border-line p-7"> <div class="text-sm uppercase tracking-[0.16em] text-ink-mute font-semibold">NLP · Language</div> <p class="mt-3 text-lg lg:text-xl text-ink leading-relaxed">
+Built on language, which <strong>humans invented</strong>. So it is tied to how
+            we think and reason — cognition, neuroscience.
+</p> </div> <div class="rounded-xl bg-navy-soft border border-navy/20 p-7"> <div class="text-sm uppercase tracking-[0.16em] text-cyan-deep font-semibold">CV · Vision</div> <p class="mt-3 text-lg lg:text-xl text-ink leading-relaxed">
+Built on images and video of the real world. So it is tied to understanding
+<strong class="text-navy"> the world itself</strong> — its structure and dynamics.
+</p> </div> </div> <p class="mt-8 text-center text-lg lg:text-xl text-ink-soft">
+Understanding people matters in both — but vision reaches further into the world.
+</p> </div> </section>    <section class="showcase-section"> <div class="max-w-4xl mx-auto w-full text-center"> <p class="text-base lg:text-lg uppercase tracking-[0.22em] text-cyan-deep font-semibold">
+And so —
+</p> <h2 class="mt-8 font-display text-4xl lg:text-6xl tracking-tight font-semibold text-ink leading-[1.1]">
+Vision is everyone's<br><span class="text-navy">first language.</span> </h2> <p class="mt-10 text-xl lg:text-2xl text-ink-soft leading-relaxed">
+Before we speak, we see. It is how we — and our machines —<br class="hidden lg:block">
+first meet the world.
+</p> </div> </section>    <section class="showcase-section bg-gradient-to-br from-navy to-navy-deep text-paper"> <div class="max-w-[1100px] mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-10 items-center"> <div class="lg:col-span-7"> <p class="text-base lg:text-lg uppercase tracking-[0.22em] text-cyan-soft font-semibold">
+ViViD Lab
+</p> <h2 class="mt-8 font-display text-5xl lg:text-6xl tracking-tight font-semibold leading-tight">
+Get in touch
+</h2> <p class="mt-6 text-lg lg:text-xl text-paper/85 leading-relaxed">
+Questions about research, undergraduate research, or career paths — always welcome.
+</p> <div class="mt-10 space-y-3 text-paper"> <p class="text-lg lg:text-xl"> <a href="mailto:hyeongmin.lee@seoultech.ac.kr" class="hover:text-cyan-soft underline underline-offset-4 decoration-paper/40">
+hyeongmin.lee@seoultech.ac.kr
+</a> </p> <p class="text-lg lg:text-xl"> <a href="https://vivid.seoultech.ac.kr" target="_blank" rel="noopener" class="hover:text-cyan-soft underline underline-offset-4 decoration-paper/40">
+vivid.seoultech.ac.kr
+</a> </p> </div> </div> <div class="lg:col-span-5 flex flex-col items-center"> <div class="bg-paper rounded-xl p-4"> <img src="/slides/modern-cv-2026/qr.png" alt="QR code to ViViD Lab" class="w-56 h-56 lg:w-64 lg:h-64 object-contain"> </div> <p class="mt-4 text-sm uppercase tracking-[0.18em] text-paper/70 font-semibold">Scan</p> </div> </div> </section>  </div> <!-- Back link (top-left) --> <a href="/slides/" class="fixed top-5 left-6 text-[11px] tracking-[0.18em] uppercase text-ink-mute hover:text-navy font-semibold select-none z-50 transition-colors">
+← All decks </a> <!-- Section indicator (top-right) --> <div id="indicator" class="fixed top-5 right-6 text-[11px] tracking-[0.18em] uppercase text-ink-mute font-semibold pointer-events-none select-none z-50"> <span id="cur">01</span><span class="text-ink-mute/50"> / </span><span id="tot">00</span> </div> <!-- Hint (bottom) --> <div class="fixed bottom-5 left-1/2 -translate-x-1/2 text-[10px] tracking-[0.22em] uppercase text-ink-mute/70 pointer-events-none select-none z-50">
+Scroll · ↓ · Space
+</div>  <script>
+      const root = document.getElementById("showcase");
+      const sections = Array.from(root.querySelectorAll(".showcase-section"));
+      const cur = document.getElementById("cur");
+      const tot = document.getElementById("tot");
+      tot.textContent = String(sections.length).padStart(2, "0");
+
+      let activeIdx = 0;
+
+      // --- Fragment bookkeeping -------------------------------------
+      // For each section, group [data-frag] elements by their integer step.
+      function stepGroups(section) {
+        const els = Array.from(section.querySelectorAll("[data-frag]"));
+        if (!els.length) return [];
+        const map = new Map();
+        for (const e of els) {
+          const k = Number(e.dataset.frag || 0);
+          if (!map.has(k)) map.set(k, []);
+          map.get(k).push(e);
+        }
+        return Array.from(map.keys())
+          .sort((a, b) => a - b)
+          .map((k) => map.get(k));
+      }
+      // How many steps revealed so far, per section index.
+      const revealed = sections.map(() => 0);
+
+      function applyReveal(i) {
+        const groups = stepGroups(sections[i]);
+        groups.forEach((g, idx) => {
+          const on = idx < revealed[i];
+          g.forEach((e) => e.classList.toggle("on", on));
+        });
+        // Expose the current step on the section so CSS can target
+        // arbitrary descendants (e.g. a KaTeX sub-term) per step via
+        // .showcase-section[data-step="k"] .my-term { … }
+        sections[i].dataset.step = String(revealed[i]);
+      }
+      // Initialize: every section starts with 0 steps revealed.
+      sections.forEach((_, i) => applyReveal(i));
+
+      // --- Navigation ----------------------------------------------
+      function scrollToSection(i) {
+        const target = sections[Math.max(0, Math.min(sections.length - 1, i))];
+        if (target) target.scrollIntoView({ behavior: "smooth" });
+      }
+
+      function enterSection(i, dir) {
+        activeIdx = i;
+        const groups = stepGroups(sections[i]);
+        // entering forward → no steps revealed yet;
+        // entering backward → all steps already shown.
+        revealed[i] = dir === "backward" ? groups.length : 0;
+        applyReveal(i);
+        scrollToSection(i);
+        cur.textContent = String(i + 1).padStart(2, "0");
+      }
+
+      function next() {
+        const groups = stepGroups(sections[activeIdx]);
+        if (revealed[activeIdx] < groups.length) {
+          revealed[activeIdx]++;
+          applyReveal(activeIdx);
+        } else if (activeIdx < sections.length - 1) {
+          enterSection(activeIdx + 1, "forward");
+        }
+      }
+
+      function prev() {
+        if (revealed[activeIdx] > 0) {
+          revealed[activeIdx]--;
+          applyReveal(activeIdx);
+        } else if (activeIdx > 0) {
+          enterSection(activeIdx - 1, "backward");
+        }
+      }
+
+      // Keyboard drives the build; scroll/touch is secondary.
+      window.addEventListener("keydown", (e) => {
+        if (["ArrowDown", "PageDown", " ", "j", "ArrowRight"].includes(e.key)) {
+          e.preventDefault();
+          next();
+        } else if (["ArrowUp", "PageUp", "k", "ArrowLeft"].includes(e.key)) {
+          e.preventDefault();
+          prev();
+        } else if (e.key === "Home") {
+          e.preventDefault();
+          enterSection(0, "forward");
+        } else if (e.key === "End") {
+          e.preventDefault();
+          enterSection(sections.length - 1, "backward");
+        }
+      });
+
+      // Keep the indicator + activeIdx in sync if the user scrolls
+      // manually (touchpad). Does not change reveal state.
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting && e.intersectionRatio > 0.5) {
+              const idx = sections.indexOf(e.target);
+              if (idx >= 0) {
+                activeIdx = idx;
+                cur.textContent = String(idx + 1).padStart(2, "0");
+              }
+            }
+          });
+        },
+        { root, threshold: [0.5] }
+      );
+      sections.forEach((s) => io.observe(s));
+    </script> </body> </html>
