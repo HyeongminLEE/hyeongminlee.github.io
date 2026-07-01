@@ -55,11 +55,11 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/apple-touch-icon.png">
 
-  <link rel="canonical" href="https://hyeongminlee.github.io/publication/int_conf_009/">
+  <link rel="canonical" href="https://hyeongminlee.github.io/publication/int_conf_011/">
 
   
 
-  <title>Exploring Discontinuity for Video Frame Interpolation | Hyeongmin Lee&#39;s Website</title>
+  <title>Not All Prediction Targets Keep Training-Free Diffusion Guidance on the Manifold | Hyeongmin Lee&#39;s Website</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -149,10 +149,10 @@
 
 
   <div class="container pub-title">
-    <h1 itemprop="name">Exploring Discontinuity for Video Frame Interpolation</h1>
+    <h1 itemprop="name">Not All Prediction Targets Keep Training-Free Diffusion Guidance on the Manifold</h1>
     <span class="pub-authors" itemprop="author">
       
-      Sangjin Lee&#42;, <strong>Hyeongmin Lee</strong>&#42;, Chajin Shin, Sangyoun Lee
+      Yunsung Lee&#42;, <strong>Hyeongmin Lee</strong>&#42;
       
     </span>
     <span class="pull-right">
@@ -173,7 +173,7 @@
   
 
   <h3>Abstract</h3>
-  <p class="pub-abstract" itemprop="text">Video frame interpolation (VFI) is the task that synthesizes the intermediate frame given two consecutive frames. Most of the previous studies have focused on appropriate frame warping operations and refinement modules for the warped frames. These studies have been conducted on natural videos containing only continuous motions. However, many practical videos contain various unnatural objects with discontinuous motions such as logos, user interfaces and subtitles. We propose three techniques to make the existing deep learning-based VFI architectures robust to these elements. First is a novel data augmentation strategy called f igure-text mixing (FTM) which can make the models learn discontinuous motions during training stage without any extra dataset. Second, we propose a simple but effective module that predicts a map called discontinuity map (Dmap), which densely distinguishes between areas of continuous and discontinuous motions. Lastly, we propose loss functions to give supervisions of the discontinuous motion areas which can be applied along with FTM and D-map. We additionally collect a special test benchmark called Graphical Discontinuous Motion (GDM) dataset consisting of some mobile games and chatting videos. Applied to the various state-of-the-art VFI networks, our method significantly improves the interpolation qualities on the videos from not only GDM dataset, but also the existing benchmarks containing only continuous motions such as Vimeo90K, UCF101, and DAVIS.</p>
+  <p class="pub-abstract" itemprop="text">Training-free guidance (TFG) steers a pretrained diffusion model toward a desired attribute at inference. To be effective, this guidance must be applied from the earliest, high-noise steps of sampling. Because its objective (a classifier or energy) is defined on clean images, ε- and v-prediction models must first estimate the clean image x̂ from the noisy state at each step, and the accuracy of that estimate determines how easily guidance drifts off the data manifold. x-prediction, a recent alternative, outputs the clean image directly, removing this source of error even at high noise. This is our motivation. We provide a theoretical analysis of how each prediction target shapes this accuracy, and introduce guided-class FID (Child FID), a metric that exposes the manifold damage standard evaluation misses. Experiments on a new fine-grained bird benchmark and on style transfer confirm that x-prediction keeps guided samples on the manifold most reliably, making it the strongest foundation for training-free guidance.</p>
 
   
   <div class="row">
@@ -200,7 +200,7 @@
     <div class="col-sm-10">
       <div class="row">
         <div class="col-xs-12 col-sm-3 pub-row-heading">Publication</div>
-        <div class="col-xs-12 col-sm-9"><em>IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)</em>, Highlight (Top 10% of accepted papers)</div>
+        <div class="col-xs-12 col-sm-9"><em>European Conference on Computer Vision (ECCV)</em></div>
       </div>
     </div>
     <div class="col-sm-1"></div>
@@ -213,7 +213,7 @@
       <div class="row">
         <div class="col-xs-12 col-sm-3 pub-row-heading">Date</div>
         <div class="col-xs-12 col-sm-9" itemprop="datePublished">
-          June, 2023
+          September, 2026
         </div>
       </div>
     </div>
@@ -233,14 +233,18 @@
 
 
 
-<a class="btn btn-primary btn-outline" href="https://arxiv.org/abs/2202.07291" target="_blank">
-  PDF
+
+
+
+<a class="btn btn-primary btn-outline" href="https://github.com/ManLuML/on-manifold-tfg" target="_blank">
+  Code
 </a>
 
 
 
-
-
+<a class="btn btn-primary btn-outline" href="https://manluml.github.io/on-manifold-tfg">
+  Project
+</a>
 
 
 
@@ -262,12 +266,12 @@
   <nav>
   <ul class="pager">
     
-    <li class="previous"><a href="https://hyeongminlee.github.io/publication/int_conf_008/"><span
-      aria-hidden="true">&larr;</span> Expanded Adaptive Scaling Normalization for End to End Image Compression</a></li>
+    <li class="previous"><a href="https://hyeongminlee.github.io/publication/int_conf_010/"><span
+      aria-hidden="true">&larr;</span> Temporal Smoothness-Aware Rate-Distortion Optimized 4D Gaussian Splatting</a></li>
     
 
     
-    <li class="next"><a href="https://hyeongminlee.github.io/publication/int_journal_003/">A Nonlinear, Regularized, and Data-independent Modulation for Continuously Interactive Image Processing Network <span
+    <li class="next"><a href="https://hyeongminlee.github.io/publication/int_journal_004/">Probing Intrinsic Bias: Internal Attention Feature Analysis for Social Bias Evaluation in Diffusion Models <span
       aria-hidden="true">&rarr;</span></a></li>
     
   </ul>
