@@ -1,5 +1,5 @@
 <!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><link rel="preconnect" href="https://rsms.me/"><link rel="stylesheet" href="https://rsms.me/inter/inter.css"><title>On-Manifold TFG · UoM-SeoulTech Workshop 2026</title><link rel="stylesheet" href="/_astro/global.C0SIj4ch.css">
-<link rel="stylesheet" href="/_astro/SectionHeader.RrL5gxLX.css"></head> <body class="overflow-hidden"> <div id="showcase" class="showcase-root">     <section class="showcase-section"> <div class="max-w-5xl mx-auto w-full"> <p class="text-base lg:text-lg uppercase tracking-[0.22em] text-cyan-deep font-semibold">
+<link rel="stylesheet" href="/_astro/SectionHeader.v4LEUqVl.css"></head> <body class="overflow-hidden"> <div id="showcase" class="showcase-root">     <section class="showcase-section"> <div class="max-w-5xl mx-auto w-full"> <p class="text-base lg:text-lg uppercase tracking-[0.22em] text-cyan-deep font-semibold">
 ECCV 2026 · The 2nd UoM-SeoulTech International Joint Workshop
 </p> <h1 class="mt-8 font-display text-[2.5rem] lg:text-[3.4rem] leading-[1.12] tracking-tight font-semibold text-ink">
 Not All Prediction Targets Keep<br> <span class="text-navy">Training-Free Diffusion Guidance</span><br>
@@ -363,6 +363,12 @@ Scroll · ↓ · Space
         document
           .querySelectorAll("a.fixed, #indicator, div.fixed")
           .forEach((e) => (e.style.display = "none"));
+        // On the dev server, the Astro dev toolbar would photobomb the
+        // capture (it appears late, so hide it with CSS, not remove()).
+        document.head.insertAdjacentHTML(
+          "beforeend",
+          "<style>astro-dev-toolbar{display:none!important}</style>"
+        );
         revealed[i] = stepGroups(sections[i]).length;
         applyReveal(i);
         sections[i].scrollIntoView({ behavior: "instant" });
