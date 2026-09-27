@@ -1,6 +1,6 @@
-<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><link rel="preconnect" href="https://rsms.me/"><link rel="stylesheet" href="https://rsms.me/inter/inter.css"><title>Python Programming · Week 3 · Variables, Strings, and Input/Output</title><link rel="stylesheet" href="/_astro/global.ZANxgArW.css">
-<link rel="stylesheet" href="/_astro/Slide.v4LEUqVl.css">
-<style>div.fixed.bottom-5,a.fixed{display:none}.code-card pre.astro-code{padding:1.1rem 1.5rem;border-radius:.75rem;border:1px solid var(--color-line);font-size:1.02rem;line-height:1.75;overflow-x:auto}.code-card.code-lg pre.astro-code{font-size:1.28rem;padding:1.5rem 2rem}.repl{border:1px solid var(--color-line);border-radius:.75rem;background:var(--color-paper);padding:1.25rem 1.75rem;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:1.5rem;line-height:1.6}@media(min-width:1024px){.repl{font-size:1.6rem}}.repl.compact{padding:1rem 1.5rem}@media(min-width:1024px){.repl.compact{font-size:1.4rem}}.repl .in{color:var(--color-ink)}.repl .ps{color:var(--color-cyan-deep);margin-right:.5rem}.repl .out{color:var(--color-navy);font-weight:600;margin-bottom:.35rem}.repl .out.muted{color:var(--color-ink-mute);font-weight:400}.repl .err{color:#dc2626;font-weight:600;font-size:1.05rem;line-height:2.2;margin-bottom:.35rem}@media(min-width:1024px){.repl .err{font-size:1.15rem}}
+<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><link rel="preconnect" href="https://rsms.me/"><link rel="stylesheet" href="https://rsms.me/inter/inter.css"><title>Python Programming · Week 3 · Variables, Strings, and Input/Output</title><link rel="stylesheet" href="/_astro/global.BN234hYs.css">
+<link rel="stylesheet" href="/_astro/Slide.Cytp5su3.css">
+<style>div.fixed.bottom-5,html.present a.fixed{display:none}.code-card pre.astro-code{padding:1.1rem 1.5rem;border-radius:.75rem;border:1px solid var(--color-line);font-size:1.02rem;line-height:1.75;overflow-x:auto}.code-card.code-lg pre.astro-code{font-size:1.28rem;padding:1.5rem 2rem}.repl{border:1px solid var(--color-line);border-radius:.75rem;background:var(--color-paper);padding:1.25rem 1.75rem;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:1.5rem;line-height:1.6}@media(min-width:1024px){.repl{font-size:1.6rem}}.repl.compact{padding:1rem 1.5rem}@media(min-width:1024px){.repl.compact{font-size:1.4rem}}.repl .in{color:var(--color-ink)}.repl .ps{color:var(--color-cyan-deep);margin-right:.5rem}.repl .out{color:var(--color-navy);font-weight:600;margin-bottom:.35rem}.repl .out.muted{color:var(--color-ink-mute);font-weight:400}.repl .err{color:#dc2626;font-weight:600;font-size:1.05rem;line-height:2.2;margin-bottom:.35rem}@media(min-width:1024px){.repl .err{font-size:1.15rem}}
 </style></head> <body class="overflow-hidden"> <div id="showcase" class="showcase-root">     <section class="showcase-section"> <div class="max-w-5xl mx-auto w-full"> <p class="text-base lg:text-lg uppercase tracking-[0.22em] text-cyan-deep font-semibold">
 Python Programming · Week 3
 </p> <h1 class="mt-8 font-display text-[2.75rem] lg:text-[3.75rem] leading-[1.1] tracking-tight font-semibold text-ink">
@@ -43,10 +43,19 @@ Next: <span class="text-cyan-soft">the practice video.</span> </h2> <p class="mt
 Have Python open. Type everything with me.
 </p> <p class="mt-14 text-base text-paper/70">
 See you in class.
-</p> </div> </section>  </div> <!-- Back link (top-left) --> <a href="/slides/" class="fixed top-5 left-6 text-[11px] tracking-[0.18em] uppercase text-ink-mute hover:text-navy font-semibold select-none z-50 transition-colors">
-← All decks </a> <!-- Section indicator (top-right) --> <div id="indicator" class="fixed top-5 right-6 text-[11px] tracking-[0.18em] uppercase text-ink-mute font-semibold pointer-events-none select-none z-50"> <span id="cur">01</span><span class="text-ink-mute/50"> / </span><span id="tot">00</span> </div> <!-- Hint (bottom) --> <div class="fixed bottom-5 left-1/2 -translate-x-1/2 text-[10px] tracking-[0.22em] uppercase text-ink-mute/70 pointer-events-none select-none z-50">
+</p> </div> </section>  </div> <!-- Back link (top-left) --> <a href="/slides/python-programming/" class="fixed top-5 left-6 text-[11px] tracking-[0.18em] uppercase text-ink-mute hover:text-navy font-semibold select-none z-50 transition-colors">
+← All weeks </a> <!-- Section indicator (top-right) --> <div id="indicator" class="fixed top-5 right-6 text-[11px] tracking-[0.18em] uppercase text-ink-mute font-semibold pointer-events-none select-none z-50"> <span id="cur">01</span><span class="text-ink-mute/50"> / </span><span id="tot">00</span> </div> <!-- Hint (bottom) --> <div class="fixed bottom-5 left-1/2 -translate-x-1/2 text-[10px] tracking-[0.22em] uppercase text-ink-mute/70 pointer-events-none select-none z-50">
 Scroll · ↓ · Space
 </div>  <script>
+      // Presenting: on the local dev server (recording) or with ?present in
+      // the URL (projecting the public page in class), the page gets
+      // html.present, so a deck can hide chrome such as the back link.
+      if (
+        new URLSearchParams(location.search).has("present") ||
+        ["localhost", "127.0.0.1"].includes(location.hostname)
+      ) {
+        document.documentElement.classList.add("present");
+      }
       const root = document.getElementById("showcase");
       const sections = Array.from(root.querySelectorAll(".showcase-section"));
       const cur = document.getElementById("cur");

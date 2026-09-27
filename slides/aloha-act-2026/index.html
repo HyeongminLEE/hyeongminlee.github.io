@@ -1,5 +1,5 @@
-<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><link rel="preconnect" href="https://rsms.me/"><link rel="stylesheet" href="https://rsms.me/inter/inter.css"><title>ALOHA / ACT · Paper Seminar</title><link rel="stylesheet" href="/_astro/global.ZANxgArW.css">
-<link rel="stylesheet" href="/_astro/Slide.v4LEUqVl.css"></head> <body class="overflow-hidden"> <div id="showcase" class="showcase-root">     <section class="showcase-section relative"> <div class="max-w-5xl mx-auto w-full"> <p class="text-base lg:text-lg uppercase tracking-[0.22em] text-cyan-deep font-semibold">
+<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><link rel="preconnect" href="https://rsms.me/"><link rel="stylesheet" href="https://rsms.me/inter/inter.css"><title>ALOHA / ACT · Paper Seminar</title><link rel="stylesheet" href="/_astro/global.BN234hYs.css">
+<link rel="stylesheet" href="/_astro/Slide.Cytp5su3.css"></head> <body class="overflow-hidden"> <div id="showcase" class="showcase-root">     <section class="showcase-section relative"> <div class="max-w-5xl mx-auto w-full"> <p class="text-base lg:text-lg uppercase tracking-[0.22em] text-cyan-deep font-semibold">
 Paper Seminar · RSS 2023
 </p> <h1 class="mt-6 font-display text-[2.4rem] lg:text-[3.2rem] leading-[1.1] tracking-tight font-semibold text-ink">
 Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware
@@ -130,6 +130,15 @@ demo가 15cm 랜덤 배치 선을 <strong class="text-navy">덮어야 하고</st
 ← All decks </a> <!-- Section indicator (top-right) --> <div id="indicator" class="fixed top-5 right-6 text-[11px] tracking-[0.18em] uppercase text-ink-mute font-semibold pointer-events-none select-none z-50"> <span id="cur">01</span><span class="text-ink-mute/50"> / </span><span id="tot">00</span> </div> <!-- Hint (bottom) --> <div class="fixed bottom-5 left-1/2 -translate-x-1/2 text-[10px] tracking-[0.22em] uppercase text-ink-mute/70 pointer-events-none select-none z-50">
 Scroll · ↓ · Space
 </div>  <script>
+      // Presenting: on the local dev server (recording) or with ?present in
+      // the URL (projecting the public page in class), the page gets
+      // html.present, so a deck can hide chrome such as the back link.
+      if (
+        new URLSearchParams(location.search).has("present") ||
+        ["localhost", "127.0.0.1"].includes(location.hostname)
+      ) {
+        document.documentElement.classList.add("present");
+      }
       const root = document.getElementById("showcase");
       const sections = Array.from(root.querySelectorAll(".showcase-section"));
       const cur = document.getElementById("cur");

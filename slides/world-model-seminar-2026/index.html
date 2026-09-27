@@ -1,5 +1,5 @@
-<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><link rel="preconnect" href="https://rsms.me/"><link rel="stylesheet" href="https://rsms.me/inter/inter.css"><title>World Models — Seminar</title><link rel="stylesheet" href="/_astro/global.ZANxgArW.css">
-<link rel="stylesheet" href="/_astro/Slide.v4LEUqVl.css">
+<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><link rel="preconnect" href="https://rsms.me/"><link rel="stylesheet" href="https://rsms.me/inter/inter.css"><title>World Models — Seminar</title><link rel="stylesheet" href="/_astro/global.BN234hYs.css">
+<link rel="stylesheet" href="/_astro/Slide.Cytp5su3.css">
 <style>.sora-at{transition:color .5s ease}.showcase-section[data-step="1"] .sora-at,.showcase-section[data-step="2"] .sora-at{color:#dc2626}.hshare{opacity:0;transition:opacity .5s ease,color .5s ease}.showcase-section[data-step="1"] .hshare{opacity:1;color:#dc2626}
 </style></head> <body class="overflow-hidden"> <div id="showcase" class="showcase-root">     <section class="showcase-section relative"> <div class="max-w-5xl mx-auto w-full"> <p class="text-base lg:text-lg uppercase tracking-[0.22em] text-cyan-deep font-semibold">
 AI Seminar · 2026
@@ -196,6 +196,15 @@ video gen은 사실 <strong class="text-navy">implicit world model</strong> — 
 ← All decks </a> <!-- Section indicator (top-right) --> <div id="indicator" class="fixed top-5 right-6 text-[11px] tracking-[0.18em] uppercase text-ink-mute font-semibold pointer-events-none select-none z-50"> <span id="cur">01</span><span class="text-ink-mute/50"> / </span><span id="tot">00</span> </div> <!-- Hint (bottom) --> <div class="fixed bottom-5 left-1/2 -translate-x-1/2 text-[10px] tracking-[0.22em] uppercase text-ink-mute/70 pointer-events-none select-none z-50">
 Scroll · ↓ · Space
 </div>  <script>
+      // Presenting: on the local dev server (recording) or with ?present in
+      // the URL (projecting the public page in class), the page gets
+      // html.present, so a deck can hide chrome such as the back link.
+      if (
+        new URLSearchParams(location.search).has("present") ||
+        ["localhost", "127.0.0.1"].includes(location.hostname)
+      ) {
+        document.documentElement.classList.add("present");
+      }
       const root = document.getElementById("showcase");
       const sections = Array.from(root.querySelectorAll(".showcase-section"));
       const cur = document.getElementById("cur");
